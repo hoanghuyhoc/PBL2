@@ -1,0 +1,9 @@
+//how to continue Area
+Player player1;
+player1.setplayer();
+int continue=1;
+while (continue)
+{
+    Area level1;
+    createArea();//if get past Area then continue=1, if lose in Area then continue=0 -> end game
+}
