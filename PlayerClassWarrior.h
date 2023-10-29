@@ -1,0 +1,11 @@
+#include "Player.h"
+#include <string>
+class Warrior: protected Player
+{
+    private:
+        std::string Description;
+        std::string Skill_Description;
+    public:
+        void Attack();
+        void Skill();
+};
