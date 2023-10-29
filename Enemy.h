@@ -1,5 +1,9 @@
 #include"Character.h"
+#include <string>
+typedef std::string string;
 class Enemy: protected Character
 {
-    char* Description;
-}
+    string Description;
+    string Loot;
+    string Skill;
+};

@@ -1,13 +1,22 @@
+#include <string>
+typedef std::string string;
 class Character
 {
     private:   
-        char* Name;
+        string Name;
         int Level;
         double HP, MaxHP, ATK, DEF;
     public:
-        Player(char*, int, double, double, double);
-        ~Player();
-        void setName();
-        void setLevel();
-        void setMaxHP();
+        Character(string, int, double, double, double);
+        ~Character();
+        void setLevel(int);
+        int getLevel();
+        void setMaxHP(double);
+        double getMaxHP();
+        void setHP(double);
+        double getHP();
+        void setATK(double);
+        double getATK();
+        void setDEF(double);
+        double getDEF();
 };
