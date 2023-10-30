@@ -14,4 +14,6 @@ class Player: protected Character
         virtual void Attack();
         virtual void Skill();
         void Using_Item();
+        virtual void Show_Description();
+        virtual void Show_Skill_Description();
 };
