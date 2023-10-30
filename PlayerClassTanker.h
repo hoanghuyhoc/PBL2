@@ -1,12 +1,12 @@
 #include "Player.h"
 #include <string>
-class Assassin: protected Player
+class Tanker: protected Player
 {
     private:
         std::string Description;
         std::string Skill_Description;
     public:
-        Assassin();
+        Tanker();
         void Attack();
         void Skill();
         void Show_Description();

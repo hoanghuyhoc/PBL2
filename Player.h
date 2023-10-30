@@ -9,4 +9,9 @@ class Player: protected Character
         Item Player_Item;
         double Money;
         int SP;
+    public:
+        void Show_Info();
+        virtual void Attack();
+        virtual void Skill();
+        void Using_Item();
 };
