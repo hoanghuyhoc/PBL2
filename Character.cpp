@@ -1,6 +1,6 @@
 #include "Character.h"
 Character::Character(string name, int level, double maxhp, double atk, double def)
-        :Name(name),Level(level), MaxHP(maxhp), HP(maxhp), ATK(atk), DEF(DEF) 
+        :Name(name),Level(level), MaxHP(maxhp), HP(maxhp), ATK(atk), DEF(def) 
 {}
 Character::~Character()
 {}
