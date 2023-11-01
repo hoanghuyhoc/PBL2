@@ -2,9 +2,6 @@
 #include <string>
 class Tanker: protected Player
 {
-    private:
-        std::string Description;
-        std::string Skill_Description;
     public:
         Tanker();
         void Attack();

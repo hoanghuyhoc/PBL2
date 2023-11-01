@@ -2,10 +2,8 @@
 #include <string>
 class Warrior: protected Player
 {
-    private:
-        std::string Description;
-        std::string Skill_Description;
     public:
+        Warrior();
         void Attack();
         void Skill();
         void Show_Description();

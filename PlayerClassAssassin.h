@@ -2,9 +2,6 @@
 #include <string>
 class Assassin: protected Player
 {
-    private:
-        std::string Description;
-        std::string Skill_Description;
     public:
         Assassin();
         void Attack();

@@ -5,11 +5,12 @@ class Player: protected Character
 {
     private:
         double XP;
-        Weapon Player_Weapon;
-        Item Player_Item;
-        double Money;
+        Weapon *Player_Weapon;
+        Item *Player_Item;
+        long Money;
         int SP;
     public:
+        Player(std::string, double, double, double);
         void Show_Info();
         virtual void Attack();
         virtual void Skill();
