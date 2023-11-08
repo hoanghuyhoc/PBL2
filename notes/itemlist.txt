@@ -1,0 +1,160 @@
+WEAPONS 
+
+ID: 1
+Wooden Sword
+ATK: +10
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 2
+Stone Sword
+ATK: +15
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 3
+Iron Sword
+ATK: +20
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 4
+Diamond Sword
+ATK: +25
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 5
+Reinforced Sword
+ATK: +35
+Skill [1 SP]: Next attack deals 130% of ATK as damage. 
+
+ID: 6
+Golem Sword
+ATK: +20
+DEF: +5
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 7
+Hunter's Knife
+ATK: +25
+HP: -20%
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 8
+Mercenary Axe
+ATK: +15
+DEF: +10
+Skill [1 SP]: Next attack deals 120% of ATK as damage. 
+
+ID: 9
+Zombie Sword
+ATK: +20
+HP: +30
+Skill [1 SP]: Next attack deals 80% of ATK as damage and heals for 10% of max HP. 
+
+ID: 10
+Master Tactician's Sword
+ATK: +28
+DEF: +3
+Skill [1 SP]: Next attack deals 150% of ATK as damage.
+
+ID: 11
+Raider Axe 
+ATK: +25
+Skill [1 SP]: Consumes 15% of current HP and deals 120% + 15%(HP lost) of ATK as damage.
+
+ID: 12
+Dreadlord Sword
+ATK: +40
+DEF: +2
+Skill [1 SP]: Next hit inflicts [Poison] effect on the target, dealing 15 damage on the target for 2 turns when their turn starts.
+
+ID: 13
+Blade of Vengeance
+ATK: +60
+DEF: +5
+HP: +15
+Skill [1 SP]: Attack deals 100% of ATK as damage, inflicts [Vulnerability] on the target for 1 turn, and has a 30% chance of 
+inflicting [Stun] on the enemy for 1 turn.
+     // [Vulnerability]: take +50% damage.
+     // [Stun]: can not take action.
+
+ID: 14
+Giant's Sword
+ATK: +50
+HP: +150
+Skill [1 SP]: Next attack deals 150% of ATK as damage, and has a 30% chance of dealing 300% of ATK as damage.
+
+ID: 15
+Silent Death
+ATK: +50
+DEF: +5
+HP: -10%
+Skill [1 SP]: Becomes immune to Negative Effects for the next turn, deals 160% of ATK as damage, has a 40% chance of
+inflicting [Stun] on the target for 1 turn and then gaining a further +50% ATK Boost for the next turn (cannot stack). 
+
+ARMOR
+
+ID: 101
+Leather Armor 
+HP: +10
+DEF: +2
+
+ID: 102
+Iron Armor 
+HP: +20
+DEF: +5
+
+ID: 103
+Golden Armor
+HP: +5
+DEF: +12
+
+ID: 104
+Diamond Armor
+HP: +40
+DEF: +8
+
+ID: 105
+Mercenary Armor
+HP: +70
+DEF: +15
+
+ID: 106
+Spiked Armor
+HP: +30
+DEF: +6
+ATK: +5
+
+ID: 107
+Assassin's Cloak 
+HP: +20
+DEF: +2
+ATK: +25
+
+ID: 108
+Golem Armor 
+HP: +50
+DEF: +10
+
+ID: 109
+Armor of Growth
+HP: +150
+DEF: +1
+
+ID: 110
+Dragon Armor 
+HP: +100
+DEF: +20
+ATK: +10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
