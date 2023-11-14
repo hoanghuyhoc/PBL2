@@ -1,0 +1,161 @@
+CLASSES
+class Player
+playerName           // tên người chơi
+playerLevel            // level của người chơi
+playerXP                // lượng kinh nghiệm của người chơi, khi lượng kinh nghiệm vượt 
+                             qua một mốc nhất định thì chỉ số playerLevel sẽ tăng lên 
+playerWeapon       // vũ khí người chơi đang có
+playerMoney         // số tiền người chơi đang có
+
+playerClass          // vai trò của người chơi
+playerHP               // chỉ số lượng máu hiện tại của người chơi
+playerMaxHP        // chỉ số lượng máu tối đa của người chơi (playerHP không được 
+                              vượt quá playerMaxHP)
+playerATK             // chỉ số tấn công của người chơi
+playerDEF            // chỉ số phòng thủ của người chơi
+playerSP              // chỉ số điểm kỹ năng của người chơi
+createPlayer()      // khởi tạo người chơi khi bắt đầu chương trình
+viewPlayerStats()   // xem toàn bộ chỉ số của người chơi
+class Warrior (kế thừa từ playerCombat)
+warriorUltimate 
+ultDamage(2);
+for(int ultTurns = 2; ultTurns >= 0; ultTurns- -){
+	playerATK *= 1.5;
+}
+playerATK *= ⅔;
+
+Gây 200% chỉ số ATK lên kẻ địch và 2 lượt tiếp theo gây 150% chỉ số ATK.
+class Tank (kế thừa từ playerCombat)
+tankUltimate
+playerHP *= 6/5;
+checkMaxHP(); 
+for(int ultTurns = 2; ultTurns >= 0; ultTurns- -){
+	playerDEF *= 3;
+}
+playerDEF *= ⅓;
+
+Hồi phục 20% chỉ số HP và tăng 200% chỉ số DEF của người chơi trong 2 lượt
+class Assassin (kế thừa từ playerCombat)
+assassinUltimate
+	playerHP *= 9/10;
+	ultDamage(4);
+Giảm 10% chỉ số HP của bản thân để gây 400% chỉ số ATK lên kẻ địch.
+class Enemy
+enemyName        // tên của kẻ địch
+enemyDesc         // mô tả của kẻ địch
+enemySkill          // các kỹ năng đặc biệt của kẻ địch
+enemyHP            // chỉ số lượng máu hiện tại của địch
+enemyMaxHP     // chỉ số lượng máu tối đa của địch
+enemyATK          // chỉ số tấn công của địch
+enemyDEF         // chỉ số phòng thủ của địch
+enemyLevel       // cấp độ của địch
+enemyLoot        // vật phẩm địch có thể rơi ra 
+viewEnemyInfo()   // xem đầy đủ thông tin và chỉ số của địch
+
+class Item
+itemName         // tên của vật phẩm
+itemID               // ID vật phẩm
+itemDesc          // mô tả vật phẩm
+itemCategory    // loại vật phẩm
+Thuốc hoặc vật phẩm hỗ trợ
+itemPrice          // giá tiền của vật phẩm
+Số tiền phải trả khi gặp Event: Shop.
+itemUsage()     // khả năng của vật phẩm
+class Weapon
+weaponName          // tên vũ khí
+weaponID                // ID vũ khí
+weaponDesc           // mô tả vũ khí cũng như skill của vũ khí
+weaponHP              // chỉ số máu mà vũ khí cộng thêm
+weaponATK            // chỉ số tấn công mà vũ khí cộng thêm
+weaponDEF           // chỉ số phòng thủ mà vũ khí cộng thêm
+weaponSkill()         // kỹ năng của vũ khí (dùng qua ‘skill’ trong chiến đấu)
+class Area
+areaName                                    // tên của khu vực
+areaLevel                                     // level của khu vực (từ 1 đến 5)
+areaNodesNumber                      // số lượng nodes 
+                     (mỗi node sẽ có 3 loại: Combat, Encounter / Random event và Boss)
+Chỉ số này ở Area 1 sẽ là 4, các Area sau là 5.
+areaDoubleNodesChance           // tỉ lệ để node tiếp theo rẽ nhánh thành 2 node - 2 
+                                                       lựa chọn để người chơi vào
+Chỉ số này ở Area 1 sẽ là 0% (map 1 đường đơn giản), và từ Area 2 trở về sau sẽ có tỉ lệ tăng dần (20-50%). 
+Chỉ số này sẽ luôn là 0% ở Area 3 và 5 (area có boss), vì Boss sẽ luôn xuất hiện ở node cuối cùng Area 3 và 5.
+areaEncounterChance              // tỉ lệ để xuất hiện node Encounter (random event). Tỉ lệ ban đầu là 50%, tỉ lệ sẽ tăng lên 100% nếu như đã có 2 node combat liên tiếp. Node cuối cùng trong Area 1, 2, 4 sẽ luôn là node Encounter.
+
+VD: Khi bước vào Area 2:
+
+class Nodes
+nodeType                     // loại của Node (combat / encounter / boss)
+nodeLocation               // vị trí của Node (1-4 cho area 1, 1-5 cho area 2+)
+nodeEnter()                  // kích hoạt khi bắt đầu vào Node
+class Encounters (kế thừa từ class Nodes)
+eventName                   // tên sự kiện ngẫu nhiên
+eventID                         // ID sự kiện ngẫu nhiên
+eventDialogues()          // dẫn dắt “câu chuyện” diễn ra bên trong sự kiện
+eventChoices()             // cho 1-3 lựa chọn, mỗi lựa chọn có một kết quả khác nhau
+class Combat (kế thừa từ class Nodes)
+combatName                     // tên khu chiến đấu
+combatID                           // ID khu chiến đấu
+spawnEnemy()                  // chọn 1 kẻ địch để triệu hồi vào chiến đấu
+generateEnemyLevel()     // khởi tạo giá trị enemyLevel của địch
+class Boss (kế thừa từ class Nodes)
+combatName                     // tên khu chiến đấu
+combatID                           // ID khu chiến đấu
+spawnEnemy()                  // chọn 1 kẻ địch để triệu hồi vào chiến đấu
+generateEnemyLevel()     // khởi tạo giá trị enemyLevel của địch
+
+
+
+
+
+
+MECHANICS
+enemyLevel             // Tính giá trị level ngẫu nhiên của địch, level càng cao địch càng mạnh
+int enemyLevel = 0;
+srand(time(0));
+num = 1+(rand()%5);      //   Địch sẽ xuất hiện random từ level 1 đến level 5
+switch(enemyLevel) {
+	case 1:
+		enemyHP = 50;
+		enemyATK = 5;
+		enemyDEF = 6;
+		break;
+	case 2:
+		enemyHP = 55;
+		enemyATK = 5;
+		enemyDEF = 7;
+		break;
+	case 3:
+		enemyHP = 60;
+		enemyATK = 6;
+		enemyDEF = 7;
+		break;
+	…
+}
+
+Cải thiện: Cứ tăng 1 level thì tăng 5 HP, tăng 1 ATK, tăng 1 DEF, giống cơ chế level up của người chơi
+playerSP             // Cơ chế Skill Points của người chơi
+
+ultDamage(int modifier)       // Gây sát thương dựa trên kỹ năng của class 
+
+checkMaxHP()      // Kiểm tra playerHP có vượt quá giá trị playerMaxHP hay không, set về 
+                              giá trị = playerMaxHP nếu vượt quá
+if (playerHP > playerMaxHP) playerHP = playerMaxHP;
+
+
+
+SKILL POINTS  3 điểm
+attack: +1 điểm
+skill:    -1 điểm
+ultimate: -3 điểm
+
+
+
+random event
+trade 5 coins for potion
+gặp nhân vật tên x, cho 2 lựa chọn
+10 coins
+20 coins -50% HP
+IDEAS FOR LATER
+Status Effects (độc, choáng,...)
+
+
