@@ -1,3 +1,5 @@
+#ifndef ENEMY_H
+#define ENEMY_H 
 #include"Character.h"
 #include <string>
 typedef std::string string;
@@ -11,3 +13,4 @@ class Enemy: protected Character
         Enemy();
         void Attack();
 };
+#endif

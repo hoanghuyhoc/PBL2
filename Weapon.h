@@ -1,3 +1,5 @@
+#ifndef WEAPON_H
+#define WEAPON_H
 #include <string>
 typedef std::string string;
 class Weapon
@@ -8,3 +10,4 @@ class Weapon
         string Description;
         double HP,ATK,DEF;
 };
+#endif

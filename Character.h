@@ -1,3 +1,5 @@
+#ifndef CHARACTER_H
+#define CHARACTER_H
 #include <string>
 typedef std::string string;
 class Character
@@ -8,7 +10,7 @@ class Character
         double HP, MaxHP, ATK, DEF;
     public:
         Character(string, int, double, double, double);
-        ~Character();
+        string getName();
         void setLevel(int);
         int getLevel();
         void setMaxHP(double);
@@ -20,3 +22,4 @@ class Character
         void setDEF(double);
         double getDEF();
 };
+#endif

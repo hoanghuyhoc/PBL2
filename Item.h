@@ -1,3 +1,5 @@
+#ifndef ITEM_H
+#define ITEM_H
 #include <string>
 typedef std::string string;
 class Item
@@ -9,3 +11,4 @@ class Item
         string Category;
         int price;
 };
+#endif
