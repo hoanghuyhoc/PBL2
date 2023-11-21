@@ -16,7 +16,7 @@ IDEAL OUTPUT
            |                                                                               |
            |      ___________________________________________________________________      |
            |                                                                               |
-           |                                                    Made by ...                |
+           |                                           Made by ...                         |
            |                                                                               |
            |_______________________________________________________________________________|
 
@@ -117,7 +117,7 @@ Select [enter,up,bottom]:
 	HP:    100					HP:    100
 	ATK:   20					ATK:   10
 	DEF:   5					DEF:   0
-        SP:    [OOO00]					SP:    [00000]
+    SP:    [OOO00]				SP:    [00000]
 ______________________________________________________________________________
 	Equipment: 
 	[Wooden Sword] | [No Armor]
@@ -127,7 +127,7 @@ ______________________________________________________________________________
 	Decide your next action:
 	[attack]	| Use your Normal attack [Gains 1 SP]
 	[skill] 	| Use your Weapon's skill [Costs 1 SP]
-	[ultimate]      | Use your Class' ultimate [Costs 3 SP]
+	[ultimate]  | Use your Class' ultimate [Costs 3 SP]
 	[use]		| Use your consumables available
 
 	[help]		| Get all available commands
