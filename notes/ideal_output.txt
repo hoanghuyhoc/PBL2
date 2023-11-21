@@ -1,0 +1,356 @@
+IDEAL OUTPUT
+
+
+1
+
+
+            _______________________________________________________________________________
+           |                                                                               |
+           |                                                                               |
+           |                                 TEXT DUNGEONS                                 |
+           |                                                                               |
+           |      ___________________________________________________________________      |
+           |                                                                               |
+           |                                                                               |
+           |                            PRESS ANY KEY TO START                             |
+           |                                                                               |
+           |      ___________________________________________________________________      |
+           |                                                                               |
+           |                                           Made by ...                         |
+           |                                                                               |
+           |_______________________________________________________________________________|
+
+
+
+
+2
+
+
+       /* Story mở đầu */
+
+
+3
+            _______________________________________________________________________________
+           |                                                                               |
+           |                                                                               |
+           |                              CHOOSE YOUR CLASS                                |
+           |                                                                               |
+           |      ___________________________________________________________________      |
+           |                                                                               |
+           |                                                                               |
+           |        [1] Warrior                                                            |
+           |        Both proficient in offense and defense                                 |
+           |        ULTIMATE: Deals damage and increases ATK in the next 2 turns.          |
+           |                                                                               |
+           |        [2] Tank                                                               |
+           |        Extreme sturdiness along with self-recovery                            |
+           |        ULTIMATE: Heals for a proportion of max HP and increases DEF in        |
+           |        the next 2 turns.                                                      |
+           |                                                                               |
+           |        [3] Assassin                                                           |
+           |        Fragile but deadly.                                                    |
+           |        ULTIMATE: Deals a large amount of damage. If the ultimate defeats      |
+           |        an enemy, regains 1 Skill Point.                                       |
+           |                                                                               |
+           |      ___________________________________________________________________      |
+           |                                                                               |
+           |                                                                               |
+           |                                                                               |
+           |_______________________________________________________________________________|
+            Select [1,2,3]: 
+
+            You have choosen Warrior! Good luck!
+4
+
+
+
+                                        YOU'RE ENTERING
+
+
+
+
+
+5
+
+
+
+                                        YOU'RE ENTERING
+
+                                               O
+
+
+                                            Floor 1
+                                         Gloomy Forest
+
+
+6
+   LVL 1 || 0/100 XP	Money: 0				[help] to get all commands
+                                      O    Gloomy Forest
+
+
+
+
+
+
+         _____________          _____________            
+	|             |        |             |               
+	|   o=|:::>   |--------|   (  ?  )   |-----|
+	|_____________|        |____________ |
+
+
+
+
+
+
+
+
+Select [enter,up,bottom]:
+
+7
+
+[GAME] You entered the COMBAT node!
+[COMBAT] You encountered a Slime!
+
+                                     WAVE 1/1
+		
+	Player Name					Slime
+	HP:    100					HP:    100
+	ATK:   20					ATK:   10
+	DEF:   5					DEF:   0
+    SP:    [OOO00]				SP:    [00000]
+______________________________________________________________________________
+	Equipment: 
+	[Wooden Sword] | [No Armor]
+	Buff/Debuff:
+	[None]
+
+	Decide your next action:
+	[attack]	| Use your Normal attack [Gains 1 SP]
+	[skill] 	| Use your Weapon's skill [Costs 1 SP]
+	[ultimate]  | Use your Class' ultimate [Costs 3 SP]
+	[use]		| Use your consumables available
+
+	[help]		| Get all available commands
+
+	Select: 
+
+8
+
+
+[COMBAT] You used Normal attack and dealt 25 DMG to the Slime!
+
+                                     WAVE 1/1
+		
+	Player Name					Slime
+	HP:    100					HP:    75
+	ATK:   20					ATK:   10
+	DEF:   5					DEF:   0
+        SP:    [OOOO0]					SP:    [00000]
+______________________________________________________________________________
+	Equipment: 
+	[Wooden Sword] | [No Armor]
+	Buff/Debuff:
+	[None]
+
+	Enemy's turn!
+
+9
+
+
+[COMBAT] Slime used Lunge and dealt 5 DMG to you!
+
+                                     WAVE 1/1
+		
+	Player Name					Slime
+	HP:    95					HP:    75
+	ATK:   25					ATK:   10
+	DEF:   5					DEF:   0
+        SP:    [OOOO0]					SP:    [O0000]
+______________________________________________________________________________
+	Equipment: 
+	[Wooden Sword] | [No Armor]
+	Buff/Debuff:
+	[None]
+	
+	Your turn!
+	Decide your next action:
+	[attack]	| Use your Normal attack [Gains 1 SP]
+	[skill] 	| Use your Weapon's skill [Costs 1 SP]
+	[ultimate]      | Use your Class' ultimate [Costs 3 SP]
+	[use]		| Use your consumables available
+
+	[help]		| Get all available commands
+
+	Select: 
+
+10
+
+
+[COMBAT] You used Skill and dealt 30 DMG to the Slime!
+
+                                     WAVE 1/1
+		
+	Player Name					Slime
+	HP:    95					HP:    45
+	ATK:   25					ATK:   10
+	DEF:   5					DEF:   0
+        SP:    [OOO00]					SP:    [O0000]
+______________________________________________________________________________
+	Equipment: 
+	[Wooden Sword] | [No Armor]
+	Buff/Debuff:
+	[None]
+	
+	Enemy's turn!
+
+
+11
+
+
+[COMBAT] Slime used Slime Splash and dealt 10 DMG to you!
+
+                                     WAVE 1/1
+		
+	Player Name					Slime
+	HP:    85					HP:    45
+	ATK:   25					ATK:   10
+	DEF:   5					DEF:   0
+        SP:    [OOOO0]					SP:    [00000]
+______________________________________________________________________________
+	Equipment:
+	[Wooden Sword] | [No Armor]
+	Buff/Debuff:
+	[None]
+	
+	Your turn!
+	Decide your next action:
+	[attack]	| Use your Normal attack [Gains 1 SP]
+	[skill] 	| Use your Weapon's skill [Costs 1 SP]
+	[ultimate]      | Use your Class' ultimate [Costs 3 SP]
+	[use]		| Use your consumables available
+
+	[help]		| Get all available commands
+
+	Select: 
+
+12
+
+
+[COMBAT] You used Ultimate and dealt 50 DMG to the Slime!
+
+                                     WAVE 1/1
+		
+	Player Name					Slime
+	HP:    95					HP:    0
+	ATK:   25					ATK:   10
+	DEF:   5					DEF:   0
+        SP:    [OOO00]					SP:    [O0000]
+______________________________________________________________________________
+	Equipment: 
+	[Wooden Sword] | [No Armor]
+	Buff/Debuff:
+	[ATK Boost]
+	
+	Slime is defeated!
+	+50 XP, +2 coins
+	Drops:
+	[None]
+
+	Press any key to continue
+
+13
+   LVL 1 || 50/100 XP	Money: 2				[help] to get all commands
+                                      O    Gloomy Forest
+
+
+
+
+
+
+         _____________          _____________            
+	|             |        |             |               
+	|      x      |--------|   (  ?  )   |-----|
+	|_____________|        |____________ |
+
+
+
+
+
+
+
+
+Select [enter,up,bottom]:
+	
+14
+ 
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Gathering Stormclouds
+You've never seen such dense storm clouds before.
+Staring at the nature's onslaught, you asked yourself what to do.
+
+______________________________________________________________________
+
+	[1] "Just pray"		| Heals you to full health
+	[2] Tries to get away   | Gains +10 XP and 3 coins 
+
+
+	Select [number]: 
+
+15
+
+
+[ENCOUNTER] You tried to get a bit far away from the clouds.
+Those clouds remain stationary for no reason. You moved on.
+
+	+10 XP, 3 coins!
+
+	Press any key to continue
+
+ 
+
+
+            
+            
+
+
+
+
+SQUARE UI
+space per line: 10 tabs
+
+_______________________________________________________________________________
+    _______________________________________________________________________    
+
+
+
+
+
+	 _______________________________________________________________________________
+	|										|
+	|										|
+	|										|
+	|										|
+	|    _______________________________________________________________________    |
+	|										|
+	|				TEXT						|
+	|										|
+	|										|
+	|										|
+	|    _______________________________________________________________________    |
+	|										|
+	|										|
+	|										|
+	|										|
+	|										|
+	|										|
+	|										|
+	|										|
+	|										|
+	|    _______________________________________________________________________    |
+	|										|
+	|										|
+	|										|
+	|_______________________________________________________________________________|
+
+
+                                        Select [1,2,3,4,Q]:
