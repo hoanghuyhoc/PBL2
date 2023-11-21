@@ -71,7 +71,7 @@ void Menu::StartGame(std::string &Player_name, int &class_choice)
     std::cout<<"           |                                                                               |\n";
     std::cout<<"           |                                                                               |\n";
     std::cout<<"           |_______________________________________________________________________________|\n";
-    std::cout<<"             Select [1,2,3]: ";
+    std::cout<<"            Select [1,2,3]: ";
     int class_choice;
     std::cin>>class_choice;
     switch(class_choice){
