@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Character.h"
+#include "Enemy.h"
 #include "Item.h"
 #include "Weapon.h"
 class Player: protected Character
@@ -14,10 +15,11 @@ class Player: protected Character
     public:
         Player(std::string, double, double, double);
         void Show_Status();
-        virtual void Attack()=0;
+        void Attack(Enemy&);
         virtual void Skill()=0;
         void Using_Item();
-        virtual void Show_Description()=0;
-        virtual void Show_Skill_Description()=0;
+        void Show_Description();
+        void Show_Skill_Description();
+        void Level_Up();
 };
 #endif

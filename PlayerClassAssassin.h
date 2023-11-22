@@ -8,7 +8,5 @@ class Assassin: protected Player
         Assassin();
         void Attack();
         void Skill();
-        void Show_Description();
-        void Show_Skill_Description();
 };
 #endif
