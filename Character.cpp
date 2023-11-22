@@ -1,9 +1,11 @@
 #include "Character.h"
-Character::Character(string name, int level, double maxhp, double atk, double def)
+Character::Character(std::string name, int level, double maxhp, double atk, double def)
         :Name(name),Level(level), MaxHP(maxhp), HP(maxhp), ATK(atk), DEF(def) 
 {}
-Character::~Character()
-{}
+std::string Character::getName()
+{
+    return this->Name;
+}
 void Character::setLevel(int level)
 {
     this->Level=level;
