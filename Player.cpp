@@ -30,3 +30,7 @@ void Player::Attack(Enemy &e)
 void Using_Item();
 void Show_Description();
 void Show_Skill_Description();
+void Player::Gain_XP(){
+
+    if() 
+}

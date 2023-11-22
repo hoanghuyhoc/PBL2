@@ -20,6 +20,6 @@ class Player: protected Character
         void Using_Item();
         void Show_Description();
         void Show_Skill_Description();
-        void Level_Up();
+        void Gain_XP();
 };
 #endif
