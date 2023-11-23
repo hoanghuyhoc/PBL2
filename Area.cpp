@@ -32,7 +32,7 @@ void Area::generateNode()
             multiCombatNode++;
             if(multiCombatNode >= 2) Node[i++] = 1;
         }
-        else cout << "Encounter"; // generate 1 EncounterNode
+        else cout << "Encounter"; // generate EncounterNode
 
         // Thêm hàm set Node cuối cùng trong Area 3 và 5 là Boss Node (Cũng là combat nhưng khác cái tên)
 }
