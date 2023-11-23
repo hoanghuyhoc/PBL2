@@ -22,6 +22,7 @@ int Area::getLevel()
 }
 void Area::generateNode()
 {
+    /*
     int Node[NodeNumber];    // cái này có this-> ở trước ko?
     int multiCombatNode;     // tính số lượng combat node liên tiếp, nếu combat node xuất hiện liên tiếp 2 lần, node tiếp theo chắc chắn là Encounter
     for(int i = 0; i < NodeNumber; i++)
@@ -32,9 +33,10 @@ void Area::generateNode()
             multiCombatNode++;
             if(multiCombatNode >= 2) Node[i++] = 1;
         }
-        else cout << "Encounter"; // generate EncounterNode
+        else cout << "Encounter node"; // generate EncounterNode
 
         // Thêm hàm set Node cuối cùng trong Area 3 và 5 là Boss Node (Cũng là combat nhưng khác cái tên)
+    */
 }
 void Area::calculateDoubleNodeChance(double doublenodechance)
 {
