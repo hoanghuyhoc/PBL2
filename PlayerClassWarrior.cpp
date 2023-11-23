@@ -1,11 +1,7 @@
 #include "PlayerClassWarrior.h"
-Warrior::Warrior()
-        :Player()
+Warrior::Warrior(std::string WarriorName)
+        :Player(WarriorName, 100, 20, 5)
 {}
-void Warrior::Attack()
-{
-
-}
 void Warrior::Skill()
 {
 

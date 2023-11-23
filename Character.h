@@ -1,16 +1,15 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 #include <string>
-typedef std::string string;
 class Character
 {
     private:   
-        string Name;
+        std::string Name;
         int Level;
         double HP, MaxHP, ATK, DEF;
     public:
-        Character(string, int, double, double, double);
-        string getName();
+        Character(std::string, int, double, double, double);
+        std::string getName();
         void setLevel(int);
         int getLevel();
         void setMaxHP(double);

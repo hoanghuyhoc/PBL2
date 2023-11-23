@@ -2,13 +2,11 @@
 #define PLAYERCLASSWARRIOR_H
 #include "Player.h"
 #include <string>
+#include <iostream>
 class Warrior: protected Player
 {
     public:
-        Warrior();
-        void Attack();
+        Warrior(std::string);
         void Skill();
-        void Show_Description();
-        void Show_Skill_Description();
 };
 #endif
