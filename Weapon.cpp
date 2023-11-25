@@ -50,7 +50,7 @@ std::vector<Weapon> readWeaponsFromFile(std::string& filename) {
             weapons.emplace_back(id, name, desc, hp, atk, def);
         } else {
             std::cerr << "Khong doc duoc line: " << line << std::endl;
-            // Handle error, maybe skip the line or break the loop
+            // De hanh dong sau khi bao loi, bo qua file hoac thoat vong lap
         }
     }
 
