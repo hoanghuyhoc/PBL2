@@ -70,7 +70,7 @@ Weapon getWeaponByID(std::vector<Weapon>& weapons, int targetID) {
 
 }
 
-void processWeaponAndPlayer() {
+void Weapon::processWeaponAndPlayer() {
     std::string filename = "weapons.txt";
     std::vector<Weapon> weapons = readWeaponsFromFile(filename);
 
