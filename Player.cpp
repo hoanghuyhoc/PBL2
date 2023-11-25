@@ -5,8 +5,17 @@ Player::Player(std::string name, double maxhp, double atk, double def)
         :Character(name, 1, maxhp, atk, def), XP(0.0), Money(0), SP(0)
 {
     this->Player_Item=nullptr;
-    this->Player_Weapon=nullptr;
+    this->equippedWeapon=nullptr;
 }
+
+// Moi update
+Player::Player(Weapon* weapon) : equippedWeapon(weapon) {}
+
+Weapon* Player::getEquippedWeapon() {
+    return equippedWeapon;
+}
+// Moi update
+
 void Player::Show_Status()
 {
     using namespace std;
@@ -32,5 +41,5 @@ void Show_Description();
 void Show_Skill_Description();
 void Player::Gain_XP(){
 
-    if() 
-}
+
+};
