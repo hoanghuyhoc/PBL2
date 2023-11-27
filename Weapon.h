@@ -23,6 +23,6 @@ public:
     int getBonusHP();
     int getBonusATK();
     int getBonusDEF();
-
+    void processWeaponAndPlayer();
 };
 #endif

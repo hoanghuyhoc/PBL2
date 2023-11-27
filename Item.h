@@ -9,6 +9,7 @@ class Item
         string Name;
         string Description;
         string Category;
-        int price;
+        int Price;
+        int Quantity;
 };
 #endif
