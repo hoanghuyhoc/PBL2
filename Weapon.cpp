@@ -36,7 +36,7 @@ std::vector<Weapon> readWeaponsFromFile(std::string& filename) {
 
     std::ifstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Khong doc duoc file: " << filename << std::endl;
+        std::cerr << "[ERROR] Loi doc file!\n";
         return weapons;
     }
 
@@ -49,7 +49,7 @@ std::vector<Weapon> readWeaponsFromFile(std::string& filename) {
         if (iss >> id >> name >> desc >> hp >> atk >> def) {
             weapons.emplace_back(id, name, desc, hp, atk, def);
         } else {
-            std::cerr << "Khong doc duoc line: " << line << std::endl;
+            std::cerr << "[ERROR] Khong doc duoc Weapon ID so: " << line << std::endl;
             // De hanh dong sau khi bao loi, bo qua file hoac thoat vong lap
         }
     }

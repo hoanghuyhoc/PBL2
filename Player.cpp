@@ -57,3 +57,19 @@ void Player::equipWeapon(Weapon& w)
 {
     this->equippedWeapon=&w;
 }
+
+void Player::useItem(int itemID) {
+    // Tìm vật phẩm trong túi đồ dựa trên ID
+    auto it = std::find_if(inventory.begin(), inventory.end(), [itemID](Item& item) {
+        return item.getID() == itemID;
+    });
+
+    if (it != inventory.end()) {
+        it->itemEffects();
+        // quantity--;
+        std::cout << "Ban da su dung " << it->getName() << "!" << std::endl << it->getDesc();
+    } else {
+        std::cout << "Khong tim thay vat pham co ID " << itemID << std::endl;
+        // quay lai menu lua chon combat
+    }
+}

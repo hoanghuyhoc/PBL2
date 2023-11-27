@@ -10,6 +10,7 @@ class Player: protected Character
         double XP;
         Weapon *equippedWeapon;
         Item *Player_Item;
+        std::vector<Item> inventory;     // túi đồ đựng vật phẩm của người chơi
         long Money;
         int SP;
         std::string Player_Class;
@@ -23,5 +24,6 @@ class Player: protected Character
         void Show_Skill_Description();
         void Gain_XP(double);
         void equipWeapon(Weapon&);
+        void useItem(int itemID);
 };
 #endif
