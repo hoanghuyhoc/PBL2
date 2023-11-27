@@ -8,12 +8,6 @@ Player::Player(std::string name, double maxhp, double atk, double def, std::stri
     this->Player_Item=nullptr;
     this->equippedWeapon=nullptr;
 }
-
-// Weapon* Player::getEquippedWeapon() {
-//     return equippedWeapon;
-// }
-// // Moi update
-
 void Player::Show_Status()
 {
     using namespace std;
@@ -48,7 +42,18 @@ void Player::Show_Skill_Description()
 {
     read_txt("Skill description\\"+this->Player_Class);
 }
-// void Player::Gain_XP(){
-
-
-// };
+void Player::Gain_XP(double xp_gained)
+{
+    this->XP+=xp_gained;
+    while(this->XP>=(this->getLevel()*100))
+    {
+        this->XP-=(this->getLevel()*100);
+        this->setLevel(this->getLevel()+1);
+        std::cout<<"Leveled up! Current level: "<<this->getLevel()<<std::endl;
+        std::cout<<"XP left: "<<this->XP<<'/'<<this->getLevel()*100<<std::endl;
+    }
+}
+void Player::equipWeapon(Weapon& w)
+{
+    this->equippedWeapon=&w;
+}

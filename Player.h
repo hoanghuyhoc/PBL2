@@ -21,7 +21,7 @@ class Player: protected Character
         //void Using_Item(); //chắc truy xuất tới hàm dùng item của cái class item
         void Show_Description();
         void Show_Skill_Description();
-        //void Gain_XP();
-        //Weapon* getEquippedWeapon();
+        void Gain_XP(double);
+        void equipWeapon(Weapon&);
 };
 #endif
