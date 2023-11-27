@@ -5,8 +5,7 @@
 class Tanker: protected Player
 {
     public:
-        Tanker();
-        void Attack();
+        Tanker(std::string);
         void Skill();
 };
 #endif

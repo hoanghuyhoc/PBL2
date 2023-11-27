@@ -5,8 +5,7 @@
 class Assassin: protected Player
 {
     public:
-        Assassin();
-        void Attack();
+        Assassin(std::string);
         void Skill();
 };
 #endif
