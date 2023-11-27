@@ -12,16 +12,16 @@ class Player: protected Character
         Item *Player_Item;
         long Money;
         int SP;
+        std::string Player_Class;
     public:
-        Player(std::string, double, double, double);
-        Player(Weapon* weapon);
+        Player(std::string, double, double, double, std::string);
         void Show_Status();
         void Attack(Enemy&);
-        void Skill();
-        void Using_Item();
+        //virtual void Skill()=0;
+        //void Using_Item(); //chắc truy xuất tới hàm dùng item của cái class item
         void Show_Description();
         void Show_Skill_Description();
-        void Gain_XP();
-        Weapon* getEquippedWeapon();
+        //void Gain_XP();
+        //Weapon* getEquippedWeapon();
 };
 #endif

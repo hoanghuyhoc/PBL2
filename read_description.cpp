@@ -1,9 +1,11 @@
+#ifndef READ_DESCRIPTION_CPP
+#define READ_DESCRIPTION_CPP
 #include<iostream>
 #include<fstream>
 #include<string>
-void read_txt(std::string Player_Class) //Hàm đọc description
+void read_txt(std::string file) //Hàm đọc description
 {
-    std::ifstream description("Character description\\"+Player_Class+".txt");
+    std::ifstream description(file+".txt");
     std::string str;
     while( !description.eof() )
     {
@@ -12,3 +14,4 @@ void read_txt(std::string Player_Class) //Hàm đọc description
     }
     description.close();
 }
+#endif
