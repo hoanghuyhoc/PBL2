@@ -2,7 +2,7 @@
 #define ITEM_H
 #include <string>
 #include <iostream>
-typedef std::string string;
+using namespace std;
 class Item
 {
     private:
@@ -14,7 +14,6 @@ class Item
         int Quantity;
     public:
         Item(int id, const string& name, const string& desc, const string& category, int price, int quantity);
-
         int getID();
         string getName();
         string getDesc();
@@ -23,7 +22,6 @@ class Item
         void setPrice(int);
         int getQuantity();
         void setQuantity(int);
-
         void useItem();
 };
 #endif

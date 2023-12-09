@@ -6,7 +6,7 @@ class Character
     private:   
         std::string Name;
         int Level;
-        double HP, MaxHP, ATK, DEF;
+        double MaxHP, HP, ATK, DEF;
     public:
         Character(std::string, int, double, double, double);
         std::string getName();

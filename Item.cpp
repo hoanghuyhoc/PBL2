@@ -3,7 +3,7 @@
 #include <sstream>
 #include <vector>
 
-Item::Item(int id, string& name, string& desc, string& category, int price, int quantity)
+Item::Item(int id, const string& name, string& desc, string& category, int price, int quantity)
     : ID(id), Name(name), Desc(desc), Category(category), Price(price), Quantity(quantity) {}
 
 int Item::getID()

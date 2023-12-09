@@ -1,12 +1,13 @@
 #include"Player.h"
+#include <windows.h>
 #include<iostream>
 #include<iomanip>
 #include"read_description.cpp"
 Player::Player(std::string name, double maxhp, double atk, double def, std::string PClass)
         :Character(name, 1, maxhp, atk, def), XP(0.0), Money(0), SP(0),Player_Class(PClass)
 {
-    this->Player_Item=nullptr;
-    this->equippedWeapon=nullptr;
+    // this->Player_Item=nullptr;
+    // this->equippedWeapon=nullptr;
 }
 void Player::Show_Status()
 {
@@ -31,7 +32,11 @@ void Player::Show_Status()
 }   
 void Player::Attack(Enemy &e)
 {
-    e.setHP(e.getHP()-(this->getATK()-e.getDEF()));
+    double atk=this->getATK(), def=e.getDEF();
+    double damage=atk*(atk/def);
+    e.setHP(e.getHP()-damage);
+    std::cout<<"You have inflicted "<<damage<<" damage on the enemy!\n";
+    Sleep(3000);
 }
 // void Using_Item();
 void Player::Show_Description()
@@ -53,23 +58,7 @@ void Player::Gain_XP(double xp_gained)
         std::cout<<"XP left: "<<this->XP<<'/'<<this->getLevel()*100<<std::endl;
     }
 }
-void Player::equipWeapon(Weapon& w)
-{
-    this->equippedWeapon=&w;
-}
-
-void Player::useItem(int itemID) {
-    // Tìm vật phẩm trong túi đồ dựa trên ID
-    auto it = std::find_if(inventory.begin(), inventory.end(), [itemID](Item& item) {
-        return item.getID() == itemID;
-    });
-
-    if (it != inventory.end()) {
-        it->itemEffects();
-        // quantity--;
-        std::cout << "Ban da su dung " << it->getName() << "!" << std::endl << it->getDesc();
-    } else {
-        std::cout << "Khong tim thay vat pham co ID " << itemID << std::endl;
-        // quay lai menu lua chon combat
-    }
-}
+// void Player::equipWeapon(Weapon& w)
+// {
+//     this->equippedWeapon=&w;
+// }
