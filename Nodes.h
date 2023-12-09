@@ -1,9 +1,7 @@
 #ifndef NODES_H
 #define NODES_H
 #include <string>
-#include "Area.h"
-typedef std::string string;
-class Nodes: public Area 
+class Nodes:
 {
     private:   
         int Type;
@@ -11,11 +9,7 @@ class Nodes: public Area
         Nodes *NextNode;
     public:
         Nodes(int, int);
-        void setType(int);
-        int getType();
-        void setLocation(int);
-        int getLocation(); 
         void Enter();
-        void EnterNextNode();
+        Nodes* EnterNextNode();
 };
 #endif

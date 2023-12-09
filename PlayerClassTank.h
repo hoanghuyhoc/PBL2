@@ -2,10 +2,10 @@
 #define PLAYERCLASSTANKER_H
 #include "Player.h"
 #include <string>
-class Tanker: protected Player
+class Tank: public Player
 {
     public:
-        Tanker(std::string);
-        void Skill();
+        Tank(std::string);
+        void Skill(Enemy&);
 };
 #endif

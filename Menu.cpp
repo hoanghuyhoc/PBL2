@@ -1,32 +1,17 @@
 #include "Menu.h"
-#include "Character.h"
 void clear_cin()
 {
     using namespace std;
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    std::cin.clear();
+    std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 void Menu::StartMenu(int &Start_Menu_Option)
 {
     do
     {
         system("cls");
-        std::cout<<"            _______________________________________________________________________________\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |                                 TEXT DUNGEONS                                 |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |      ___________________________________________________________________      |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |                            PRESS ANY KEY TO START                             |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |      ___________________________________________________________________      |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |                                           Made by ...                         |\n";
-        std::cout<<"           |                                                                               |\n";
-        std::cout<<"           |_______________________________________________________________________________|\n";
-
+        std::cout<<"GAME TITLE\n";
+        std::cout<<"1. Start Game\n"<<"2. Exit\n"<<"Enter your option: ";
         std::cin>>Start_Menu_Option;
         if ((Start_Menu_Option!=1)&&(Start_Menu_Option!=2))
         {
@@ -34,19 +19,28 @@ void Menu::StartMenu(int &Start_Menu_Option)
             std::cout<<"Please enter a valid number!!";
             Sleep(1500);
         }
-    }
-    while((Start_Menu_Option!=1) && (Start_Menu_Option!=2));
-    // Sau thay bằng hàm void pressAnyKey(); để tự động clear màn hình khi bấm phím bất kỳ
-
+        if (Start_Menu_Option==2) 
+        {
+            system("cls");
+            std::cout<<"Thank you for playing!";
+            Sleep(3000);
+        }
+        if (Start_Menu_Option==1)
+        {
+            system("cls");
+            std::cout<<"Game starting...";
+            Sleep(2000);
+        }
+    } while ((Start_Menu_Option!=1)&&(Start_Menu_Option!=2));
 }
-void Menu::StartGame(std::string &Player_name, int &class_choice)
+void Menu::StartGame(Player *&player)
 {
-    // Sau thêm vào hàm chạy story mở đầu game
     system("cls");
-    std::cout<<"    Type your name:";
+    std::cout<<"Type your name:";
     std::string Player_name;
-    std::cin>>Player_name;
     clear_cin();
+    std::getline(std::cin,Player_name,'\n');
+    system("cls");
     std::cout<<"            _______________________________________________________________________________\n";
     std::cout<<"           |                                                                               |\n";
     std::cout<<"           |                              CHOOSE YOUR CLASS                                |\n";
@@ -70,14 +64,19 @@ void Menu::StartGame(std::string &Player_name, int &class_choice)
     std::cout<<"           |      ___________________________________________________________________      |\n";
     std::cout<<"           |                                                                               |\n";
     std::cout<<"           |                                                                               |\n";
-    std::cout<<"           |_______________________________________________________________________________|\n";
-    std::cout<<"            Select [1,2,3]: ";
+    std::cout<<"           |_______________________________________________________________________________|\n\n";
+    std::cout<<"Select [1,2,3]: ";
     int class_choice;
     std::cin>>class_choice;
-    switch(class_choice){
+    std::cout<<"\n\n";
+    switch(class_choice)
+    {
         case 1:
         {
-            std::cout << "You've chosen Warrior! Good luck!";
+            std::cout << "You've chosen Warrior! Good luck!\n";
+            Sleep(2000);
+            player=dynamic_cast<Player*>(new Warrior(Player_name));
+            break;
             // setMaxHP(100);
             // setHP(100);
             // setATK(20);
@@ -86,6 +85,9 @@ void Menu::StartGame(std::string &Player_name, int &class_choice)
         case 2:
         {
             std::cout << "You've chosen Tank! Good luck!";
+            Sleep(2000);
+            player=dynamic_cast<Player*>(new Tank(Player_name));
+            break;
             // setMaxHP(150);
             // setHP(150);
             // setATK(10);
@@ -94,10 +96,61 @@ void Menu::StartGame(std::string &Player_name, int &class_choice)
         case 3:
         {
             std::cout << "You've chosen Assassin! Good luck!";
+            Sleep(2000);
+            player=dynamic_cast<Player*>(new Assassin(Player_name));
+            break;
             // setMaxHP(80);
             // setHP(80);
             // setATK(30);
             // setDEF(2);
         }
+    }
+}
+void Menu::BattleScreen(Player* &player, Enemy monster, int& status)
+{
+    int turn=0;
+    do
+    {
+        system("cls");
+        int Battle_Option;
+        do
+        {
+            using namespace std;
+            ostringstream screen[4];
+            screen[0]<<"    "<<player->getName()<<"        "<<monster.getName()<<endl;
+            int max=screen[0].str().length();
+            if (max<34) max=34;
+            screen[0]<<"    "<<player->getName()<<setw(max-11-4-player->getName().length())<<""
+            <<monster.getName()<<endl;
+            screen[1]<<"    "<<setw(4)<<left<<"HP:"<<setw(7)<<player->getHP()<<setw(max-26)<<""
+            <<setw(4)<<left<<"HP:"<<setw(7)<<monster.getHP()<<endl;
+            screen[2]<<"    "<<setw(4)<<left<<"ATK:"<<setw(7)<<player->getATK()<<setw(max-26)<<""
+            <<setw(4)<<left<<"ATK:"<<setw(7)<<monster.getATK()<<endl;
+            screen[3]<<"    "<<setw(4)<<left<<"DEF:"<<setw(7)<<player->getDEF()<<setw(max-26)<<""
+            <<setw(4)<<left<<"DEF:"<<setw(7)<<monster.getDEF()<<endl;
+            for (int i=0; i<4;i++)    
+                std::cout<<screen[i].str();
+            std::cout<<string(max,'-')<<endl<<endl;
+            std::cout<<setw(4)<<""<<"1. [Attack]    | Use your Normal attack"<<endl<<setw(4)<<""<<"Choose your action:";
+            clear_cin();
+            std::cin>>Battle_Option;
+            if (Battle_Option!=1) std::cout<<"Please choose again!";
+        } while(Battle_Option!=1);
+        if (Battle_Option==1) player->Attack(monster);
+        if (monster.getHP()>0) monster.Attack(*player);
+        turn++;
+        system("cls");
+    } while(player->getHP()>0 && monster.getHP()>0);
+    if (player->getHP()>0) 
+    {
+        std::cout<<"Congratulations! You have defeated an enemy!";
+        Sleep(3000);
+        player->Gain_XP( monster.Give_XP() );
+    }
+    if (player->getHP()<=0)
+    {
+        std::cout<<"\n\nYou have been defeated!";
+        Sleep(3000);
+        status=2;
     }
 }

@@ -2,10 +2,10 @@
 #define PLAYERCLASSASSASSIN_H
 #include "Player.h"
 #include <string>
-class Assassin: protected Player
+class Assassin: public Player
 {
     public:
         Assassin(std::string);
-        void Skill();
+        void Skill(Enemy&);
 };
 #endif

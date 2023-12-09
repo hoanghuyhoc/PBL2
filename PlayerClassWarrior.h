@@ -3,10 +3,11 @@
 #include "Player.h"
 #include <string>
 #include <iostream>
-class Warrior: protected Player
+#include "Enemy.h"
+class Warrior: public Player
 {
     public:
         Warrior(std::string);
-        void Skill();
+        void Skill(Enemy&);
 };
 #endif
