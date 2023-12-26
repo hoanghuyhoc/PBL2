@@ -28,4 +28,4 @@ class Player: public Character
         //void useItem(int itemID);
         friend class Enemy;
 };
-#endif
+#endif 
