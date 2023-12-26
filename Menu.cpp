@@ -106,8 +106,11 @@ void Menu::StartGame(Player *&player)
         }
     }
 }
-void Menu::BattleScreen(Player* &player, Enemy monster, int& status)
+void Menu::BattleScreen(Player* &player, Enemy monster)
 {
+    system("cls");
+    std::cout<<"You have encountered an enemy\n";
+    Sleep(1500);
     int turn=0;
     do
     {
@@ -135,8 +138,12 @@ void Menu::BattleScreen(Player* &player, Enemy monster, int& status)
             std::cout<<"1. [Attack]    | Use your Normal attack"<<endl<<setw(4)<<""<<"Choose your action:";
             clear_cin();
             std::cin>>Battle_Option;
-            if (Battle_Option!=1) std::cout<<"\nThere's no such option! Please choose again!\n";
-            system("cls");
+            if (Battle_Option!=1) 
+            {
+                std::cout<<"\nThere's no such option! Please choose again!\n";
+                Sleep(1500);
+                system("cls");
+            }
         } while(Battle_Option!=1);
         if (Battle_Option==1) player->Attack(monster);
         if (monster.getHP()>0) monster.Attack(*player);
@@ -153,6 +160,6 @@ void Menu::BattleScreen(Player* &player, Enemy monster, int& status)
     {
         std::cout<<"\n\nYou have been defeated!";
         Sleep(3000);
-        status=2;
+        Menu::PlayStatus=2;
     }
 }
