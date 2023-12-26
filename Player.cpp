@@ -50,13 +50,15 @@ void Player::Show_Skill_Description()
 void Player::Gain_XP(double xp_gained)
 {
     std::cout<<"You gained "<<xp_gained<<" XP !\n";
+    Sleep(1500);
     this->XP+=xp_gained;
     while(this->XP>=(this->getLevel()*100))
     {
         this->XP-=(this->getLevel()*100);
         this->setLevel(this->getLevel()+1);
         std::cout<<"Leveled up! Current level: "<<this->getLevel()<<std::endl;
-        std::cout<<"XP left: "<<this->XP<<'/'<<this->getLevel()*100<<std::endl;
+        std::cout<<"XP left to level up: "<<this->XP<<'/'<<this->getLevel()*100<<std::endl;
+        Sleep(3000);
     }
 }
 // void Player::equipWeapon(Weapon& w)

@@ -9,24 +9,22 @@
 #include "PlayerClassAssassin.h"
 #include "PlayerClassTank.h"
 #include "PlayerClassWarrior.h"
-// #include "Area.h"
 #include "Menu.h"
+#include "Area.h"
+#include "Nodes.h"
 
 #define check_loop if (StartMenuOption==2) continue;
 
 int main()
 {
-    int StartMenuOption;
     do
     {
-        Menu::StartMenu(StartMenuOption);
-        if (StartMenuOption==2) break;
+        Menu::StartMenu(Menu::PlayStatus);
+        if (Menu::PlayStatus==2) break;
         Player *mainplayer=nullptr;
         Menu::StartGame(mainplayer);
-        Enemy monster("ABCXYZ",1, 50,10,10,"1 thang ngu", "3108", 175);
-        std::cout<<"\nYou have encountered an enemy!\n";
-        Sleep(2000);
-        Menu::BattleScreen(mainplayer, monster,StartMenuOption); check_loop
-    } while (StartMenuOption!=2);
+        Area Area1("Area1",3,1,nullptr);
+        Area1.EnterArea(mainplayer);
+    } while (Menu::PlayStatus!=2);
     return 0;
 }
