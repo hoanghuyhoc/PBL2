@@ -1,7 +1,7 @@
 #ifndef NODES_H
 #define NODES_H
 #include <string>
-class Nodes:
+class Nodes
 {
     private:   
         int Type;

@@ -23,8 +23,9 @@ int main()
         if (StartMenuOption==2) break;
         Player *mainplayer=nullptr;
         Menu::StartGame(mainplayer);
-        Enemy monster("Siuu",1, 50,10,10,"1 thang ngu", "3108", 175);
+        Enemy monster("ABCXYZ",1, 50,10,10,"1 thang ngu", "3108", 175);
         std::cout<<"\nYou have encountered an enemy!\n";
+        Sleep(2000);
         Menu::BattleScreen(mainplayer, monster,StartMenuOption); check_loop
     } while (StartMenuOption!=2);
     return 0;

@@ -68,7 +68,7 @@ void Menu::StartGame(Player *&player)
     std::cout<<"Select [1,2,3]: ";
     int class_choice;
     std::cin>>class_choice;
-    std::cout<<"\n\n";
+    std::cout<<"\n";
     switch(class_choice)
     {
         case 1:
@@ -120,6 +120,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster, int& status)
             screen[0]<<"    "<<player->getName()<<"        "<<monster.getName()<<endl;
             int max=screen[0].str().length();
             if (max<34) max=34;
+            screen[0].str(""); screen[0].clear();
             screen[0]<<"    "<<player->getName()<<setw(max-11-4-player->getName().length())<<""
             <<monster.getName()<<endl;
             screen[1]<<"    "<<setw(4)<<left<<"HP:"<<setw(7)<<player->getHP()<<setw(max-26)<<""
@@ -131,10 +132,11 @@ void Menu::BattleScreen(Player* &player, Enemy monster, int& status)
             for (int i=0; i<4;i++)    
                 std::cout<<screen[i].str();
             std::cout<<string(max,'-')<<endl<<endl;
-            std::cout<<setw(4)<<""<<"1. [Attack]    | Use your Normal attack"<<endl<<setw(4)<<""<<"Choose your action:";
+            std::cout<<"1. [Attack]    | Use your Normal attack"<<endl<<setw(4)<<""<<"Choose your action:";
             clear_cin();
             std::cin>>Battle_Option;
-            if (Battle_Option!=1) std::cout<<"Please choose again!";
+            if (Battle_Option!=1) std::cout<<"\nThere's no such option! Please choose again!\n";
+            system("cls");
         } while(Battle_Option!=1);
         if (Battle_Option==1) player->Attack(monster);
         if (monster.getHP()>0) monster.Attack(*player);

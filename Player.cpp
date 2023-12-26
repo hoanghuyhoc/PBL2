@@ -49,6 +49,7 @@ void Player::Show_Skill_Description()
 }
 void Player::Gain_XP(double xp_gained)
 {
+    std::cout<<"You gained "<<xp_gained<<" XP !\n";
     this->XP+=xp_gained;
     while(this->XP>=(this->getLevel()*100))
     {
