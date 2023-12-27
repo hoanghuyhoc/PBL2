@@ -1,5 +1,5 @@
 #include "Character.h"
-Character::Character(std::string name, int level, double maxhp, double atk, double def)
+Character::Character(std::string name, int level, int maxhp, int atk, int def)
         :Name(name),Level(level), MaxHP(maxhp), HP(maxhp), ATK(atk), DEF(def) 
 {}
 std::string Character::getName()
@@ -14,35 +14,35 @@ int Character::getLevel()
 {
     return this->Level;
 }
-void Character::setMaxHP(double maxhp)
+void Character::setMaxHP(int maxhp)
 {
     this->MaxHP=maxhp;
 }
-double Character::getMaxHP()
+int Character::getMaxHP()
 {
     return this->MaxHP;
 }
-void Character::setHP(double hp)
+void Character::setHP(int hp)
 {
     this->HP=hp;
 }
-double Character::getHP()
+int Character::getHP()
 {
     return this->HP;
 }
-void Character::setATK(double atk)
+void Character::setATK(int atk)
 {
     this->ATK=atk;
 }
-double Character::getATK()
+int Character::getATK()
 {
     return this->ATK;
 }
-void Character::setDEF(double def)
+void Character::setDEF(int def)
 {
     this->DEF=def;
 }
-double Character::getDEF()
+int Character::getDEF()
 {
     return this->DEF;
 }

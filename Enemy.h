@@ -9,12 +9,12 @@ class Enemy: public Character
     private:
         std::string Description;
         std::string LootID;
-        double XP;
+        int XP;
     public:
-        Enemy(std::string, int, double, double, double, std::string, std::string, double);
+        Enemy(std::string, int, int, int, int, std::string, std::string, int);
         void Attack(Player&);
         void Show_Description();
-        double Give_XP();
+        int Give_XP();
         //void Return_Loot();
         friend class Player;
 };

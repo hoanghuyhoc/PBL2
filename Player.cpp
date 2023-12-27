@@ -3,7 +3,7 @@
 #include<iostream>
 #include<iomanip>
 #include"read_description.cpp"
-Player::Player(std::string name, double maxhp, double atk, double def, std::string PClass)
+Player::Player(std::string name, int maxhp, int atk, int def, std::string PClass)
         :Character(name, 1, maxhp, atk, def), XP(0.0), Money(0), SP(0),Player_Class(PClass)
 {
     // this->Player_Item=nullptr;
@@ -63,7 +63,7 @@ void Player::Show_Skill_Description()
 {
     read_txt("Skill description\\"+this->Player_Class);
 }
-void Player::Gain_XP(double xp_gained)
+void Player::Gain_XP(int xp_gained)
 {
     std::cout<<"You gained "<<xp_gained<<" XP !\n";
     Sleep(1500);
