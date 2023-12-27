@@ -1,0 +1,9 @@
+1|Health Potion I|1|30|0|0|3|Heals 30 HP
+2|Health Potion II|1|60|0|0|5|Heals 60 HP
+3|Health Potion III|1|100|0|0|7|Heals 100 HP
+4|Strength Potion I|2|0|10|0|5|+10% ATK
+5|Strength Potion II|2|0|20|0|8|+20% ATK
+6|Strength Potion III|2|0|40|0|12|+40% ATK
+7|Resistance Potion I|3|0|0|20|5|+20% DEF
+8|Resistance Potion II|3|0|0|40|7|+40% DEF
+9|Resistance Potion III|3|0|0|60|10|+60% DEF
