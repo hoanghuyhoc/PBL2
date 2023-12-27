@@ -4,7 +4,7 @@
 #include <ctime>
 
 Area::Area(std::string name, int level, double encounterchance)
-    : Name(name), Level(level), EncounterChance(encounterchance) {
+    : Name(name), Level(level), EncounterChance(encounterchance), CurrentNodeIndex(0) {
     NodeNumber = 5;
     std::srand(std::time(0));  // Initialize random seed
     generateNode();
@@ -33,6 +33,8 @@ void Area::generateNode() {
         double randChance = (std::rand() % 100) / 100.0;
         if (i == NodeNumber - 1 && Level == 3) {
             Nodes[i] = '*';  // Boss node
+        } else if (i == 0 && Level == 1) {
+            Nodes[i] = '+';  // Node đầu tiên của game luôn là Combat
         } else if (randChance < EncounterChance) {
             Nodes[i] = '-';  // Encounter node
         } else {
@@ -47,6 +49,7 @@ void Area::EnterArea() {
 }
 
 Area* Area::EnterNextArea() {
+    CurrentNodeIndex = 0; // Reset node index
     if (NextArea) {
         NextArea->EnterArea();
         return NextArea;
@@ -69,12 +72,16 @@ void Area::ShowMap() {
 }
 
 void Area::EnterNode(int nodeIndex) {
+    CurrentNodeIndex = nodeIndex;
     char nodeType = Nodes[nodeIndex];
     switch (nodeType) {
         case '+': StartCombat(); break;
         case '-': StartEncounter(); break;
         case '*': StartBossBattle(); break;
         default: std::cout << "Invalid node.\n";
+    }
+    if (CurrentNodeIndex == NodeNumber - 1) {
+        EnterNextArea();
     }
 }
 

@@ -11,6 +11,7 @@ private:
     int NodeNumber;
     int Level;
     double EncounterChance;
+    int CurrentNodeIndex; // Track node hiện tại
     char Nodes[5];  // Lưu trữ node type ('+', '-', '*')
     Player *currentPlayer;
     Area *NextArea;
