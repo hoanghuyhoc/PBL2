@@ -2,6 +2,9 @@
 #define AREA_H
 
 #include <string>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "Player.h"
 
 class Area
