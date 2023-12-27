@@ -32,24 +32,24 @@ void Player::Show_Status()
 }   
 void Player::Attack(Enemy &e)
 {
-    double atk=this->getATK(), def=e.getDEF();
-    double damage=atk-def;
+    int atk=this->getATK(), def=e.getDEF();
+    int damage=atk-def;
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Normal attack and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
 }
 void Player::Skill(Enemy &e)
 {
-    double atk=this->getATK(), def=e.getDEF();
-    double damage=(atk-def);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
+    int atk=this->getATK(), def=e.getDEF();
+    int damage=(atk-def);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Skill and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
 }
 void Player::Ultimate(Enemy &e)
 {
-    double atk=this->getATK(), def=e.getDEF();
-    double damage=(atk-def);//*multiplier (dựa trên class, gây thêm số % damage so với bình thường)
+    int atk=this->getATK(), def=e.getDEF();
+    int damage=(atk-def);//*multiplier (dựa trên class, gây thêm số % damage so với bình thường)
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);

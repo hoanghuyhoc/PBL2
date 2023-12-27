@@ -39,7 +39,10 @@ void Area::EnterArea(Player* this_player)
     while (NodeList!=nullptr)
     {    
         NodeList->Enter(this_player,Area::AreaName,Area::Level);
-        std::cout<<"Entering next node...";
+        if (NodeList->EnterNextNode()!=nullptr)
+            std::cout<<"Entering next node...";
+        else
+            break;
         Sleep(2000);
         NodeList=NodeList->EnterNextNode();
     }
