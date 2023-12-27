@@ -8,6 +8,6 @@ class Warrior: public Player
 {
     public:
         Warrior(std::string);
-        void Skill(Enemy&);
+        void Ultimate(Enemy&);
 };
 #endif
