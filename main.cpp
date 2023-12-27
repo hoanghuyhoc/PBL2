@@ -21,8 +21,7 @@ int main()
 {
     do
     {
-        Menu::StartMenu(Menu::PlayStatus);
-        if (Menu::PlayStatus==2) break;
+        if (Menu::StartMenu()==2) break;
         Player *mainplayer=nullptr;
         Menu::StartGame(mainplayer);
 
@@ -37,6 +36,10 @@ int main()
         }
         std::string line;
         Area* AreaList=nullptr;
+        {//Skip first line
+            std::getline(AreaFileList,line);
+            line="";
+        }
         while (std::getline(AreaFileList,line))
         {
             std::istringstream input(line);
@@ -46,12 +49,20 @@ int main()
             Area* temp=new Area(name,nodenumber,level,nullptr);
             temp->InsertIntoAreaList(AreaList);
         }
+        AreaFileList.close();
 
         //Chạy từng Area
-        while (AreaList!=nullptr)
+        try
         {
-            AreaList->EnterArea(mainplayer);
-            AreaList=AreaList->EnterNextArea();
+            while (AreaList!=nullptr)
+            {
+                AreaList->EnterArea(mainplayer);
+                AreaList=AreaList->EnterNextArea();
+            }
+        }
+        catch(int life)
+        {
+            if (life==2) continue;
         }
         //destructor
             //delete AreaList
@@ -61,8 +72,7 @@ int main()
                     AreaList=AreaList->EnterNextArea();
                     delete temp;
                 }
-        //delete mainplayer;
-        delete mainplayer;
-    } while (Menu::PlayStatus!=2);
+        //delete mainplayer
+    } while (1);
     return 0;
 }

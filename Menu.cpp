@@ -5,8 +5,9 @@ void clear_cin()
     std::cin.clear();
     std::cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
-void Menu::StartMenu(int &Start_Menu_Option)
+int Menu::StartMenu()
 {
+    int Start_Menu_Option;
     do
     {
         system("cls");
@@ -32,6 +33,7 @@ void Menu::StartMenu(int &Start_Menu_Option)
             Sleep(2000);
         }
     } while ((Start_Menu_Option!=1)&&(Start_Menu_Option!=2));
+    return Start_Menu_Option;
 }
 void Menu::StartGame(Player *&player)
 {
@@ -106,7 +108,7 @@ void Menu::StartGame(Player *&player)
         }
     }
 }
-void Menu::BattleScreen(Player* &player, Enemy monster)
+void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
 {
     system("cls");
     std::cout<<"You have encountered an enemy\n";
@@ -119,6 +121,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster)
         do
         {
             using namespace std;
+            cout<<"Area: "<<AreaName<<"     Level: "<<AreaLevel<<endl;
             ostringstream screen[4];
             screen[0]<<"    "<<player->getName()<<"        "<<monster.getName()<<endl;
             int max=screen[0].str().length();
@@ -138,6 +141,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster)
             std::cout<<"1. [Attack]    | Use your Normal attack"<<endl<<setw(4)<<""<<"Choose your action:";
             clear_cin();
             std::cin>>Battle_Option;
+            std::cout<<std::endl<<string(max,'-')<<std::endl;
             if (Battle_Option!=1) 
             {
                 std::cout<<"\nThere's no such option! Please choose again!\n";
@@ -152,14 +156,16 @@ void Menu::BattleScreen(Player* &player, Enemy monster)
     } while(player->getHP()>0 && monster.getHP()>0);
     if (player->getHP()>0) 
     {
-        std::cout<<"Congratulations! You have defeated an enemy!";
+        std::cout<<"Congratulations! You have defeated an enemy!\n";
         Sleep(3000);
         player->Gain_XP( monster.Give_XP() );
+        player->setHP(player->getMaxHP());
     }
     if (player->getHP()<=0)
     {
-        std::cout<<"\n\nYou have been defeated!";
+        //std::cout<<"\n\nYou have been defeated!";
+        std::cout<<"You have been defeated! Going back to Start Menu...";
         Sleep(3000);
-        Menu::PlayStatus=2;
+        throw 2;
     }
 }

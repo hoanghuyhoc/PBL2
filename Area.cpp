@@ -29,18 +29,43 @@ Area::Area(std::string name, int nodenumber, int level, Area* Next)
 
 void Area::EnterArea(Player* this_player)
 {
-    Nodes node3(1,3,nullptr);
-    Nodes node2(1,2,&node3);
-    Nodes node1(1,1,&node2);
-    Nodes* pointer=&node1;
-    while(pointer!=nullptr)
+    Nodes* NodeList=nullptr;
+    for(int i=1; i<=this->NodeNumber; i++)
     {
-        pointer->Enter(this_player);
-        if (Menu::PlayStatus==2) return;
-        pointer=pointer->EnterNextNode();
+        Nodes* temp= new Nodes(1,i,nullptr);
+        temp->InsertIntoNodeList(NodeList);
     }
+
+    while (NodeList!=nullptr)
+    {    
+        NodeList->Enter(this_player,Area::AreaName,Area::Level);
+        std::cout<<"Entering next node...";
+        Sleep(2000);
+        NodeList=NodeList->EnterNextNode();
+    }
+    std::cout<<"Congratulations! You have cleared this Area!";
+    Sleep(2000);
 }
-Area* Area::EnterNextArea()
+Area* &Area::EnterNextArea()
 {
     return this->NextArea;
+}
+
+int Area::getLevel()
+{
+    return this->Level;
+}
+
+void Area::InsertIntoAreaList(Area *&List)
+{
+    if (List==nullptr) List=this;
+    else
+    {
+        Area *after=List;
+        while( (after->EnterNextArea()!=nullptr) && (after->getLevel()<this->Level) ) 
+        {
+            after=after->EnterNextArea();
+        }
+        after->EnterNextArea()=this;
+    }
 }

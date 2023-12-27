@@ -13,9 +13,8 @@
 #include "Enemy.h"
 namespace Menu
 {
-    inline int PlayStatus=1;
-    void StartMenu(int&);
+    int StartMenu();
     void StartGame(Player*&);
-    void BattleScreen(Player*&, Enemy);
+    void BattleScreen(Player*&, Enemy, std::string, int);
 };
 #endif

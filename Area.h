@@ -14,6 +14,8 @@ class Area
     public:
         Area(std::string, int, int, Area*);
         void EnterArea(Player*);
-        Area* EnterNextArea();
+        Area* &EnterNextArea();
+        int getLevel();
+        void InsertIntoAreaList(Area* &List);
 };
 #endif
