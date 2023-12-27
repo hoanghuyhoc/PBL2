@@ -5,12 +5,12 @@
 class Weapon
 {
     private:
-        int ID;
         std::string Name;
-        std::string Desc;
         int bonusHP;
         int bonusATK;
         int bonusDEF;
+        std::string Desc;
+        // Weapon ni tương tự Item luôn nghe
     public:
         Weapon(int id, std::string &name, std::string &desc, int hp, int atk, int def);
         int getID();
