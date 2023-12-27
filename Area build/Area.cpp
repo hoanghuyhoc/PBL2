@@ -1,7 +1,5 @@
 #include "Area.h"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+
 
 Area::Area(std::string name, int level, double encounterchance)
     : Name(name), Level(level), EncounterChance(encounterchance), CurrentNodeIndex(0) {
@@ -64,7 +62,7 @@ void Area::ShowMap() {
               << currentPlayer->getLevel() << " | " << currentPlayer->getXP() 
               << " / " << currentPlayer->getLevel()*100 + 1 << " XP\n";
     std::cout << "Area " << getLevel() << "\n";
-    std::cout << Name << "\n";
+    std::cout << Area::Name << "\n";
     for (int i = 0; i < NodeNumber; ++i) {
         std::cout << Nodes[i] << " ";
     }
