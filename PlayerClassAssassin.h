@@ -6,6 +6,6 @@ class Assassin: public Player
 {
     public:
         Assassin(std::string);
-        void Skill(Enemy&);
+        void Ultimate(Enemy&);
 };
 #endif

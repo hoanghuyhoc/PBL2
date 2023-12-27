@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+//#ifndef PLAYER_H
+//#define PLAYER_H
 #include "Character.h"
 #include "Enemy.h"
 // #include "Item.h"
@@ -28,4 +28,4 @@ class Player: public Character
         //void useItem(int itemID);
         friend class Enemy;
 };
-#endif 
+//#endif 

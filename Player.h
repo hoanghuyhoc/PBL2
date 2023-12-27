@@ -18,7 +18,8 @@ class Player: public Character
         Player(std::string, double, double, double, std::string);
         void Show_Status();
         void Attack(Enemy&);
-        virtual void Skill(Enemy&)=0;
+        virtual void Skill(Enemy&);
+        virtual void Ultimate(Enemy&);
         //void Using_Item(); //chắc truy xuất tới hàm dùng item của cái class item
         void Show_Description();
         void Show_Skill_Description();
