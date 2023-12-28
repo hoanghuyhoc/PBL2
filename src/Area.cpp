@@ -1,5 +1,16 @@
 #include "Area.h"
 
+#ifndef EXTRACT_OP
+#define EXTRACT_OP
+//Ham de nhap string
+std::istream& operator>>(std::istream& in1, std::string& str1)
+{
+    in1>>std::ws;
+    std::getline(in1,str1,'.');
+    return in1;
+}
+#endif
+
 Area::Area():AreaName(""),NodeNumber(0),Level(0)
 {
     this->NextArea=nullptr;
@@ -39,7 +50,7 @@ void Area::EnterArea(Player* this_player)
     for(int i=1; i<=this->NodeNumber; i++)
     {
         int type=1, encounter_count=0, combat_count=0;
-        if ((RandomInt(1,3)==3||combat_count>=3)&&encounter_count<2) 
+        if ((RandomInt(1,2)==3||combat_count>=3)&&encounter_count<2) 
         //Neu du 3 combat lien tiep thi se la Encounter, hoac 2 encounter lien tiep thi la combat 
         {
             type=2; //Neu random ra 3 thi se la Encounter (Type=2);
@@ -59,17 +70,17 @@ void Area::EnterArea(Player* this_player)
     while (NodeList!=nullptr)
     {    
         NodeList->Enter(this_player,Area::AreaName,Area::Level);
-        if (NodeList->EnterNextNode()!=nullptr)
+        if (NodeList->EnterNext()!=nullptr)
             std::cout<<"Entering next node...";
         else
             break;
         Sleep(2000);
-        NodeList=NodeList->EnterNextNode();
+        NodeList=NodeList->EnterNext();
     }
     std::cout<<"Congratulations! You have cleared this Area!";
     Sleep(2000);
 }
-Area* &Area::EnterNextArea()
+Area* &Area::EnterNext()
 {
     return this->NextArea;
 }
@@ -85,11 +96,11 @@ void Area::InsertIntoList(Area *&List)
     else
     {
         Area *after=List;
-        while( (after->EnterNextArea()!=nullptr) && (after->getLevel()<this->Level) ) 
+        while( (after->EnterNext()!=nullptr) && (after->getLevel()<this->Level) ) 
         {
-            after=after->EnterNextArea();
+            after=after->EnterNext();
         }
-        after->EnterNextArea()=this;
+        after->EnterNext()=this;
     }
 }
 std::istream &operator>>(std::istream& input, Area& object)

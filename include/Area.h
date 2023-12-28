@@ -17,7 +17,7 @@ class Area
         Area();
         Area(std::string, int, int, Area*);
         void EnterArea(Player*);
-        Area* &EnterNextArea();
+        Area* &EnterNext();
         int getLevel();
         void InsertIntoList(Area* &List);
         friend std::istream& operator>>(std::istream&, Area&);

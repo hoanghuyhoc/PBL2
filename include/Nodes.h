@@ -16,8 +16,9 @@ class Nodes
         int getType();
         int getLocation();
         void Enter(Player*,std::string, int);
-        Nodes* &EnterNextNode();
+        Nodes* &EnterNext();
         void InsertIntoNodeList(Nodes *&List);
         friend std::ostream& operator<<(std::ostream&, const Nodes&);
+        friend std::istream &operator>>(std::istream&, Nodes&);
 };
 #endif

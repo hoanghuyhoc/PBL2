@@ -1,4 +1,8 @@
+#ifndef RANDOMIZER_H
+#define RANDOMIZER_H
 #include <random>
+
+//Random between x and y
 int RandomInt(int x, int y) 
 {
     // Create a random number generator
@@ -9,3 +13,4 @@ int RandomInt(int x, int y)
     // Generate and output the random number
     return distr(gen);
 }
+#endif

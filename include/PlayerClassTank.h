@@ -6,6 +6,8 @@ class Tank: public Player
 {
     public:
         Tank(std::string);
+        ~Tank();
         void Ultimate(Enemy&);
+        void Level_Up();
 };
 #endif

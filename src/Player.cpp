@@ -1,13 +1,15 @@
 #include"Player.h"
-#include <windows.h>
-#include<iostream>
-#include<iomanip>
-#include"read_description.cpp"
+
 Player::Player(std::string name, int maxhp, int atk, int def, std::string PClass)
         :Character(name, 1, maxhp, atk, def), XP(0.0), Money(0), SP(0),Player_Class(PClass)
 {
-    // this->Player_Item=nullptr;
-    // this->equippedWeapon=nullptr;
+    this->Player_Item=nullptr;
+    this->Player_Weapon=nullptr;
+}
+Player::~Player()
+{
+    this->Player_Item=nullptr;
+    this->Player_Weapon=nullptr;
 }
 void Player::Show_Status()
 {
@@ -63,21 +65,29 @@ void Player::Show_Skill_Description()
 {
     read_txt("Skill description\\"+this->Player_Class);
 }
-void Player::Gain_XP(int xp_gained)
+void Player::gainXP(int xp_gained)
 {
     std::cout<<"You gained "<<xp_gained<<" XP !\n";
-    Sleep(1500);
+    Sleep(1200);
     this->XP+=xp_gained;
     while(this->XP>=(this->getLevel()*100))
     {
         this->XP-=(this->getLevel()*100);
-        this->setLevel(this->getLevel()+1);
-        std::cout<<"Leveled up! Current level: "<<this->getLevel()<<std::endl;
-        std::cout<<"XP left to level up: "<<this->XP<<'/'<<this->getLevel()*100<<std::endl;
-        Sleep(3000);
+        this->Level_Up();
     }
 }
-
+int Player::getXP()
+{
+    return this->XP;
+}
+const Player::useItem()
+{
+    this->Item;
+}
+std::string Player::returnClass()
+{
+    return this->Player_Class;
+}
 // void Player::equipWeapon(Weapon& w)
 // {
 //     this->equippedWeapon=&w;

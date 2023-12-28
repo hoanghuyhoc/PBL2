@@ -171,7 +171,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
     {
         std::cout<<"[COMBAT] CONGRATULATIONS! You have defeated an enemy!";
         Sleep(3000);
-        player->Gain_XP( monster.Give_XP() );
+        player->gainXP( monster.Give_XP() );
         player->setHP(player->getMaxHP());
     }
     if (player->getHP()<=0)

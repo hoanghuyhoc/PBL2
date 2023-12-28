@@ -1,7 +1,7 @@
 #include"Nodes.h"
 Nodes::Nodes(int type, int location, Nodes* next_node):Type(type), Location(location), NextNode(next_node) 
 {}
-Nodes* &Nodes::EnterNextNode()
+Nodes* &Nodes::EnterNext()
 {
     return this->NextNode;
 }
@@ -16,11 +16,11 @@ void Nodes::InsertIntoNodeList(Nodes *&List)
     else
     {
         Nodes *after=List;
-        while( (after->EnterNextNode()!=nullptr) && (after->getLocation()<this->Location) ) 
+        while( (after->EnterNext()!=nullptr) && (after->getLocation()<this->Location) ) 
         {
-            after=after->EnterNextNode();
+            after=after->EnterNext();
         }
-        after->EnterNextNode()=this;
+        after->EnterNext()=this;
     }
 }
 int Nodes::getType()

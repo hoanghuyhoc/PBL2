@@ -2,6 +2,8 @@
 #define ITEM_H
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 class Item
 {
     private:
@@ -15,8 +17,8 @@ class Item
 
     public:
         Item(int, std::string , int , int , int , int , int , std::string );
-        int getID();
-        
         void useItem();
+        friend std::istream &operator>>(std::istream&, Item&);
+        void InsertIntoList(Item*&);
 };
 #endif

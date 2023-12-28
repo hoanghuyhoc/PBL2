@@ -1,0 +1,2 @@
+ý tưởng làm Node sẽ là random number, nếu đạt Encounter chance thì là Encounter
+nếu chia đôi Encounter  thì k chạy bảng được

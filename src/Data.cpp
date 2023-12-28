@@ -9,9 +9,20 @@ void Data::InputDataFromTxt(std::fstream& FileList, C *&List)
     }
     while (std::getline(FileList,line))
     {
-        std::istringstream input(line);
+        std::istringstream inputline(line);
         C* temp=new C();
-        input>>(*temp);
+        inputline>>(*temp);
         temp->InsertIntoList(List);
     }
+}
+template<class C>
+void DeleteData(C *&List)
+{
+    C* temp=nullptr;
+    while(List!=nullptr)
+        {
+            temp=List;
+            List=List->EnterNext();
+            delete temp;
+        }
 }

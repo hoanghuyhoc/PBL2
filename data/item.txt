@@ -1,4 +1,4 @@
-1|Health Potion I|1|30|0|0|3|Heals 30 HP
+1 Health Potion I. 1 30 0 0 3 Heals 30 HP.
 2|Health Potion II|1|60|0|0|5|Heals 60 HP
 3|Health Potion III|1|100|0|0|7|Heals 100 HP
 4|Strength Potion I|2|0|10|0|5|+10% ATK
