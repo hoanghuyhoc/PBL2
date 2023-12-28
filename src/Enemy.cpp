@@ -9,7 +9,7 @@ void Enemy::Attack(Player& p)
     int atk=this->getATK(), def=p.getDEF();
     int damage=atk*(atk/def);
     p.setHP(p.getHP()-damage);
-    std::cout<<"The enemy have inflicted "<<damage<<" damage on your character!\n";
+    std::cout<<"[COMBAT] The enemy has inflicted "<<damage<<" Damage to you!\n";
     Sleep(3000);
 }
 void Enemy::Show_Description()

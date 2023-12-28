@@ -147,8 +147,8 @@ int Menu::ShowStats(Player* &player, Enemy monster, std::string AreaName, int Ar
     std::cout<<endl<<string(max,'-')<<endl;
 
     std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
-    std::cout<<"2. [Skill] - Use your Skill attack. Consumes 1 Skill Point"<<endl;
-    std::cout<<"3. [Ultimate] - Use your Skill attack. Consumes 5 Skill Points"<<endl;
+    std::cout<<"2. [Skill] - Use your Skill attack. [Consumes 1 Skill Point]"<<endl;
+    std::cout<<"3. [Ultimate] - Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
     std::cout<<"4. [Use Item] - Use your Item"<<endl;
     std::cout<<std::endl<<std::string(max,'-')<<std::endl;
     return max;
@@ -226,7 +226,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
     }
     if (player->getHP()<=0)
     {
-        std::cout<<"\n\n[COMBAT] You have been defeated...";
+        std::cout<<"\n\n[COMBAT] You have been defeated...\nThis was as far as you can go...\n\nGoing back to main menu...";
         Sleep(3000);
         throw 2;
     }
