@@ -65,4 +65,4 @@ void Player::Gain_XP(double xp_gained)
 // void Player::equipWeapon(Weapon& w)
 // {
 //     this->equippedWeapon=&w;
-// } 
+// }
