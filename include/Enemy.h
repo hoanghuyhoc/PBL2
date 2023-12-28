@@ -8,14 +8,15 @@ class Enemy: public Character
 {
     private:
         std::string Description;
-        std::string LootID;
+        int LootID;
         int XP;
+        int Money;
     public:
-        Enemy(std::string, int, int, int, int, std::string, std::string, int);
+        Enemy(std::string, int, int, int, int, std::string, int, int, int);
         void Attack(Player&);
-        void Show_Description();
+        std::string Show_Description();
         int Give_XP();
-        //void Return_Loot();
+        int Return_Loot();
         friend class Player;
 };
 #endif

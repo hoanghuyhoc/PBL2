@@ -4,12 +4,12 @@ Player::Player(std::string name, int maxhp, int atk, int def, std::string PClass
         :Character(name, 1, maxhp, atk, def), XP(0.0), Money(0), SP(0),Player_Class(PClass)
 {
     this->Player_Item=nullptr;
-    //this->Player_Weapon=nullptr;
+    this->Player_Weapon=nullptr;
 }
 Player::~Player()
 {
     this->Player_Item=nullptr;
-    //this->Player_Weapon=nullptr;
+    this->Player_Weapon=nullptr;
 }
 void Player::Show_Status()
 {
@@ -35,7 +35,7 @@ void Player::Show_Status()
 void Player::Attack(Enemy &e)
 {
     int atk=this->getATK(), def=e.getDEF();
-    int damage=atk-def;
+    int damage=(atk*0.5*atk/def)+RandomInt(-3,3);
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Normal attack and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
@@ -43,7 +43,7 @@ void Player::Attack(Enemy &e)
 void Player::Skill(Enemy &e)
 {
     int atk=this->getATK(), def=e.getDEF();
-    int damage=(atk-def);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
+    int damage=(((atk-def)>0)? (atk-def):1 )*(this->Player_Weapon->getBonusATK())/100;//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Skill and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
@@ -102,11 +102,15 @@ void Player::setSP(int sp)
 {
     this->SP=sp;
 }
-// void Player::equipWeapon(Weapon* w)
-// {
-//     this->Player_Weapon=w;
-// }
+void Player::equipWeapon(Weapon* w)
+{
+    this->Player_Weapon=w;
+}
 void Player::equipItem(Item* w)
 {
     this->Player_Item=w;
+}
+int& Player::getMoney()
+{
+    return this->Money;
 }

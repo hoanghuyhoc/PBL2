@@ -5,83 +5,10 @@ Item::Item(int id, std::string name, int category, int hp, int atk, int def, int
 {
     this->NextItem=next;
 }
-
-
-// Hieu ung vat pham
-// void Item::itemEffects() 
-// {
-//     switch(itemID){
-//         case 1:
-//         {
-//             // Potion of Healing I: HP +50
-//             break;
-//         }
-//         case 2:
-//         {
-//             // Potion of Healing II: HP +100
-//             break;
-//         }
-//         case 3:
-//         {
-//             // Potion of Strength I: ATK +20 for 3 turns
-//             break;
-//         }
-//         case 4:
-//         {
-//             // Potion of Strength II: ATK +30 for 4 turns
-//             break;
-//         }
-//         case 5:
-//         {
-//             // Potion of Defense I: DEF +20 for 4 turns
-//             break;
-//         }
-//         case 6:
-//         {
-//             // Potion of Defense II: ATK +30 for 5 turns
-//             break;
-//         }
-//         case 7:
-//         {
-//             // 
-//         }
-
-//     }
-// }
-
-// std::vector<Item> readItemsFromFile(const std::string& filename) {
-//     std::vector<Item> items;
-
-//     std::ifstream file(filename);
-//     if (!file.is_open()) {
-//         std::cerr << "[ERROR] Loi doc file!\n";
-//         return items;
-//     }
-
-//     std::string line;
-//     while (std::getline(file, line)) {
-//         std::istringstream iss(line);
-//         int id, price, quantity;
-//         std::string name, desc, category;
-
-//         if (iss >> id >> name >> desc >> category >> price >> quantity) {
-//             items.emplace_back(id, name, desc, category, price, quantity);
-//         } else {
-//             std::cerr << "[ERROR] Khong doc duoc item ID so: " << line << "\n";
-//             // De hanh dong sau khi bao loi, bo qua file hoac thoat vong lap
-//         }
-//     }
-//     file.close();
-//     return items;
-#ifndef EXTRACT_OP
-#define EXTRACT_OP
-std::istream &operator>>(std::istream& in, std::string& str)
+Item::Item():ID(0), Name(""), Category(0), HP(0), ATK(0), DEF(0), Price(), Description("")
 {
-    in>>std::ws;
-    std::getline(in,str,'.');
-    return in;
-} 
-#endif
+    this->NextItem=nullptr;
+}
 std::istream &operator>>(std::istream& input, Item& obj)
 {
     input>>obj.ID>>obj.Name>>obj.Category>>obj.HP>>obj.ATK>>obj.DEF>>obj.Price>>obj.Description;
@@ -119,13 +46,21 @@ void Item::useItem(Player& this_player)
         }
         case 2:
         {
-            this_player.setATK(this_player.getATK()+this->ATK);
+            this_player.setATK(this_player.getATK()*(1+((this->ATK)/100)));
             break;
         }
         case 3:
         {
-            this_player.setDEF(this_player.getDEF()+this->DEF);
+            this_player.setDEF(this_player.getDEF()*(1+((this->DEF)/100)));
             break;
         }
     }
+}
+std::string Item::getName()
+{
+    return this->Name;
+}
+int Item::getPrice()
+{
+    return this->Price;
 }

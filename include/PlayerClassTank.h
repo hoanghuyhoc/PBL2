@@ -2,6 +2,8 @@
 #define PLAYERCLASSTANKER_H
 #include "Player.h"
 #include <string>
+#include <iostream>
+#include "Enemy.h"
 class Tank: public Player
 {
     public:

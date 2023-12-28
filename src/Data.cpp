@@ -3,10 +3,6 @@ template<class C>
 void Data::InputDataFromTxt(std::fstream& FileList, C *&List)
 {
     std::string line;
-    {//Skip first line
-        std::getline(FileList,line);
-        line="";
-    }
     while (std::getline(FileList,line))
     {
         std::istringstream inputline(line);
@@ -16,7 +12,7 @@ void Data::InputDataFromTxt(std::fstream& FileList, C *&List)
     }
 }
 template<class C>
-void DeleteData(C *&List)
+void Data::DeleteData(C *&List)
 {
     C* temp=nullptr;
     while(List!=nullptr)

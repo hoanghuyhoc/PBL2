@@ -6,24 +6,22 @@
 #include "Character.h"
 #include "Player.h"
 #include "Enemy.h"
-// #include "Item.h"
-// #include "Weapon.h"
+#include "Item.h"
+#include "Weapon.h"
 #include "PlayerClassAssassin.h"
 #include "PlayerClassTank.h"
 #include "PlayerClassWarrior.h"
 #include "Menu.h"
 #include "Area.h"
 #include "Nodes.h"
-#include "Data.h"
+#include "Data.cpp"
 #include "Item.h"
-
-#define check_loop if (StartMenuOption==2) continue;
 
 int main()
 {
 //Nhap tu Area.txt
     std::fstream FileList;
-    FileList.open("data\\area.txt");
+    FileList.open("D:\\PBL2\\data\\area.txt",std::ios::in);
     if (!FileList.is_open())
     {
         std::cerr<<"Cannot open data file!\n";
@@ -35,7 +33,7 @@ int main()
     FileList.close();
 
 //Nhap Item tu item.txt
-    FileList.open("data\\item.txt");
+    FileList.open("D:\\PBL2\\data\\item.txt",std::ios::in);
     if (!FileList.is_open())
     {
         std::cerr<<"Cannot open data file!\n";
@@ -47,7 +45,7 @@ int main()
     FileList.close();
 
 //Nhap Weapon tu weapon.txt
-    FileList.open("data\\weapon.txt");
+    FileList.open("D:\\PBL2\\data\\weapon.txt",std::ios::in);
     if (!FileList.is_open())
     {
         std::cerr<<"Cannot open data file!\n";
@@ -70,8 +68,9 @@ int main()
         {
             while (AreaList!=nullptr)
             {
-                mainplayer->equipItem(new Item(1, "kiem", 1, 10, 0, 0, 0, "",nullptr));
-                AreaList->EnterArea(mainplayer);
+                AreaList->setPlayer(mainplayer);
+                AreaList->EnterArea(ItemList);
+                AreaList->setPlayer(nullptr);
                 AreaList=AreaList->EnterNext();
             }
         }
@@ -84,7 +83,9 @@ int main()
     //delete AreaList
         Data::DeleteData<Area>(AreaList);
     //delete ItemList
-        // Data::DeleteData<Item>(ItemList);
+        Data::DeleteData<Item>(ItemList);
+    //delete WeaponList
+        Data::DeleteData<Weapon>(WeaponList);
     //delete mainplayer
         if (mainplayer->returnClass()=="Warrior")
             delete dynamic_cast<Warrior*>(mainplayer);

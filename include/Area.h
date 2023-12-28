@@ -6,17 +6,20 @@
 #include "Menu.h"
 #include "Data.h"
 #include "randomizer.h"
+#include "extract_operator.h"
 class Area
 {
     private:   
         std::string AreaName;
         int NodeNumber;
         int Level;
+        Player* player;
         Area *NextArea;
     public:
         Area();
         Area(std::string, int, int, Area*);
-        void EnterArea(Player*);
+        void setPlayer(Player*);
+        void EnterArea(Item*);
         Area* &EnterNext();
         int getLevel();
         void InsertIntoList(Area* &List);

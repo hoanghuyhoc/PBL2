@@ -1,14 +1,14 @@
-1|Wooden Sword|Skill: Deals 120% damage|0|10|0
-2|Stone Sword|Skill: Deals 120% damage|0|15|0
-3|Iron Sword|Skill: Deals 120% damage|0|20|0
-4|Diamond Sword|Skill: Deals 120% damage|0|25|0
-5|Reinforced Sword|Skill: Deals 120% damage|0|35|0
-6|Golem Sword|Skill: Deals 120% damage|0|20|5
-7|Hunter's Knife|Skill: Deals 120% damage|-20|25|0
-8|Mercenary Axe|Skill: Deals 120% damage|0|15|10
-9|Zombie Sword|Skill: Deals 120% damage|30|20|0
-10|Master Tactician Sword|Skill: Deals 150% damage|0|28|3
-11|Raider Axe|Skill: Deals 150% damage|-10|25|0
-12|Dreadlord Sword|Skill: Deals 150% damage|0|40|2
-13|Giant Sword|Skill: Deals 150% damage|150|50|0
-14|Silent Death|Skill: Deals 200% damage|-50|50|5
+1 Wooden Sword. 0 10 0 Skill: Deals 120% damage.
+2 Stone Sword. 0 15 0 Skill: Deals 120% damage.
+3 Iron Sword. 0 20 0 Skill: Deals 120% damage.
+4 Diamond Sword. 0 25 0 Skill: Deals 120% damage.
+5 Reinforced Sword. 0 35 0 Skill: Deals 120% damage.
+6 Golem Sword. 0 20 5 Skill: Deals 120% damage.
+7 Hunter's Knife. -20 25 0 Skill: Deals 120% damage.
+8 Mercenary Axe. 0 15 10 Skill: Deals 120% damage.
+9 Zombie Sword. 30 20 0 Skill: Deals 120% damage.
+10 Master Tactician Sword. 0 28 3 Skill: Deals 150% damage.
+11 Raider Axe. -10 25 0 Skill: Deals 150% damage.
+12 Dreadlord Sword. 0 40 2 Skill: Deals 150% damage.
+13 Giant Sword. 150 50 0 Skill: Deals 150% damage.
+14 Silent Death. -50 50 5 Skill: Deals 200% damage.

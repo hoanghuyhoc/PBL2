@@ -1,6 +1,9 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 #include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include "Player.h"
 class Weapon
 {
@@ -14,6 +17,7 @@ class Weapon
         Weapon *NextWeapon;
         // Weapon ni tương tự Item luôn nghe
     public:
+        Weapon();
         Weapon(int, std::string, std::string, int, int, int, Weapon*);
         int getID();
         std::string getName();

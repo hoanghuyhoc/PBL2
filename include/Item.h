@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "Player.h"
+#include "extract_operator.h"
 class Player;
 class Item
 {
@@ -18,11 +19,15 @@ class Item
         std::string Description; // cái ni ghi ngắn ngắn thôi he, đừng xuống hàng
         Item* NextItem;
     public:
+        Item();
         Item(int, std::string , int , int , int , int , int , std::string, Item* );
         void useItem(Player&);
         friend std::istream &operator>>(std::istream&, Item&);
         void InsertIntoList(Item*&);
         int getID();
         Item *&EnterNext();
+        std::string getName();
+        int getPrice();
+
 };
 #endif

@@ -6,8 +6,12 @@
 #include "Weapon.h"
 #include <windows.h>
 #include <iostream>
+#include <sstream>
 #include <iomanip>
-//#include "src\\read_description.cpp"
+#include "randomizer.h"
+
+class Item;
+class Weapon;
 class Enemy;
 class Player: public Character
 {
@@ -15,12 +19,12 @@ class Player: public Character
         int XP;
         Weapon *Player_Weapon;
         Item *Player_Item;
-        long Money;
+        int Money;
         int SP;
         std::string Player_Class;
     public:
         Player(std::string, int, int, int, std::string);
-        ~Player();
+        virtual ~Player();
         void Show_Status();
         void Attack(Enemy&);
         void Skill(Enemy&);
@@ -36,6 +40,7 @@ class Player: public Character
         void setSP(int);
         void equipWeapon(Weapon*);
         void equipItem(Item*);
+        int& getMoney();
         friend class Enemy;
 };
 #endif
