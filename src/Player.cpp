@@ -77,6 +77,7 @@ void Player::Gain_XP(int xp_gained)
         Sleep(3000);
     }
 }
+
 // void Player::equipWeapon(Weapon& w)
 // {
 //     this->equippedWeapon=&w;
