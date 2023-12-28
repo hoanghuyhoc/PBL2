@@ -14,6 +14,7 @@
 #include "Menu.h"
 #include "Area.h"
 #include "Nodes.h"
+#include "Data.h"
 
 #define check_loop if (StartMenuOption==2) continue;
 
@@ -25,7 +26,7 @@ int main()
         Player *mainplayer=nullptr;
         Menu::StartGame(mainplayer);
 
-        //khởi tạo danh sách Area từ file txt
+        //Nhap tu Area.txt
         std::fstream AreaFileList;
         AreaFileList.open("Area.txt");
         if (!AreaFileList.is_open())
@@ -34,23 +35,9 @@ int main()
             system("pause");
             return 1;
         }
-        std::string line;
         Area* AreaList=nullptr;
-        {//Skip first line
-            std::getline(AreaFileList,line);
-            line="";
-        }
-        while (std::getline(AreaFileList,line))
-        {
-            std::istringstream input(line);
-            std::string name; 
-            int nodenumber, level;
-            input>>name>>nodenumber>>level;
-            Area* temp=new Area(name,nodenumber,level,nullptr);
-            temp->InsertIntoAreaList(AreaList);
-        }
-        AreaFileList.close();
-
+        Data::InputDataFromTxt<Area>(AreaFileList,AreaList);
+        
         //Chạy từng Area
         try
         {
@@ -64,6 +51,7 @@ int main()
         {
             if (life==2) continue;
         }
+        
         //destructor
             //delete AreaList
                 while(AreaList!=nullptr)

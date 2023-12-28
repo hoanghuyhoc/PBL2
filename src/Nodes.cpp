@@ -37,3 +37,8 @@ std::ostream& operator<< (std::ostream& o, const Nodes& n)
     <<((n.NextNode!=nullptr)? 1 :0)<<std::endl;
     return o;
 }
+std::istream &operator>>(std::istream& input, Nodes& object)
+{
+    input>>object.Type>>object.Location;
+    return input;
+}

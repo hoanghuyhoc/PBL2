@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Nodes.h"
 #include "Menu.h"
+#include "Data.h"
+#include "randomizer.h"
 class Area
 {
     private:   
@@ -12,10 +14,12 @@ class Area
         int Level;
         Area *NextArea;
     public:
+        Area();
         Area(std::string, int, int, Area*);
         void EnterArea(Player*);
         Area* &EnterNextArea();
         int getLevel();
-        void InsertIntoAreaList(Area* &List);
+        void InsertIntoList(Area* &List);
+        friend std::istream& operator>>(std::istream&, Area&);
 };
 #endif
