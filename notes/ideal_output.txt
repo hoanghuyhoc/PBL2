@@ -11,13 +11,12 @@ IDEAL OUTPUT
            |                                                                               |
            |      ___________________________________________________________________      |
            |                                                                               |
-           |                                                                               |
-           |                            PRESS ANY KEY TO START                             |
-           |                                                                               |
+           |                           [1] Enter the Dungeons                              |
+           |                           [2] Exit game                                       |
            |      ___________________________________________________________________      |
            |                                                                               |
-           |                                           Made by ...                         |
-           |                                                                               |
+           |                                           Made by Hoang Huy Hoc               |
+           |                                                   Le Quang Hung               |
            |_______________________________________________________________________________|
 
 
@@ -76,40 +75,49 @@ IDEAL OUTPUT
 
                                         YOU'RE ENTERING
 
-                                               O
 
 
-                                            Floor 1
+                                            Area 1
                                          Gloomy Forest
 
 
 6
-   LVL 1 || 0/100 XP	Money: 0				[help] to get all commands
-                                      O    Gloomy Forest
+   LVL 1 | 0/100 XP					Money: 0
+                   O    Gloomy Forest
+
+    				 ______|______
+					|             |
+					|   o=|:::>   |
+					|_____________|
+    				 ______|______
+					|             |
+					|   (  ?  )   |
+					|_____________|
+    				 ______|______
+					|             |
+					|   o=|:::>   |
+					|_____________|
+    				 ______|______
+					|             |
+					|   o=|:::>   |
+					|_____________|
+    				 ______|______
+					|             |
+					|   (  ?  )   |
+					|_____________|
+						   
+	Press any key to proceed...
 
 
-
-
-
-
-         _____________          _____________            
-	|             |        |             |               
-	|   o=|:::>   |--------|   (  ?  )   |-----|
-	|_____________|        |____________ |
-
-
-
-
-
-
-
-
-Select [enter,up,bottom]:
+// NOTE: Mỗi lần generate 1 node thì sẽ in ra ntn
+    				 ______|______
+					|             |
+					|   o=|:::>   |
+					|_____________|
 
 7
 
 [GAME] You entered the COMBAT node!
-[COMBAT] You encountered a Slime!
 
                                      WAVE 1/1
 		
@@ -118,19 +126,14 @@ Select [enter,up,bottom]:
 	ATK:   20					ATK:   10
 	DEF:   5					DEF:   0
     SP:    [OOO00]				SP:    [00000]
-______________________________________________________________________________
-	Equipment: 
-	[Wooden Sword] | [No Armor]
-	Buff/Debuff:
-	[None]
+___________________________________________________________
+	Equipment: [Wooden Sword]
 
 	Decide your next action:
 	[attack]	| Use your Normal attack [Gains 1 SP]
 	[skill] 	| Use your Weapon's skill [Costs 1 SP]
 	[ultimate]  | Use your Class' ultimate [Costs 3 SP]
-	[use]		| Use your consumables available
-
-	[help]		| Get all available commands
+	[use]		| Use your items available
 
 	Select: 
 

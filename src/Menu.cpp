@@ -11,8 +11,21 @@ int Menu::StartMenu()
     do
     {
         system("cls");
-        std::cout<<"GAME TITLE\n";
-        std::cout<<"1. Start Game\n"<<"2. Exit\n"<<"Enter your option: ";
+        std::cout<<"            _______________________________________________________________________________\n";
+        std::cout<<"           |                                                                               |\n";
+        std::cout<<"           |                                                                               |\n";
+        std::cout<<"           |                                 TEXT DUNGEONS                                 |\n";
+        std::cout<<"           |                                                                               |\n";
+        std::cout<<"           |      ___________________________________________________________________      |\n";
+        std::cout<<"           |                                                                               |\n";
+        std::cout<<"           |                           [1] Enter the Dungeons                              |\n";
+        std::cout<<"           |                           [2] Exit game                                       |\n";
+        std::cout<<"           |      ___________________________________________________________________      |\n";
+        std::cout<<"           |                                                                               |\n";
+        std::cout<<"           |                                           Made by Hoang Huy Hoc               |\n";
+        std::cout<<"           |                                                   Le Quang Hung               |\n";
+        std::cout<<"           |_______________________________________________________________________________|\n";
+        std::cout<<                 "Enter your option: ";
         std::cin>>Start_Menu_Option;
         if ((Start_Menu_Option!=1)&&(Start_Menu_Option!=2))
         {
@@ -23,7 +36,7 @@ int Menu::StartMenu()
         if (Start_Menu_Option==2) 
         {
             system("cls");
-            std::cout<<"Thank you for playing!";
+            std::cout<<"Exiting...\nThank you for playing!";
             Sleep(3000);
         }
         if (Start_Menu_Option==1)
@@ -38,7 +51,7 @@ int Menu::StartMenu()
 void Menu::StartGame(Player *&player)
 {
     system("cls");
-    std::cout<<"Type your name:";
+    std::cout<<"Tell us your name: ";
     std::string Player_name;
     clear_cin();
     std::getline(std::cin,Player_name,'\n');
@@ -111,7 +124,7 @@ void Menu::StartGame(Player *&player)
 void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
 {
     system("cls");
-    std::cout<<"You have encountered an enemy\n";
+    std::cout<<"[GAME] You have encounter an enemy!\n";
     Sleep(1500);
     int turn=0;
     do
@@ -156,15 +169,14 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
     } while(player->getHP()>0 && monster.getHP()>0);
     if (player->getHP()>0) 
     {
-        std::cout<<"Congratulations! You have defeated an enemy!\n";
+        std::cout<<"[COMBAT] CONGRATULATIONS! You have defeated an enemy!";
         Sleep(3000);
         player->Gain_XP( monster.Give_XP() );
         player->setHP(player->getMaxHP());
     }
     if (player->getHP()<=0)
     {
-        //std::cout<<"\n\nYou have been defeated!";
-        std::cout<<"You have been defeated! Going back to Start Menu...";
+        std::cout<<"\n\n[COMBAT] You have been defeated...";
         Sleep(3000);
         throw 2;
     }
