@@ -121,48 +121,93 @@ void Menu::StartGame(Player *&player)
         }
     }
 }
+int Menu::ShowStats(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
+{
+    using namespace std;
+    string SkillPoint="";
+    for (int i=1; i<=player->getSP();i++) SkillPoint+="O ";
+    cout<<"Area: "<<AreaName<<"     Area Level: "<<AreaLevel<<endl;
+    ostringstream screen[5];
+    screen[0]<<"    "<<player->getName()<<"        "<<monster.getName()<<endl;
+    int max=screen[0].str().length();
+    if (max<34) max=34;
+    screen[0].str(""); screen[0].clear();
+    screen[0]<<"    "<<player->getName()<<setw(max-11-4-player->getName().length())<<""
+    <<monster.getName()<<endl;
+    screen[1]<<"    "<<setw(4)<<left<<"HP:"<<setw(7)<<player->getHP()<<setw(max-26)<<""
+    <<setw(4)<<left<<"HP:"<<setw(7)<<monster.getHP()<<endl;
+    screen[2]<<"    "<<setw(4)<<left<<"ATK:"<<setw(7)<<player->getATK()<<setw(max-26)<<""
+    <<setw(4)<<left<<"ATK:"<<setw(7)<<monster.getATK()<<endl;
+    screen[3]<<"    "<<setw(4)<<left<<"DEF:"<<setw(7)<<player->getDEF()<<setw(max-26)<<""
+    <<setw(4)<<left<<"DEF:"<<setw(7)<<monster.getDEF()<<endl;
+    screen[4]<<endl<<"Skill Points: "<<SkillPoint<<endl;
+
+    for (int i=0; i<4;i++)    
+        std::cout<<screen[i].str();
+    std::cout<<endl<<string(max,'-')<<endl;
+
+    std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
+    std::cout<<"2. [Skill] - Use your Skill attack. Consumes 1 Skill Point"<<endl;
+    std::cout<<"3. [Ultimate] - Use your Skill attack. Consumes 5 Skill Points"<<endl;
+    std::cout<<"4. [Use Item] - Use your Item"<<endl;
+    std::cout<<std::endl<<std::string(max,'-')<<std::endl;
+    return max;
+}
 void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
 {
     system("cls");
     std::cout<<"[GAME] You have encounter an enemy!\n";
     Sleep(1500);
     int turn=0;
+
+    //chuan bi status cua player
+    player->setSP(3);
+    int save_atk=player->getATK(), save_def=player->getDEF();
+
     do
     {
         system("cls");
         int Battle_Option;
         do
         {
-            using namespace std;
-            cout<<"Area: "<<AreaName<<"     Level: "<<AreaLevel<<endl;
-            ostringstream screen[4];
-            screen[0]<<"    "<<player->getName()<<"        "<<monster.getName()<<endl;
-            int max=screen[0].str().length();
-            if (max<34) max=34;
-            screen[0].str(""); screen[0].clear();
-            screen[0]<<"    "<<player->getName()<<setw(max-11-4-player->getName().length())<<""
-            <<monster.getName()<<endl;
-            screen[1]<<"    "<<setw(4)<<left<<"HP:"<<setw(7)<<player->getHP()<<setw(max-26)<<""
-            <<setw(4)<<left<<"HP:"<<setw(7)<<monster.getHP()<<endl;
-            screen[2]<<"    "<<setw(4)<<left<<"ATK:"<<setw(7)<<player->getATK()<<setw(max-26)<<""
-            <<setw(4)<<left<<"ATK:"<<setw(7)<<monster.getATK()<<endl;
-            screen[3]<<"    "<<setw(4)<<left<<"DEF:"<<setw(7)<<player->getDEF()<<setw(max-26)<<""
-            <<setw(4)<<left<<"DEF:"<<setw(7)<<monster.getDEF()<<endl;
-            for (int i=0; i<4;i++)    
-                std::cout<<screen[i].str();
-            std::cout<<string(max,'-')<<endl<<endl;
-            std::cout<<"1. [Attack]    | Use your Normal attack"<<endl<<setw(4)<<""<<"Choose your action:";
+            int max=Menu::ShowStats(player, monster, AreaName, AreaLevel);
+            std::cout<<"Choose your action: ";
             clear_cin();
             std::cin>>Battle_Option;
-            std::cout<<std::endl<<string(max,'-')<<std::endl;
+            std::cout<<std::endl<<std::string(max,'-')<<std::endl;
             if (Battle_Option!=1) 
             {
-                std::cout<<"\nThere's no such option! Please choose again!\n";
+                system("cls");
+                Menu::ShowStats(player, monster, AreaName, AreaLevel);
+                std::cout<<"There's no such option! Please choose again!";
                 Sleep(1500);
                 system("cls");
             }
-        } while(Battle_Option!=1);
-        if (Battle_Option==1) player->Attack(monster);
+        } while(!(Battle_Option==1||Battle_Option==2||Battle_Option==3||Battle_Option==4));
+        switch (Battle_Option)
+        {
+            case 1:
+            {
+                player->Attack(monster);
+                player->setSP(player->getSP()+1);
+                break;
+            }
+            case 2:
+            {
+                player->Skill(monster);
+                break;
+            }
+            case 3:
+            {
+                player->Ultimate(monster);
+                break;
+            }
+            case 4:
+            {
+                player->useItem();
+                break;
+            }
+        }
         if (monster.getHP()>0) monster.Attack(*player);
         turn++;
         system("cls");
@@ -171,8 +216,13 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
     {
         std::cout<<"[COMBAT] CONGRATULATIONS! You have defeated an enemy!";
         Sleep(3000);
+
+        //quay lai chi so cu, neu nhu co tang chi so bang item
+        player->setATK(save_atk);
+        player->setDEF(save_def);
+        player->setSP(3);
+
         player->gainXP( monster.Give_XP() );
-        player->setHP(player->getMaxHP());
     }
     if (player->getHP()<=0)
     {

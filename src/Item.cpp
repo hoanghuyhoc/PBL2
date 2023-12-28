@@ -1,51 +1,53 @@
 #include "Item.h"
 
-Item::Item(int id, std::string name, int category, int hp, int atk, int def, int price, std::string description)
+Item::Item(int id, std::string name, int category, int hp, int atk, int def, int price, std::string description, Item* next)
     : ID(id), Name(name), Category(category), HP(hp), ATK(atk), DEF(def), Price(price), Description(description) 
-{}
+{
+    this->NextItem=next;
+}
 
 
 // Hieu ung vat pham
-void Item::itemEffects() 
-{
-    switch(itemID){
-        case 1:
-        {
-            // Potion of Healing I: HP +50
-            break;
-        }
-        case 2:
-        {
-            // Potion of Healing II: HP +100
-            break;
-        }
-        case 3:
-        {
-            // Potion of Strength I: ATK +20 for 3 turns
-            break;
-        }
-        case 4:
-        {
-            // Potion of Strength II: ATK +30 for 4 turns
-            break;
-        }
-        case 5:
-        {
-            // Potion of Defense I: DEF +20 for 4 turns
-            break;
-        }
-        case 6:
-        {
-            // Potion of Defense II: ATK +30 for 5 turns
-            break;
-        }
-        case 7:
-        {
-            // 
-        }
+// void Item::itemEffects() 
+// {
+//     switch(itemID){
+//         case 1:
+//         {
+//             // Potion of Healing I: HP +50
+//             break;
+//         }
+//         case 2:
+//         {
+//             // Potion of Healing II: HP +100
+//             break;
+//         }
+//         case 3:
+//         {
+//             // Potion of Strength I: ATK +20 for 3 turns
+//             break;
+//         }
+//         case 4:
+//         {
+//             // Potion of Strength II: ATK +30 for 4 turns
+//             break;
+//         }
+//         case 5:
+//         {
+//             // Potion of Defense I: DEF +20 for 4 turns
+//             break;
+//         }
+//         case 6:
+//         {
+//             // Potion of Defense II: ATK +30 for 5 turns
+//             break;
+//         }
+//         case 7:
+//         {
+//             // 
+//         }
 
-    }
-}
+//     }
+// }
 
 // std::vector<Item> readItemsFromFile(const std::string& filename) {
 //     std::vector<Item> items;
@@ -85,4 +87,45 @@ std::istream &operator>>(std::istream& input, Item& obj)
     input>>obj.ID>>obj.Name>>obj.Category>>obj.HP>>obj.ATK>>obj.DEF>>obj.Price>>obj.Description;
     return input;
 }
-void InsertIntoList(Item*&);
+void Item::InsertIntoList(Item*& List)
+{
+    if (List==nullptr) List=this;
+    else
+    {
+        Item *after=List;
+        while( (after->EnterNext()!=nullptr) && (after->getID()<this->ID) ) 
+        {
+            after=after->EnterNext();
+        }
+        after->EnterNext()=this;
+    }
+}
+Item*& Item::EnterNext()
+{
+    return this->NextItem;
+}
+int Item::getID()
+{
+    return this->ID;
+}
+void Item::useItem(Player& this_player)
+{
+    switch (this->Category)
+    {
+        case 1:
+        {
+            this_player.setHP(this_player.getHP()+this->HP);
+            break;
+        }
+        case 2:
+        {
+            this_player.setATK(this_player.getATK()+this->ATK);
+            break;
+        }
+        case 3:
+        {
+            this_player.setDEF(this_player.getDEF()+this->DEF);
+            break;
+        }
+    }
+}

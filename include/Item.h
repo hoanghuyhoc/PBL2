@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "Player.h"
+class Player;
 class Item
 {
     private:
@@ -14,11 +16,13 @@ class Item
                           // mà m set giá trị cho 1 trong 3 thôi, 2 cái còn lại để 0
         int Price;
         std::string Description; // cái ni ghi ngắn ngắn thôi he, đừng xuống hàng
-
+        Item* NextItem;
     public:
-        Item(int, std::string , int , int , int , int , int , std::string );
-        void useItem();
+        Item(int, std::string , int , int , int , int , int , std::string, Item* );
+        void useItem(Player&);
         friend std::istream &operator>>(std::istream&, Item&);
         void InsertIntoList(Item*&);
+        int getID();
+        Item *&EnterNext();
 };
 #endif

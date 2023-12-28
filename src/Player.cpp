@@ -4,12 +4,12 @@ Player::Player(std::string name, int maxhp, int atk, int def, std::string PClass
         :Character(name, 1, maxhp, atk, def), XP(0.0), Money(0), SP(0),Player_Class(PClass)
 {
     this->Player_Item=nullptr;
-    this->Player_Weapon=nullptr;
+    //this->Player_Weapon=nullptr;
 }
 Player::~Player()
 {
     this->Player_Item=nullptr;
-    this->Player_Weapon=nullptr;
+    //this->Player_Weapon=nullptr;
 }
 void Player::Show_Status()
 {
@@ -57,14 +57,14 @@ void Player::Ultimate(Enemy &e)
     Sleep(3000);
 }
 // void Using_Item();
-void Player::Show_Description()
-{
-    read_txt("Class description\\"+this->Player_Class);
-}
-void Player::Show_Skill_Description()
-{
-    read_txt("Skill description\\"+this->Player_Class);
-}
+// void Player::Show_Description()
+// {
+//     read_txt("Class description\\"+this->Player_Class);
+// }
+// void Player::Show_Skill_Description()
+// {
+//     read_txt("Skill description\\"+this->Player_Class);
+// }
 void Player::gainXP(int xp_gained)
 {
     std::cout<<"You gained "<<xp_gained<<" XP !\n";
@@ -80,15 +80,33 @@ int Player::getXP()
 {
     return this->XP;
 }
-const Player::useItem()
+int Player::useItem()
 {
-    this->Item;
+    if (this->Player_Item!=nullptr)
+    {
+        this->Player_Item->useItem(*this);
+        this->Player_Item=nullptr;
+        return 1;
+    }
+    else return 0;
 }
 std::string Player::returnClass()
 {
     return this->Player_Class;
 }
-// void Player::equipWeapon(Weapon& w)
+int Player::getSP()
+{
+    return this->SP;
+}
+void Player::setSP(int sp)
+{
+    this->SP=sp;
+}
+// void Player::equipWeapon(Weapon* w)
 // {
-//     this->equippedWeapon=&w;
+//     this->Player_Weapon=w;
 // }
+void Player::equipItem(Item* w)
+{
+    this->Player_Item=w;
+}

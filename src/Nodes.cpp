@@ -1,6 +1,8 @@
 #include"Nodes.h"
-Nodes::Nodes(int type, int location, Nodes* next_node):Type(type), Location(location), NextNode(next_node) 
-{}
+Nodes::Nodes(int type, int location, Nodes* next_node):Type(type), Location(location) 
+{
+    this->NextNode=next_node;
+}
 Nodes* &Nodes::EnterNext()
 {
     return this->NextNode;

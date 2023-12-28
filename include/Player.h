@@ -7,7 +7,7 @@
 #include <windows.h>
 #include <iostream>
 #include <iomanip>
-#include "src\\read_description.cpp"
+//#include "src\\read_description.cpp"
 class Enemy;
 class Player: public Character
 {
@@ -23,17 +23,19 @@ class Player: public Character
         ~Player();
         void Show_Status();
         void Attack(Enemy&);
-        virtual void Skill(Enemy&);
+        void Skill(Enemy&);
         virtual void Ultimate(Enemy&);
-        //void Using_Item(); //chắc truy xuất tới hàm dùng item của cái class item
-        void Show_Description();
-        void Show_Skill_Description();
+        int useItem(); //chắc truy xuất tới hàm dùng item của cái class item
+        // void Show_Description();
+        // void Show_Skill_Description();
         void gainXP(int);
         int getXP();
         virtual void Level_Up()=0;
-        //void equipWeapon(Weapon&);
-        //void useItem(int itemID);
         std::string returnClass();
+        int getSP();
+        void setSP(int);
+        void equipWeapon(Weapon*);
+        void equipItem(Item*);
         friend class Enemy;
 };
 #endif

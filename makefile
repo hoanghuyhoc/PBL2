@@ -19,10 +19,11 @@ DEPS = $(OBJS:.o=.d)
 EXECUTABLE = main.exe
 
 # Targets
--include $(DEPS)
 
 $(EXECUTABLE): $(OBJS)
 	$(CC) $(CXXFLAGS) $(INCLUDES) $^ -o $@ 
+
+-include $(DEPS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
 	$(CC) $(CXXFLAGS) $(INCLUDES) -MMD -c $< -o $@
