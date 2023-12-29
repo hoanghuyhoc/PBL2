@@ -106,9 +106,17 @@ void Player::equipWeapon(Weapon* w)
 {
     this->Player_Weapon=w;
 }
-void Player::equipItem(Item* w)
+const Weapon *Player::getWeapon()
+{
+    return this->Player_Weapon;
+}
+void Player::equipItem(Item *w)
 {
     this->Player_Item=w;
+}
+const Item *Player::getItem()
+{
+    return this->Player_Item;
 }
 int& Player::getMoney()
 {

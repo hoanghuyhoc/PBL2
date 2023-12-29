@@ -39,7 +39,9 @@ class Player: public Character
         int getSP();
         void setSP(int);
         void equipWeapon(Weapon*);
+        const Weapon* getWeapon();
         void equipItem(Item*);
+        const Item *getItem();
         int& getMoney();
         friend class Enemy;
 };

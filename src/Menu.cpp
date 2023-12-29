@@ -142,7 +142,7 @@ int Menu::ShowStats(Player* &player, Enemy monster, std::string AreaName, int Ar
     <<setw(4)<<left<<"DEF:"<<setw(7)<<monster.getDEF()<<endl;
     screen[4]<<endl<<"Skill Points: "<<SkillPoint<<endl;
 
-    for (int i=0; i<4;i++)    
+    for (int i=0; i<5;i++)    
         std::cout<<screen[i].str();
     std::cout<<endl<<string(max,'-')<<endl;
 
@@ -175,7 +175,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
             clear_cin();
             std::cin>>Battle_Option;
             std::cout<<std::endl<<std::string(max,'-')<<std::endl;
-            if (Battle_Option!=1) 
+            if (!(Battle_Option==1||Battle_Option==2||Battle_Option==3||Battle_Option==4)) 
             {
                 system("cls");
                 Menu::ShowStats(player, monster, AreaName, AreaLevel);
@@ -184,17 +184,25 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
                 system("cls");
             }
         } while(!(Battle_Option==1||Battle_Option==2||Battle_Option==3||Battle_Option==4));
+        system("cls");
+        Menu::ShowStats(player, monster, AreaName, AreaLevel);
         switch (Battle_Option)
         {
             case 1:
             {
                 player->Attack(monster);
-                player->setSP(player->getSP()+1);
+                if(player->getSP()>=5)
+                    player->setSP(5);
+                else
+                    player->setSP(player->getSP()+1);
                 break;
             }
             case 2:
             {
-                player->Skill(monster);
+                if (player->getWeapon()!=nullptr)
+                    player->Skill(monster);
+                else
+                    std::cout<<"You do not have any weapon!\n";
                 break;
             }
             case 3:
@@ -204,7 +212,10 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
             }
             case 4:
             {
-                player->useItem();
+                if (player->getItem()!=nullptr)
+                    player->useItem();
+                else
+                    std::cout<<"You do not have any item!\n";
                 break;
             }
         }

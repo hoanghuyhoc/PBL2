@@ -14,7 +14,7 @@
 #include "Menu.h"
 #include "Area.h"
 #include "Nodes.h"
-#include "Data.cpp"
+#include "Data.h"
 #include "Item.h"
 
 int main()
