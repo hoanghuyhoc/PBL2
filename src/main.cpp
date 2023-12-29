@@ -21,7 +21,7 @@ int main()
 {
 //Nhap tu Area.txt
     std::fstream FileList;
-    FileList.open("D:\\PBL2\\data\\area.txt",std::ios::in);
+    FileList.open("data\\area.txt",std::ios::in);
     if (!FileList.is_open())
     {
         std::cerr<<"Cannot open data file!\n";
@@ -33,7 +33,7 @@ int main()
     FileList.close();
 
 //Nhap Item tu item.txt
-    FileList.open("D:\\PBL2\\data\\item.txt",std::ios::in);
+    FileList.open("data\\item.txt",std::ios::in);
     if (!FileList.is_open())
     {
         std::cerr<<"Cannot open data file!\n";
@@ -45,7 +45,7 @@ int main()
     FileList.close();
 
 //Nhap Weapon tu weapon.txt
-    FileList.open("D:\\PBL2\\data\\weapon.txt",std::ios::in);
+    FileList.open("data\\weapon.txt",std::ios::in);
     if (!FileList.is_open())
     {
         std::cerr<<"Cannot open data file!\n";
