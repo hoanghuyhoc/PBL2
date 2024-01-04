@@ -3,9 +3,17 @@ Assassin::Assassin(std::string AssassinName)
         :Player(AssassinName, 80, 30, 2,"Assassin")
 {}
 Assassin::~Assassin(){}
-void Assassin::Ultimate(Enemy& monster)
+void Assassin::Ultimate(Enemy& e)
 {
-    monster.setHP( this->getATK()*2 - monster.getDEF() );
+    int atk=this->getATK(), def=e.getDEF();
+
+    int damage;
+    if(atk <= def) damage = 4;
+        else damage=(atk-def)*4;// Assassin gây 400% ATK
+
+    e.setHP(e.getHP()-damage);
+    std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
+    Sleep(3000);
 }
 void Assassin::Level_Up()
 {

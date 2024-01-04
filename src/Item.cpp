@@ -1,7 +1,7 @@
 #include "Item.h"
 
-Item::Item(int id, std::string name, int category, int hp, int atk, int def, int price, std::string description, Item* next)
-    : ID(id), Name(name), Category(category), HP(hp), ATK(atk), DEF(def), Price(price), Description(description) 
+Item::Item(int id, std::string name, int level, int category, int hp, int atk, int def, int price, std::string description, Item* next)
+    : ID(id), Name(name), Level(level), Category(category), HP(hp), ATK(atk), DEF(def), Price(price), Description(description) 
 {
     this->NextItem=next;
 }
@@ -63,4 +63,8 @@ std::string Item::getName()
 int Item::getPrice()
 {
     return this->Price;
+}
+int Item::getLevel()
+{
+    return this->Level;
 }

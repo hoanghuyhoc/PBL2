@@ -35,7 +35,11 @@ void Player::Show_Status()
 void Player::Attack(Enemy &e)
 {
     int atk=this->getATK(), def=e.getDEF();
-    int damage=(atk*0.5*atk/def)+RandomInt(-3,3);
+
+    int damage;
+    if(atk <= def) damage = 1;
+        else damage=(atk-def)+RandomInt(0,3);
+
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Normal attack and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
@@ -43,7 +47,11 @@ void Player::Attack(Enemy &e)
 void Player::Skill(Enemy &e)
 {
     int atk=this->getATK(), def=e.getDEF();
-    int damage=(((atk-def)>0)? (atk-def):1 )*(this->Player_Weapon->getBonusATK())/100;//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
+
+    int damage;
+    if(atk <= def) damage = 1;
+        else damage=(atk-def)*(this->Player_Weapon->getBonusATK())/100;//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
+
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Skill and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
@@ -51,11 +59,22 @@ void Player::Skill(Enemy &e)
 void Player::Ultimate(Enemy &e)
 {
     int atk=this->getATK(), def=e.getDEF();
+
+    int damage;
     int damage=(atk-def);//*multiplier (dựa trên class, gây thêm số % damage so với bình thường)
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
 }
+// void Using_Item();
+// void Player::Show_Description()
+// {
+//     read_txt("Class description\\"+this->Player_Class);
+// }
+// void Player::Show_Skill_Description()
+// {
+//     read_txt("Skill description\\"+this->Player_Class);
+// }
 void Player::gainXP(int xp_gained)
 {
     std::cout<<"You gained "<<xp_gained<<" XP !\n";
@@ -71,8 +90,6 @@ int Player::getXP()
 {
     return this->XP;
 }
-
-//Return 1 if player has item and use it, else return 0 if there is no item
 int Player::useItem()
 {
     if (this->Player_Item!=nullptr)
