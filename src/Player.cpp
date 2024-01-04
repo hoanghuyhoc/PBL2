@@ -56,15 +56,6 @@ void Player::Ultimate(Enemy &e)
     std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
     Sleep(3000);
 }
-// void Using_Item();
-// void Player::Show_Description()
-// {
-//     read_txt("Class description\\"+this->Player_Class);
-// }
-// void Player::Show_Skill_Description()
-// {
-//     read_txt("Skill description\\"+this->Player_Class);
-// }
 void Player::gainXP(int xp_gained)
 {
     std::cout<<"You gained "<<xp_gained<<" XP !\n";

@@ -279,7 +279,7 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
 
         player->gainXP( monster.Give_XP() );
     }
-    if (player->getHP()<=0)
+    else
     {
         std::cout<<"\n\n[COMBAT] You have been defeated...\nThis was as far as you can go...\n\nGoing back to main menu...";
         Sleep(3000);

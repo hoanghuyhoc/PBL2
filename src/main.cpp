@@ -74,9 +74,9 @@ int main()
                 AreaList=AreaList->EnterNext();
             }
         }
-        catch(int life)
+        catch(int progress)
         {
-            if (life==2) continue;
+            continue;
         }
     } while (1);
 //destructor
