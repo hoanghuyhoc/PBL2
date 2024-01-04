@@ -80,6 +80,8 @@ int Player::getXP()
 {
     return this->XP;
 }
+
+//Return 1 if player has item and use it, else return 0 if there is no item
 int Player::useItem()
 {
     if (this->Player_Item!=nullptr)

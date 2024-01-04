@@ -1,4 +1,5 @@
 #include "Menu.h"
+#define MISS 31
 void clear_cin()
 {
     using namespace std;
@@ -146,11 +147,11 @@ int Menu::ShowStats(Player* &player, Enemy monster, std::string AreaName, int Ar
         std::cout<<screen[i].str();
     std::cout<<endl<<string(max,'-')<<endl;
 
-    std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
-    std::cout<<"2. [Skill] - Use your Skill attack. [Consumes 1 Skill Point]"<<endl;
-    std::cout<<"3. [Ultimate] - Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
-    std::cout<<"4. [Use Item] - Use your Item"<<endl;
-    std::cout<<std::endl<<std::string(max,'-')<<std::endl;
+    // std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
+    // std::cout<<"2. [Skill] - Use your Skill attack. [Consumes 1 Skill Point]"<<endl;
+    // std::cout<<"3. [Ultimate] - Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
+    // std::cout<<"4. [Use Item] - Use your Item"<<endl;
+    // std::cout<<std::endl<<std::string(max,'-')<<std::endl;
     return max;
 }
 void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
@@ -171,6 +172,14 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
         do
         {
             int max=Menu::ShowStats(player, monster, AreaName, AreaLevel);
+            {
+                using namespace std;
+                std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
+                std::cout<<"2. [Skill] - Use your Skill attack. [Consumes 1 Skill Point]"<<endl;
+                std::cout<<"3. [Ultimate] - Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
+                std::cout<<"4. [Use Item] - Use your Item"<<endl;
+                std::cout<<std::endl<<std::string(max,'-')<<std::endl;
+            }
             std::cout<<"Choose your action: ";
             clear_cin();
             std::cin>>Battle_Option;
@@ -186,40 +195,75 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
         } while(!(Battle_Option==1||Battle_Option==2||Battle_Option==3||Battle_Option==4));
         system("cls");
         Menu::ShowStats(player, monster, AreaName, AreaLevel);
-        switch (Battle_Option)
+        try
         {
-            case 1:
-            {
-                player->Attack(monster);
-                if(player->getSP()>=5)
-                    player->setSP(5);
-                else
-                    player->setSP(player->getSP()+1);
-                break;
-            }
-            case 2:
-            {
-                if (player->getWeapon()!=nullptr)
-                    player->Skill(monster);
-                else
-                    std::cout<<"You do not have any weapon!\n";
-                break;
-            }
-            case 3:
-            {
-                player->Ultimate(monster);
-                break;
-            }
-            case 4:
-            {
-                if (player->getItem()!=nullptr)
-                    player->useItem();
-                else
-                    std::cout<<"You do not have any item!\n";
-                break;
-            }
+            int currentSP=player->getSP();
+            switch (Battle_Option)
+                {
+                    case 1:
+                    {
+                        if (RandomInt(0,127)!=MISS)
+                        {
+                            player->Attack(monster);
+                            if(currentSP<5)
+                            player->setSP(currentSP+1);
+                        }
+                        else std::cout<<"Your attack missed the opponent!\n";
+                        break;
+                    }
+                    case 2:
+                    {
+                        if (RandomInt(0,127)!=MISS)
+                        {
+                            if (player->getSP()==0)
+                                throw 2;
+                            if (player->getWeapon()==nullptr)
+                                throw 3;
+
+                            player->Skill(monster);
+                            player->setSP(currentSP-1);
+                        }
+                        else throw 1;
+                        break;
+                    }
+                    case 3:
+                    {
+                        if (currentSP<5) throw 2;
+                        player->Ultimate(monster);
+                        player->setSP(currentSP-5);
+                        break;
+                    }
+                    case 4:
+                    {
+                        if (player->useItem()==0)
+                            throw 4;
+                        break;
+                    }
+                }
         }
-        if (monster.getHP()>0) monster.Attack(*player);
+        catch (int err)
+        {
+            switch (err)
+            {
+                case 2:
+                    std::cout<<"You do not have enough Skill Points!\n";
+                    break;
+                case 3:
+                    std::cout<<"You do not have any weapon!\n";
+                    break;
+                case 4:
+                    std::cout<<"You do not have any item!\n";
+                    break;
+            }                
+            Sleep(1500);
+            continue;
+        }
+        if (monster.getHP()>0)
+            {
+                if (RandomInt(0,127)!=MISS)
+                    monster.Attack(*player);
+                else std::cout<<"The opponent's attack missed!\n";
+            }
         turn++;
         system("cls");
     } while(player->getHP()>0 && monster.getHP()>0);

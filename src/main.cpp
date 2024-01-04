@@ -24,7 +24,7 @@ int main()
     FileList.open("data\\area.txt",std::ios::in);
     if (!FileList.is_open())
     {
-        std::cerr<<"Cannot open data file!\n";
+        std::cerr<<"Cannot open area.txt!\n";
         system("pause");
         return 1;
     }
@@ -36,7 +36,7 @@ int main()
     FileList.open("data\\item.txt",std::ios::in);
     if (!FileList.is_open())
     {
-        std::cerr<<"Cannot open data file!\n";
+        std::cerr<<"Cannot open item.txt!\n";
         system("pause");
         return 1;
     }
@@ -48,7 +48,7 @@ int main()
     FileList.open("data\\weapon.txt",std::ios::in);
     if (!FileList.is_open())
     {
-        std::cerr<<"Cannot open data file!\n";
+        std::cerr<<"Cannot open weapon.txt!\n";
         system("pause");
         return 1;
     }
