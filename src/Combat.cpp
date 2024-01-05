@@ -25,8 +25,9 @@ void Combat::Enter(Player* player, Enemy* EnemyList, std::string AreaName, int A
         }
         Enemy *new_enemy= new Enemy(*temp, AreaLevel);
         system("cls");
-        std::cout<<"[GAME] You entered the COMBAT node!\n"
-                 <<"[COMBAT] You are facing "<<new_enemy->getName()<<" !\n"
+        std::cout<<"[GAME] You entered the COMBAT node!\n";
+        Sleep(2000);
+        std::cout<<"[COMBAT] You are facing "<<new_enemy->getName()<<" !\n"
                  <<" Description: "<<new_enemy->Show_Description()<<"\n\n";
         system("pause");
         std::cout<<"\nEntering battle...";

@@ -135,30 +135,22 @@ int Menu::ShowBattleStats(Player* &player, Enemy monster, std::string AreaName, 
     screen[0].str(""); screen[0].clear();
     screen[0]<<"    "<<player->getName()<<setw(max-11-4-player->getName().length())<<""
     <<monster.getName()<<endl;
-    screen[1]<<"    "<<setw(4)<<left<<"HP:"<<setw(7)<<player->getHP()<<setw(max-26)<<""
-    <<setw(4)<<left<<"HP:"<<setw(7)<<monster.getHP()<<endl;
-    screen[2]<<"    "<<setw(4)<<left<<"ATK:"<<setw(7)<<player->getATK()<<setw(max-26)<<""
-    <<setw(4)<<left<<"ATK:"<<setw(7)<<monster.getATK()<<endl;
-    screen[3]<<"    "<<setw(4)<<left<<"DEF:"<<setw(7)<<player->getDEF()<<setw(max-26)<<""
-    <<setw(4)<<left<<"DEF:"<<setw(7)<<monster.getDEF()<<endl;
+    screen[1]<<"    "<<setw(4)<<right<<"HP:"<<setw(7)<<player->getHP()<<setw(max-26)<<""
+    <<setw(4)<<right<<"HP:"<<setw(7)<<monster.getHP()<<endl;
+    screen[2]<<"    "<<setw(4)<<right<<"ATK:"<<setw(7)<<player->getATK()<<setw(max-26)<<""
+    <<setw(4)<<right<<"ATK:"<<setw(7)<<monster.getATK()<<endl;
+    screen[3]<<"    "<<setw(4)<<right<<"DEF:"<<setw(7)<<player->getDEF()<<setw(max-26)<<""
+    <<setw(4)<<right<<"DEF:"<<setw(7)<<monster.getDEF()<<endl;
     screen[4]<<endl<<"Skill Points: "<<SkillPoint<<endl;
 
     for (int i=0; i<5;i++)    
         std::cout<<screen[i].str();
     std::cout<<endl<<string(max,'-')<<endl;
-
-    // std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
-    // std::cout<<"2. [Skill] - Use your Skill attack. [Consumes 1 Skill Point]"<<endl;
-    // std::cout<<"3. [Ultimate] - Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
-    // std::cout<<"4. [Use Item] - Use your Item"<<endl;
-    // std::cout<<std::endl<<std::string(max,'-')<<std::endl;
     return max;
 }
 void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
 {
     system("cls");
-    std::cout<<"[GAME] You have encounter an enemy!\n";
-    Sleep(1500);
     int turn=0;
 
     //chuan bi status cua player
