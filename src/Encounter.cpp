@@ -397,6 +397,7 @@ void Encounter::Enter(Player *player, Enemy *EnemyList, std::string AreaName, in
 {
     system("cls");
     std::cout<<"[GAME] You entered the ENCOUNTER node!\n";
+    Sleep(2000);
     switch (this->EncounterType)
     {
     case 1:
