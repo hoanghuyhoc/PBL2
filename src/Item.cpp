@@ -5,13 +5,17 @@ Item::Item(int id, std::string name, int level, int category, int hp, int atk, i
 {
     this->NextItem=next;
 }
-Item::Item():ID(0), Name(""), Category(0), HP(0), ATK(0), DEF(0), Price(), Description("")
+Item::Item(int id, const Item& item):ID(id), Name(item.Name), Level(item.Level), Category(item.Category), HP(item.HP), ATK(item.ATK), DEF(item.DEF), Price(item.Price), Description(item.Description)
+{
+    this->NextItem=nullptr;
+}
+Item::Item(const Item& item):ID(item.ID), Name(item.Name), Level(item.Level), Category(item.Category), HP(item.HP), ATK(item.ATK), DEF(item.DEF), Price(item.Price), Description(item.Description)
 {
     this->NextItem=nullptr;
 }
 std::istream &operator>>(std::istream& input, Item& obj)
 {
-    input>>obj.ID>>obj.Name>>obj.Category>>obj.HP>>obj.ATK>>obj.DEF>>obj.Price>>obj.Description;
+    input>>obj.ID>>obj.Name>>obj.Level>>obj.Category>>obj.HP>>obj.ATK>>obj.DEF>>obj.Price>>obj.Description;
     return input;
 }
 void Item::InsertIntoList(Item*& List)
@@ -19,12 +23,21 @@ void Item::InsertIntoList(Item*& List)
     if (List==nullptr) List=this;
     else
     {
-        Item *after=List;
-        while( (after->EnterNext()!=nullptr) && (after->getID()<this->ID) ) 
+        Item *before=nullptr, *after=List;
+        while( (after!=nullptr) && (after->getID()<this->ID) ) 
         {
+            before=after;
             after=after->EnterNext();
         }
-        after->EnterNext()=this;
+        this->EnterNext()=after;
+        if (before==nullptr)
+        {
+            List=this;
+        }
+        else 
+        {
+            before->EnterNext()=this;   
+        }
     }
 }
 Item*& Item::EnterNext()
@@ -67,4 +80,8 @@ int Item::getPrice()
 int Item::getLevel()
 {
     return this->Level;
+}
+std::string Item::getDescription()
+{
+    return this->Description;
 }

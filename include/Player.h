@@ -19,7 +19,7 @@ class Player: public Character
         int XP;
         Weapon *Player_Weapon;
         Item *Player_Item;
-        int Money;
+        int Money=0;
         int SP;
         std::string Player_Class;
     public:
@@ -42,7 +42,8 @@ class Player: public Character
         const Weapon* getWeapon();
         void equipItem(Item*);
         const Item *getItem();
-        int& getMoney();
+        void earnMoney(int);
+        int getMoney();
         friend class Enemy;
 };
 #endif

@@ -77,11 +77,12 @@ void Player::Ultimate(Enemy &e)
 // }
 void Player::gainXP(int xp_gained)
 {
-    std::cout<<"You gained "<<xp_gained<<" XP !\n";
-    Sleep(1200);
+    std::cout<<" You have gained "<<xp_gained<<" XP !\n";
+    Sleep(1500);
     this->XP+=xp_gained;
     while(this->XP>=(this->getLevel()*100))
     {
+        system("cls");
         this->XP-=(this->getLevel()*100);
         this->Level_Up();
     }
@@ -128,7 +129,12 @@ const Item *Player::getItem()
 {
     return this->Player_Item;
 }
-int& Player::getMoney()
+int Player::getMoney()
 {
     return this->Money;
+}
+void Player::earnMoney(int money)
+{
+    this->Money+=money;
+    if (this->Money<0) this->Money=0;
 }

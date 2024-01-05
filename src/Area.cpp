@@ -43,7 +43,7 @@ void Area::EnterArea(Item* List)
     Sleep(3000);
     while (NodeList!=nullptr)
     {    
-        NodeList->Enter(this->player,this->AreaName,this->Level,this->NodeNumber,List,this->player);
+        NodeList->Enter(this->AreaName,this->Level,this->NodeNumber,List,this->player);
         if (NodeList->EnterNext()!=nullptr)
             std::cout<<"Entering next node...";
         else
@@ -69,12 +69,21 @@ void Area::InsertIntoList(Area *&List)
     if (List==nullptr) List=this;
     else
     {
-        Area *after=List;
-        while( (after->EnterNext()!=nullptr) && (after->getLevel()<this->Level) ) 
+        Area *before=nullptr, *after=List;
+        while( (after!=nullptr) && (after->getLevel()<this->Level) ) 
         {
+            before=after;
             after=after->EnterNext();
         }
-        after->EnterNext()=this;
+        this->EnterNext()=after;
+        if (before==nullptr)
+        {
+            List=this;
+        }
+        else 
+        {
+            before->EnterNext()=this;   
+        }
     }
 }
 std::istream &operator>>(std::istream& input, Area& object)

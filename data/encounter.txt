@@ -1,0 +1,147 @@
+1
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Gathering Stormclouds
+You've never seen such dense storm clouds before.
+Staring at the nature's onslaught, you asked yourself what to do.
+______________________________________________________________________
+
+	[1] Just pray		| Heals you to full health
+	[2] Tries to get away   | Gains +30 XP and 5 coins 
+
+	Select [number]: 
+
+2
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Mysterious Trader
+You entered a small abandoned house and met a person in black cloak.
+That person seems to be a trader. He wants to trade your stuff for some goodies.
+______________________________________________________________________
+
+	[1] Health Potion I	| 3 coins	| Heals 30 HP.
+	[2] Health Potion II	| 5 coins	| Heals 60 HP.
+	[3] Strength Potion I	| 5 coins	| +10% ATK.
+	[4] No thanks.   	| Leaves the house
+
+	Select [number]: 
+
+3
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Mysterious Trader
+You entered a small abandoned house and met a person in black cloak.
+That person seems to be a trader. He wants to trade your stuff for some goodies.
+______________________________________________________________________
+
+	[1] Health Potion II	| 5 coins	| Heals 60 HP.
+	[2] Resistance Pot II	| 7 coins	| +40% DEF.
+	[3] Health Potion III	| 7 coins	| Heals 100 HP.
+	[4] No thanks.   	| Leaves the house
+
+	Select [number]: 
+
+4
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Mysterious Trader
+You entered a small abandoned house and met a person in black cloak.
+That person seems to be a trader. He wants to trade your stuff for some goodies.
+______________________________________________________________________
+
+	[1] Health Potion I	| 3 coins	| Heals 30 HP.
+	[2] Strength Potion II	| 8 coins	| +20% ATK.
+	[3] Resistance Pot III	| 10 coins	| +60% DEF.
+	[4] No thanks.   	| Leaves the house
+
+	Select [number]: 
+
+5
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Mysterious Trader
+You entered a small abandoned house and met a person in black cloak.
+That person seems to be a trader. He wants to trade your stuff for some goodies.
+______________________________________________________________________
+
+	[1] Health Potion II	| 5 coins	| Heals 60 HP.
+	[2] Resistance Pot I	| 5 coins	| +20% DEF.
+	[3] Strength Potion III	| 12 coins	| +40% ATK.
+	[4] No thanks.   	| Leaves the house
+
+	Select [number]: 
+
+6
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] An Unexpected Meetup
+You were stopped by a person in a knight suit. 
+Taking a closer look, you realised it was just a skeleton hiding in someone's suit.
+It started to yell aggressively at you.
+______________________________________________________________________
+
+	[1] Fight him		| Enters a battle
+	[2] Flee from him   	| Avoids unnecessary fight
+
+	Select [number]: 
+
+7
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Slumber in the cabin
+You found a wooden cabin located not far from your sight.
+It seems to be in a deteriorating state, but still enough for protection
+from dangers lurking in the dark. You also seems to be really tired now.
+______________________________________________________________________
+
+	[1] Take a rest		| Heals to full health and gains +50 XP
+	[2] Still too unsafe   	| Gains +200 XP
+
+	Select [number]: 
+
+8
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Supplies
+There is an abandoned house with a lot of stuff left inside.
+You went in to scourge them all.
+______________________________________________________________________
+
+	[1] Great		| Gains 15 coins and +50 XP
+
+	Select [number]: 
+
+9
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Weaponsmith
+
+______________________________________________________________________
+
+	[1] a		| a
+
+	Select [number]: 
+
+10
+
+[GAME] You entered the ENCOUNTER node!
+[ENCOUNTER] Weaponsmith
+
+______________________________________________________________________
+
+	[1] a		| a
+
+	Select [number]: 
+
+
+
+
+
+
+
+
+
+
+
+
+

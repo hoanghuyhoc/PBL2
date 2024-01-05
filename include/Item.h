@@ -19,7 +19,8 @@ class Item
         std::string Description; // cái ni ghi ngắn ngắn thôi he, đừng xuống hàng
         Item* NextItem;
     public:
-        Item();
+        Item(int, const Item&);
+        Item(const Item&);
         Item(int, std::string , int , int ,  int , int , int , int , std::string, Item* );
         void useItem(Player&);
         friend std::istream &operator>>(std::istream&, Item&);
@@ -29,6 +30,7 @@ class Item
         std::string getName();
         int getPrice();
         int getLevel();
+        std::string getDescription();
 
 };
 #endif

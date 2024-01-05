@@ -13,20 +13,21 @@ class Weapon
         int bonusHP;
         int bonusATK;
         int bonusDEF;
-        std::string Desc;
+        int Price;
+        std::string Description;
         Weapon *NextWeapon;
-        // Weapon ni tương tự Item luôn nghe
     public:
-        Weapon();
-        Weapon(int, std::string, std::string, int, int, int, Weapon*);
+        Weapon(int, const Weapon&);
+        Weapon(int, std::string, std::string, int, int, int, int, Weapon*);
         int getID();
         std::string getName();
-        std::string getDesc();
+        std::string getDescription();
         int getBonusHP();
         int getBonusATK();
         int getBonusDEF();
         Weapon*& EnterNext();
         friend std::istream &operator>>(std::istream&, Weapon&);
         void InsertIntoList(Weapon*&);
+        int getPrice();
 };
 #endif

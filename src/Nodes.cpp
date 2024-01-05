@@ -7,7 +7,7 @@ Nodes* &Nodes::EnterNext()
 {
     return this->NextNode;
 }
-void Nodes::Enter(Player* this_player, std::string AreaName, int AreaLevel, int NodeNumber, Item* List, Player* player)
+void Nodes::Enter(std::string AreaName, int AreaLevel, int NodeNumber, Item* List, Player* this_player)
 {
     if(this->Location==1)
     {
@@ -45,7 +45,7 @@ void Nodes::Enter(Player* this_player, std::string AreaName, int AreaLevel, int 
         Menu::BattleScreen(this_player, *enemy, AreaName, AreaLevel);
         delete enemy;
     }
-    else if (this->Location==2) this->Encounter(List,player);
+    else if (this->Location==2) this->Encounter(List,this_player);
 }
 void Nodes::InsertIntoNodeList(Nodes *&List)
 {

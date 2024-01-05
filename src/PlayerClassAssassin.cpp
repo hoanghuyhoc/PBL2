@@ -18,7 +18,7 @@ void Assassin::Ultimate(Enemy& e)
 void Assassin::Level_Up()
 {
     this->setLevel(this->getLevel()+1);
-    std::cout<<"\nLeveled up!\n";
+    std::cout<<"\nLeveled up! Your level is "<<this->getLevel()<<" !\n";
     Sleep(1000);
     std::cout<<"XP: "<<this->getXP()<<'/'<<this->getLevel()*100<<std::endl;
     Sleep(500);
