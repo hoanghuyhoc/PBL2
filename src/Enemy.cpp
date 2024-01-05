@@ -38,6 +38,10 @@ int Enemy::Give_XP()
 {
     return this->XP;
 }
+void Enemy::setMoney(int money)
+{
+    this->Money=money;
+}
 int Enemy::Return_Money()
 {
     return this->Money;
@@ -77,7 +81,7 @@ std::istream &operator>>(std::istream &input, Enemy &e)
 {
     std::string name;
     int hp, atk, def;
-    input>>e.ID>>e.Boss>>name>>hp>>atk>>def>>e.Description;
+    input>>e.ID>>e.Boss>>name>>hp>>atk>>def>>e.Money>>e.Description;
     e.setName(name);
     e.setMaxHP(hp);
     e.setHP(hp);

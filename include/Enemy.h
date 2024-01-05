@@ -26,6 +26,7 @@ class Enemy: public Character
         std::string Show_Description();
         int getID();
         int Give_XP();
+        void setMoney(int);
         int Return_Money();
         int IsBoss();
         Enemy *&EnterNext();
