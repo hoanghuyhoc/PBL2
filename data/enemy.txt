@@ -1,10 +1,10 @@
-1 0 Slime. 50 5 0 Basic lifeforms.
-2 0 Goblin. 65 10 5 Malicious troublemakers.
-3 0 Skeleton. 60 15 2 Fragile but deadly.
-4 0 Dweller. 80 12 7 A threat lurking in the dark.
-5 0 Giant Spider. 100 10 0 An experienced weaver.
-6 0 Scorpion. 90 8 10 Possessing shells that are hard to pierce through.
-7 0 Witch. 70 18 5 The culprit behind the slaughter.
-8 0 The Guardian. 75 16 2 Underwater creatures that are extremely loyal.
-9 0 Manticore. 85 12 8 Creatures full of vengenance.
-10 1 Corrupted Dragon. 200 15 10 The creature who lost himself to the corruption.
+1 0 Slime. 50 5 0 Basic lifeforms. 50 5
+2 0 Goblin. 65 10 5 Malicious troublemakers. 50 6
+3 0 Skeleton. 60 15 2 Fragile but deadly. 50 7
+4 0 Dweller. 80 12 7 A threat lurking in the dark. 60 8
+5 0 Giant Spider. 100 10 0 An experienced weaver. 60 8
+6 0 Scorpion. 90 8 10 Possessing shells that are hard to pierce through. 70 9
+7 0 Witch. 70 18 5 The culprit behind the slaughter. 80 10
+8 0 The Guardian. 75 16 2 Underwater creatures that are extremely loyal. 80 10
+9 0 Manticore. 85 12 8 Creatures full of vengenance. 100 12
+10 1 Corrupted Dragon. 200 15 10 The creature who lost himself to the corruption. 250 25
