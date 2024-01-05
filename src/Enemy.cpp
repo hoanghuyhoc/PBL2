@@ -1,26 +1,23 @@
 #include "Enemy.h"
 
-Enemy::Enemy(std::string name, int level, int maxhp, int atk, int def, int id, int isboss, std::string des, int lootid, int xp, int money)
-        :Character(name,level,maxhp,atk,def), ID(id), Boss(isboss), Description(des), LootID(lootid), XP(xp), Money(money)
+Enemy::Enemy(std::string name, int level, int maxhp, int atk, int def, int id, int isboss, std::string des, int xp, int money)
+        :Character(name,level,maxhp,atk,def), ID(id), Boss(isboss), Description(des), XP(xp), Money(money)
 {
     this->NextEnemy=nullptr;
 }
 
 Enemy::Enemy(const Enemy &e, int AreaLevel)
-    :Character(e.getName(), AreaLevel, int(e.getHP()+ pow(AreaLevel,0.7)), int(e.getATK()+ pow(AreaLevel,0.7)), int(e.getDEF()+ pow(AreaLevel,0.7))), ID(0), Boss(e.Boss), Description(e.Description), LootID(e.LootID), XP(e.XP), Money(e.Money)
+    :Character(e.getName(), AreaLevel, int(e.getHP()+ pow(AreaLevel,0.7)), int(e.getATK()+ pow(AreaLevel,0.7)), int(e.getDEF()+ pow(AreaLevel,0.7))), ID(0), Boss(e.Boss), Description(e.Description), XP(e.XP), Money(e.Money)
 {
     this->NextEnemy=nullptr;
 }
 
 Enemy::Enemy()
-    :Character("", 0, 0, 0, 0),ID(0),Boss(0),Description(""),LootID(0),XP(0), Money(0)
+    :Character("", 0, 0, 0, 0),ID(0),Boss(0),Description(""),XP(0), Money(0)
 {
     this->NextEnemy=nullptr;
 }
 
-// Enemy::Enemy(std::string, int, int, int, int, int string, int, int, int, int)
-// {
-// }
 void Enemy::Attack(Player &p)
 {
     int atk=this->getATK(), def=p.getDEF();
@@ -40,10 +37,6 @@ int Enemy::getID()
 int Enemy::Give_XP()
 {
     return this->XP;
-}
-int Enemy::Return_Loot()
-{
-    return this->LootID;
 }
 int Enemy::Return_Money()
 {

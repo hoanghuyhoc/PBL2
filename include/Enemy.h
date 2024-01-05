@@ -15,19 +15,17 @@ class Enemy: public Character
         int ID;
         int Boss; //0 if not boss, 1 if boss
         std::string Description;
-        int LootID;
         int XP;
         int Money;
         Enemy *NextEnemy;
     public:
-        Enemy(std::string, int, int, int, int, int, int, std::string, int, int, int);
+        Enemy(std::string, int, int, int, int, int, int, std::string, int, int);
         Enemy(const Enemy&, int);
         Enemy();
         void Attack(Player&);
         std::string Show_Description();
         int getID();
         int Give_XP();
-        int Return_Loot();
         int Return_Money();
         int IsBoss();
         Enemy *&EnterNext();
