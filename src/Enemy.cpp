@@ -81,7 +81,7 @@ std::istream &operator>>(std::istream &input, Enemy &e)
 {
     std::string name;
     int hp, atk, def;
-    input>>e.ID>>e.Boss>>name>>hp>>atk>>def>>e.Money>>e.Description;
+    input>>e.ID>>e.Boss>>name>>hp>>atk>>def>>e.XP>>e.Money>>e.Description;
     e.setName(name);
     e.setMaxHP(hp);
     e.setHP(hp);
