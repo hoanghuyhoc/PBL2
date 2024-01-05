@@ -6,8 +6,16 @@
 namespace Data
 {
     template<class C>
-    void InputDataFromTxt(std::fstream& FileList, C *&List)
+    int InputDataFromTxt(std::string file_name, C *&List)
     {
+        std::fstream FileList;
+        FileList.open("data\\"+file_name+".txt",std::ios::in);
+        if (!FileList.is_open())
+        {
+            std::cerr<<"Cannot open "+file_name+".txt!\n";
+            system("pause");
+            return 1;
+        }
         std::string line;
         while (std::getline(FileList,line))
         {
@@ -16,6 +24,8 @@ namespace Data
             inputline>>(*temp);
             temp->InsertIntoList(List);
         }
+        FileList.close();
+        return 0;
     }
     template<class C>
     void DeleteData(C *&List)

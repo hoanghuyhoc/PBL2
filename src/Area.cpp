@@ -34,8 +34,10 @@ void Area::EnterArea(Item* List)
             combat_count++;
             encounter_count=0;
         }
-        Nodes* temp= new Nodes(type,i,nullptr);
-        temp->InsertIntoNodeList(NodeList);
+        if (type==1)
+        {
+            Nodes* temp= dynamic_cast<Nodes*>(new Encounter(type,i));
+            temp->InsertIntoNodeList(NodeList);
         type=1;
     }
     system("cls");

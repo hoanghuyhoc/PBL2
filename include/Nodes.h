@@ -12,7 +12,7 @@ class Nodes
         int Location;
         Nodes *NextNode;
     public:
-        Nodes(int, int, Nodes*);
+        Nodes(int, int);
         int getType();
         int getLocation();
         virtual void Enter(Player*,std::string, int, int, Item*, Player*);
@@ -20,7 +20,5 @@ class Nodes
         void InsertIntoNodeList(Nodes *&List);
         friend std::ostream& operator<<(std::ostream&, const Nodes&);
         friend std::istream &operator>>(std::istream&, Nodes&);
-        void Encounter(Item*, Player*);
-        void Combat();
 };
 #endif

@@ -1,6 +1,6 @@
 #include "Encounter.h"
-Encounter::Encounter(int type, int location, Nodes* next)
-            :Nodes(type,location,next), EncounterType(RandomInt(1,6))
+Encounter::Encounter(int type, int location)
+            :Nodes(type,location), EncounterType(RandomInt(1,6))
 {}
 void Encounter::GatheringStormclouds(Player * this_player)
 {
@@ -161,7 +161,7 @@ void Encounter::MysteriousTrader(Player *player, Item *ItemList)
     }while (!status);
     system("cls");
 }
-void Encounter::AnUnexpectedMeetup(Player *player, E)
+void Encounter::AnUnexpectedMeetup(Player *player, Enemy* EnemyList)
 {
 
 }

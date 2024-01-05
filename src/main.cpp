@@ -20,41 +20,24 @@
 int main()
 {
 //Nhap tu Area.txt
-    std::fstream FileList;
-    FileList.open("data\\area.txt",std::ios::in);
-    if (!FileList.is_open())
-    {
-        std::cerr<<"Cannot open area.txt!\n";
-        system("pause");
-        return 1;
-    }
     Area* AreaList=nullptr;
-    Data::InputDataFromTxt<Area>(FileList,AreaList);
-    FileList.close();
+    if(Data::InputDataFromTxt<Area>("area",AreaList))
+        return 1;
 
 //Nhap Item tu item.txt
-    FileList.open("data\\item.txt",std::ios::in);
-    if (!FileList.is_open())
-    {
-        std::cerr<<"Cannot open item.txt!\n";
-        system("pause");
-        return 1;
-    }
     Item* ItemList=nullptr;
-    Data::InputDataFromTxt<Item>(FileList,ItemList);
-    FileList.close();
+    if(Data::InputDataFromTxt<Item>("item",ItemList))
+        return 1;
 
 //Nhap Weapon tu weapon.txt
-    FileList.open("data\\weapon.txt",std::ios::in);
-    if (!FileList.is_open())
-    {
-        std::cerr<<"Cannot open weapon.txt!\n";
-        system("pause");
-        return 1;
-    }
     Weapon* WeaponList=nullptr;
-    Data::InputDataFromTxt<Weapon>(FileList,WeaponList);
-    FileList.close();
+    if(Data::InputDataFromTxt<Weapon>("weapon",WeaponList))
+        return 1;
+
+//Nhap Enemy tu enemy.txt
+    Enemy* EnemyList=nullptr;
+    if(Data::InputDataFromTxt<Enemy>("enemy",EnemyList))
+        return 1;
 
 //Bat dau tro choi
     Player *mainplayer=nullptr;

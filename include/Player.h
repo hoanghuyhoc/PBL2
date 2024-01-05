@@ -28,7 +28,7 @@ class Player: public Character
         void Show_Status();
         void Attack(Enemy&);
         void Skill(Enemy&);
-        virtual void Ultimate(Enemy&);
+        virtual void Ultimate(Enemy&)=0;
         int useItem(); //chắc truy xuất tới hàm dùng item của cái class item
         // void Show_Description();
         // void Show_Skill_Description();
