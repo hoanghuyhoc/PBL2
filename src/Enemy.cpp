@@ -1,9 +1,22 @@
 #include "Enemy.h"
-#include <windows.h>
-#include <iostream>
+
 Enemy::Enemy(std::string name, int level, int maxhp, int atk, int def, int id, int isboss, std::string des, int lootid, int xp, int money)
         :Character(name,level,maxhp,atk,def), ID(id), Boss(isboss), Description(des), LootID(lootid), XP(xp), Money(money)
-{}
+{
+    this->NextEnemy=nullptr;
+}
+
+Enemy::Enemy(const Enemy &e, int AreaLevel)
+    :Character(e.getName(), AreaLevel, int(e.getHP()+ pow(AreaLevel,0.7)), int(e.getATK()+ pow(AreaLevel,0.7)), int(e.getDEF()+ pow(AreaLevel,0.7))), ID(0), Boss(e.Boss), Description(e.Description), LootID(e.LootID), XP(e.XP), Money(e.Money)
+{
+    this->NextEnemy=nullptr;
+}
+
+Enemy::Enemy()
+    :Character("", 0, 0, 0, 0),ID(0),Boss(0),Description(""),LootID(0),XP(0), Money(0)
+{
+    this->NextEnemy=nullptr;
+}
 
 // Enemy::Enemy(std::string, int, int, int, int, int string, int, int, int, int)
 // {
@@ -36,6 +49,10 @@ int Enemy::Return_Money()
 {
     return this->Money;
 }
+int Enemy::IsBoss()
+{
+    return this->Boss;
+}
 Enemy *&Enemy::EnterNext()
 {
     return this->NextEnemy;
@@ -61,4 +78,17 @@ void Enemy::InsertIntoList(Enemy*& List)
             before->EnterNext()=this;   
         }
     }   
+}
+
+std::istream &operator>>(std::istream &input, Enemy &e)
+{
+    std::string name;
+    int hp, atk, def;
+    input>>e.ID>>e.Boss>>name>>hp>>atk>>def>>e.Description;
+    e.setName(name);
+    e.setMaxHP(hp);
+    e.setHP(hp);
+    e.setATK(atk);
+    e.setDEF(def);
+    return input;
 }

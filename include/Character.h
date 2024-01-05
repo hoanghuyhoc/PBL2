@@ -9,16 +9,17 @@ class Character
         int MaxHP, HP, ATK, DEF;
     public:
         Character(std::string, int, int, int, int);
-        std::string getName();
+        std::string getName() const;
+        void setName(std::string);
         void setLevel(int);
-        int getLevel();
+        int getLevel() const;
         void setMaxHP(int);
-        int getMaxHP();
+        int getMaxHP() const;
         void setHP(int);
-        int getHP();
+        int getHP() const;
         void setATK(int);
-        int getATK();
+        int getATK() const;
         void setDEF(int);
-        int getDEF();
+        int getDEF() const;
 };
 #endif

@@ -6,8 +6,8 @@ class Combat:public Nodes
 {
     int CombatType; //0 la danh thuong, 1 la danh boss
     public:
-    Combat(int, int, int);
-    void Enter();
+    Combat(int, int);
+    void Enter(Player*, Enemy*, std::string, int, Item*, Weapon*);
 };
 
 #endif

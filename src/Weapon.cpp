@@ -10,7 +10,11 @@ Weapon::Weapon(int id, std::string name, std::string desc, int hp, int atk, int 
 {
     this->NextWeapon=next;
 }
-
+Weapon::Weapon()
+    :ID(0), Name(""), bonusHP(0), bonusATK(0), bonusDEF(0), Price(0), Description("")
+{
+    this->NextWeapon=nullptr;
+}
 int Weapon::getID()
 {
     return this->ID;

@@ -16,6 +16,6 @@ namespace Menu
     int StartMenu();
     void StartGame(Player*&);
     void BattleScreen(Player*&, Enemy, std::string, int);
-    int ShowStats(Player*&, Enemy, std::string, int);
+    int ShowBattleStats(Player*&, Enemy, std::string, int);
 };
 #endif

@@ -59,8 +59,6 @@ void Player::Skill(Enemy &e)
 void Player::Ultimate(Enemy &e)
 {
     int atk=this->getATK(), def=e.getDEF();
-
-    int damage;
     int damage=(atk-def);//*multiplier (dựa trên class, gây thêm số % damage so với bình thường)
     e.setHP(e.getHP()-damage);
     std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";

@@ -45,15 +45,20 @@ int main()
     {
         if (Menu::StartMenu()==2) break;
         Menu::StartGame(mainplayer);
-
+        Weapon* start=WeaponList;
+        while (start!=nullptr && start->getName()!="Wooden Sword")
+            start=start->EnterNext();
+        mainplayer->equipWeapon(start); //Vu khi khoi dau
         //Chạy từng Area
         try
         {
             while (AreaList!=nullptr)
             {
                 AreaList->setPlayer(mainplayer);
-                AreaList->EnterArea(ItemList);
+                AreaList->EnterArea(EnemyList, ItemList, WeaponList);
                 AreaList->setPlayer(nullptr);
+                std::cout<<"[GAME] Going to the next area...";
+                Sleep(2000);
                 AreaList=AreaList->EnterNext();
             }
         }
@@ -69,6 +74,8 @@ int main()
         Data::DeleteData<Item>(ItemList);
     //delete WeaponList
         Data::DeleteData<Weapon>(WeaponList);
+    //delete EnemyList
+        Data::DeleteData<Enemy>(EnemyList);
     //delete mainplayer
         if (mainplayer->returnClass()=="Warrior")
             delete dynamic_cast<Warrior*>(mainplayer);

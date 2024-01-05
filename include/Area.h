@@ -5,6 +5,8 @@
 #include "Nodes.h"
 #include "Menu.h"
 #include "Data.h"
+#include "Combat.h"
+#include "Encounter.h"
 #include "randomizer.h"
 #include "extract_operator.h"
 class Area
@@ -19,7 +21,7 @@ class Area
         Area();
         Area(std::string, int, int, Area*);
         void setPlayer(Player*);
-        void EnterArea(Item*);
+        void EnterArea(Enemy*, Item*, Weapon*);
         Area* &EnterNext();
         int getLevel();
         void InsertIntoList(Area* &List);

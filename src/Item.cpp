@@ -5,7 +5,12 @@ Item::Item(int id, std::string name, int level, int category, int hp, int atk, i
 {
     this->NextItem=next;
 }
-Item::Item(int id, const Item& item):ID(id), Name(item.Name), Level(item.Level), Category(item.Category), HP(item.HP), ATK(item.ATK), DEF(item.DEF), Price(item.Price), Description(item.Description)
+Item::Item()
+    :ID(0), Name(""), Level(0), Category(0), HP(0), ATK(0), DEF(0), Price(0), Description("")
+{
+    this->NextItem=nullptr;
+}
+Item::Item(int id, const Item &item) : ID(id), Name(item.Name), Level(item.Level), Category(item.Category), HP(item.HP), ATK(item.ATK), DEF(item.DEF), Price(item.Price), Description(item.Description)
 {
     this->NextItem=nullptr;
 }

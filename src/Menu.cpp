@@ -122,12 +122,12 @@ void Menu::StartGame(Player *&player)
         }
     }
 }
-int Menu::ShowStats(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
+int Menu::ShowBattleStats(Player* &player, Enemy monster, std::string AreaName, int AreaLevel)
 {
     using namespace std;
     string SkillPoint="";
     for (int i=1; i<=player->getSP();i++) SkillPoint+="O ";
-    cout<<"Area: "<<AreaName<<"     Area Level: "<<AreaLevel<<endl;
+    cout<<"AREA: "<<AreaName<<"        AREA LEVEL: "<<AreaLevel<<"\n\n";
     ostringstream screen[5];
     screen[0]<<"    "<<player->getName()<<"        "<<monster.getName()<<endl;
     int max=screen[0].str().length();
@@ -171,30 +171,30 @@ void Menu::BattleScreen(Player* &player, Enemy monster, std::string AreaName, in
         int Battle_Option;
         do
         {
-            int max=Menu::ShowStats(player, monster, AreaName, AreaLevel);
+            int max=Menu::ShowBattleStats(player, monster, AreaName, AreaLevel);
             {
                 using namespace std;
-                std::cout<<"1. [Attack] - Use your Normal attack"<<endl;
-                std::cout<<"2. [Skill] - Use your Skill attack. [Consumes 1 Skill Point]"<<endl;
-                std::cout<<"3. [Ultimate] - Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
-                std::cout<<"4. [Use Item] - Use your Item"<<endl;
+                std::cout<<"1. [Attack]   | Use your Normal attack. [Gain 1 Skill Point if hit]"<<endl;
+                std::cout<<"2. [Skill]    | Power based on your weapon. [Consumes 1 Skill Point]"<<endl;
+                std::cout<<"3. [Ultimate] | Use your Ultimate attack. [Consumes 5 Skill Points]"<<endl;
+                std::cout<<"4. [Use Item] | Use your Item."<<endl;
                 std::cout<<std::endl<<std::string(max,'-')<<std::endl;
             }
             std::cout<<"Choose your action: ";
-            clear_cin();
+            //clear_cin();
             std::cin>>Battle_Option;
             std::cout<<std::endl<<std::string(max,'-')<<std::endl;
             if (!(Battle_Option==1||Battle_Option==2||Battle_Option==3||Battle_Option==4)) 
             {
                 system("cls");
-                Menu::ShowStats(player, monster, AreaName, AreaLevel);
+                Menu::ShowBattleStats(player, monster, AreaName, AreaLevel);
                 std::cout<<"There's no such option! Please choose again!";
                 Sleep(1500);
                 system("cls");
             }
         } while(!(Battle_Option==1||Battle_Option==2||Battle_Option==3||Battle_Option==4));
         system("cls");
-        Menu::ShowStats(player, monster, AreaName, AreaLevel);
+        Menu::ShowBattleStats(player, monster, AreaName, AreaLevel);
         try
         {
             int currentSP=player->getSP();

@@ -19,6 +19,7 @@ class Weapon
     public:
         Weapon(int, const Weapon&);
         Weapon(int, std::string, std::string, int, int, int, int, Weapon*);
+        Weapon();
         int getID();
         std::string getName();
         std::string getDescription();

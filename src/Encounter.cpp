@@ -1,6 +1,6 @@
 #include "Encounter.h"
-Encounter::Encounter(int type, int location)
-            :Nodes(type,location), EncounterType(RandomInt(1,6))
+Encounter::Encounter(int location)
+            :Nodes(2,location), EncounterType(RandomInt(1,6))
 {}
 void Encounter::GatheringStormclouds(Player * this_player)
 {
@@ -92,7 +92,7 @@ void Encounter::MysteriousTrader(Player *player, Item *ItemList)
         
         std::stringstream coinlength;
         coinlength<<itemchoice[i]->getPrice();
-        if (coinlength.str().length()>maxcoinlength) maxcoinlength=coinlength.str().length();
+        if (int(coinlength.str().length())>maxcoinlength) maxcoinlength=coinlength.str().length();
     }
     if (maxnamelength<10) maxnamelength=10;
     maxnamelength+=2;
@@ -131,7 +131,6 @@ void Encounter::MysteriousTrader(Player *player, Item *ItemList)
         } while (choice!=1 && choice!=2 && choice!=3 && choice!=4);
         system("cls");
         std::cout<<dialogue.str();
-        int status;
         switch (choice)
         {
             case 1:
@@ -161,9 +160,50 @@ void Encounter::MysteriousTrader(Player *player, Item *ItemList)
     }while (!status);
     system("cls");
 }
-void Encounter::AnUnexpectedMeetup(Player *player, Enemy* EnemyList)
+void Encounter::AnUnexpectedMeetup(Player *player, Enemy* EnemyList, std::string AreaName, int AreaLevel, Item* ItemList, Weapon* WeaponList)
 {
+    std::stringstream dialogue;
+    dialogue<<"[ENCOUNTER] An Unexpected Meetup\n"
+            <<"You were stopped by a strange creature.\n"
+            <<"Suddenly, it started charging at you!!\n"
+            <<"______________________________________________________________________\n\n"
+            <<" [1] Fight it		    | Enters a battle.\n"
+            <<" [2] Flee from it     	| Avoids unnecessary fight.\n"
+            <<"______________________________________________________________________\n\n";
 
+    int choice;
+    do
+    {
+        system("cls");    
+        std::cout<<dialogue.str()
+        <<" Your choice is (choose a number) : ";
+        std::cin>>choice;
+        if (choice!=1 && choice!=2) 
+        {
+            system("cls");
+            std::cout<<dialogue.str();
+            std::cout<<" Option not available !!";
+            Sleep(1500);
+        }
+    } while (choice!=1 && choice!=2);
+    system("cls");
+    std::cout<<dialogue.str();
+    switch (choice)
+    {
+        case 1:
+        {
+            Combat choice1(this->getLocation(),0);
+            choice1.Enter(player, EnemyList, AreaName, AreaLevel, ItemList, WeaponList);
+            break;
+        }
+        case 2:
+        {
+            std::cout<<" You are leaving...";
+            Sleep(2000);
+            break;
+        }
+    }
+    system("cls");
 }
 void Encounter::SlumberInTheCabin(Player *player)
 {
@@ -284,7 +324,7 @@ void Encounter::Weaponsmith(Player *player, Weapon *WeaponList)
         
         std::stringstream coinlength;
         coinlength<<weaponchoice[i]->getPrice();
-        if (coinlength.str().length()>maxcoinlength) maxcoinlength=coinlength.str().length();
+        if (int(coinlength.str().length())>maxcoinlength) maxcoinlength=coinlength.str().length();
     }
 
     if (maxnamelength<10) maxnamelength=10;
@@ -353,8 +393,10 @@ void Encounter::Weaponsmith(Player *player, Weapon *WeaponList)
     }while (!status);
     system("cls");
 }
-void Encounter::Enter(Player *player, Item *ItemList, Weapon *WeaponList, int AreaLevel)
+void Encounter::Enter(Player *player, Enemy *EnemyList, std::string AreaName, int AreaLevel, Item *ItemList, Weapon *WeaponList)
 {
+    system("cls");
+    std::cout<<"[GAME] You entered the ENCOUNTER node!\n";
     switch (this->EncounterType)
     {
     case 1:
@@ -364,7 +406,8 @@ void Encounter::Enter(Player *player, Item *ItemList, Weapon *WeaponList, int Ar
         this->MysteriousTrader(player,ItemList);
         break;
     case 3:
-
+        this->AnUnexpectedMeetup(player, EnemyList, AreaName, AreaLevel, ItemList, WeaponList);
+        break;
     case 4:
         this->SlumberInTheCabin(player);
         break;

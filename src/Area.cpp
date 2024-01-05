@@ -16,44 +16,45 @@ void Area::setPlayer(Player* player1)
     this->player=player1;
 }
 
-void Area::EnterArea(Item* List)
+void Area::EnterArea(Enemy* EnemyList, Item* ItemList, Weapon* WeaponList)
 {
-    Nodes* NodeList=nullptr;
-    for(int i=1; i<=this->NodeNumber; i++)
+    Nodes* NodeList=nullptr, *temp=nullptr;
+    int encounter_count=0, combat_count=0;
+    for(int i=1; i<this->NodeNumber; i++)
     {
-        int type=1, encounter_count=0, combat_count=0;
-        if ((RandomInt(1,2)==3||combat_count>=3)&&encounter_count<2) 
+        if ((RandomInt(1,3)==3||combat_count>=3)&&encounter_count<2) 
         //Neu du 3 combat lien tiep thi se la Encounter, hoac 2 encounter lien tiep thi la combat 
         {
-            type=2; //Neu random ra 3 thi se la Encounter (Type=2);
+             //Neu random ra 3 thi se la Encounter (Type=2);
+            temp= dynamic_cast<Nodes*>(new Encounter(i));
             combat_count=0; //xoa chuoi Combat
             encounter_count++;
         }
         else 
         {
+            temp= dynamic_cast<Nodes*>(new Combat(i,0));
             combat_count++;
             encounter_count=0;
         }
-        if (type==1)
-        {
-            Nodes* temp= dynamic_cast<Nodes*>(new Encounter(type,i));
-            temp->InsertIntoNodeList(NodeList);
-        type=1;
+        temp->InsertIntoNodeList(NodeList);
+        temp=nullptr;
     }
+    temp= dynamic_cast<Nodes*>(new Combat(this->NodeNumber,1));
+    temp->InsertIntoNodeList(NodeList);
     system("cls");
-    std::cout<<"You are entering "<<this->AreaName<<"...";
-    Sleep(3000);
+    std::cout<<"[GAME] You are entering "<<this->AreaName<<"...";
+    Sleep(2000);
     while (NodeList!=nullptr)
     {    
-        NodeList->Enter(this->AreaName,this->Level,this->NodeNumber,List,this->player);
+        NodeList->Enter(this->player, EnemyList, this->AreaName, this->Level, ItemList, WeaponList);
         if (NodeList->EnterNext()!=nullptr)
-            std::cout<<"Entering next node...";
+            std::cout<<"[GAME] You are going to the next node...";
         else
             break;
         Sleep(2000);
         NodeList=NodeList->EnterNext();
     }
-    std::cout<<"Congratulations! You have cleared this Area!";
+    std::cout<<"[GAME] Congratulations! You have cleared this Area!";
     Sleep(2000);
 }
 Area* &Area::EnterNext()

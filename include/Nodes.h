@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "Menu.h"
+
 class Nodes
 {
     private:   
@@ -15,10 +16,10 @@ class Nodes
         Nodes(int, int);
         int getType();
         int getLocation();
-        virtual void Enter(Player*,std::string, int, int, Item*, Player*);
+        virtual void Enter(Player*, Enemy*, std::string, int, Item*, Weapon*)=0;
         Nodes* &EnterNext();
         void InsertIntoNodeList(Nodes *&List);
-        friend std::ostream& operator<<(std::ostream&, const Nodes&);
+        // friend std::ostream& operator<<(std::ostream&, const Nodes&);
         friend std::istream &operator>>(std::istream&, Nodes&);
 };
 #endif
