@@ -66,7 +66,7 @@ int Player::Skill(Enemy &e, int ultiStatus)
 
         int damage;
         if(atk <= def) damage = 1;
-        else damage=(atk-def)*(1+((this->Player_Weapon!=nullptr)?this->Player_Weapon->getBonusATK():0)/100);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
+        else damage=(atk-def)*(1+((this->Player_Weapon!=nullptr)?this->Player_Weapon->getBonusATK():0)/100.0);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
 
         e.setHP(e.getHP()-damage);
         std::cout<<"[COMBAT] You used Skill and dealt "<<damage<<" Damage to the Enemy!\n";
