@@ -34,5 +34,5 @@ void Warrior::Level_Up()
     std::cout<<"HP : "<<this->getHP()<<" +5\n"; this->setHP(this->getHP()+5);
     std::cout<<"ATK: "<<this->getATK()<<" +2\n"; this->setATK(this->getATK()+2);
     std::cout<<"DEF: "<<this->getDEF()<<" +1\n"; this->setDEF(this->getDEF()+1);
-    Sleep(1500);
+    Sleep(3000);
 }

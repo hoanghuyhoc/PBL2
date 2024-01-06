@@ -36,5 +36,5 @@ void Assassin::Level_Up()
     std::cout<<"HP : "<<this->getHP()<<" +4\n"; this->setHP(this->getHP()+4);
     std::cout<<"ATK: "<<this->getATK()<<" +3\n"; this->setATK(this->getATK()+3);
     std::cout<<"DEF: "<<this->getDEF()<<" +1\n"; this->setDEF(this->getDEF()+1);
-    Sleep(1500);
+    Sleep(3000);
 }

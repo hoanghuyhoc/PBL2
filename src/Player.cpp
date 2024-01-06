@@ -25,12 +25,12 @@ void Player::Show_Status()
         if(test_string[max].str().length()<=test_string[i].str().length()) max=i;
     }
     int padding=test_string[max].str().length()-13;
-    cout<<"\n\n"<<string(padding/2,'~')<<"PLAYER STATUS"<<string(padding-padding/2,'~');
+    cout<<"\n"<<string(padding/2,'~')<<"PLAYER STATUS"<<string(padding-padding/2,'~');
     for (int i=0;i<4;i++)
     {
         cout<<test_string[i].str();
     }
-    cout<<endl<<string(padding+13,'~')<<endl;
+    cout<<endl<<string(padding+13,'~')<<endl<<endl;
     system("pause");
     system("cls");
 }   

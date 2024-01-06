@@ -23,5 +23,5 @@ void Tank::Level_Up()
     std::cout<<"HP : "<<this->getHP()<<" +8\n"; this->setHP(this->getHP()+8);
     std::cout<<"ATK: "<<this->getATK()<<" +1\n"; this->setATK(this->getATK()+1);
     std::cout<<"DEF: "<<this->getDEF()<<" +2\n"; this->setDEF(this->getDEF()+2);
-    Sleep(1500);
+    Sleep(3000);
 }
