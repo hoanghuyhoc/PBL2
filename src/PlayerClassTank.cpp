@@ -5,10 +5,11 @@ Tank::Tank(std::string TankName)
 Tank::~Tank(){}
 int Tank::Ultimate(Enemy& monster, int& ultiStatus)
 {
+    int before_heal=this->getHP();
     int after_heal=this->getHP()+int(this->getMaxHP()*0.2);
     if (this->getMaxHP()<=after_heal) after_heal=this->getMaxHP();
     this->setHP(after_heal);
-    std::cout<<"[COMBAT] You regained "<<after_heal<<" HP and your defense has been boosted!\n";
+    std::cout<<"[COMBAT] You regained "<<after_heal-before_heal<<" HP and your defense has been boosted!\n";
     Sleep(1500);
     ultiStatus=1;
     return 1;

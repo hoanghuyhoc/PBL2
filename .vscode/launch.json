@@ -33,7 +33,7 @@
       "program": "${workspaceFolder}\\main.exe",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${fileDirname}",
+      "cwd": "${fileDirname}\\..",
       "environment": [],
       "externalConsole": true,
       "MIMode": "gdb",

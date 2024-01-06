@@ -59,17 +59,28 @@ void Item::useItem(Player& this_player)
     {
         case 1:
         {
-            this_player.setHP(this_player.getHP()+this->HP);
+            int before_heal=this_player.getHP();
+            int after_heal=this_player.getHP()+this->HP;
+            if (this_player.getMaxHP()<=after_heal) after_heal=this_player.getMaxHP();
+            this_player.setHP(after_heal);
+            if (after_heal==before_heal)
+                std::cout<<"[COMBAT] Your HP is already full.\n";
+            else std::cout<<"[COMBAT] You regained "<<after_heal-before_heal<<" HP!\n";
+            Sleep(2000);
             break;
         }
         case 2:
         {
             this_player.setATK(this_player.getATK()*(1+((this->ATK)/100)));
+            std::cout<<"[COMBAT] Your attack stat has been boosted!\n";
+            Sleep(2000);
             break;
         }
         case 3:
         {
             this_player.setDEF(this_player.getDEF()*(1+((this->DEF)/100)));
+            std::cout<<"[COMBAT] Your defense stat has been boosted!\n";
+            Sleep(2000);
             break;
         }
     }

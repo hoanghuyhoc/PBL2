@@ -30,9 +30,7 @@ class Player: public Character
         int Attack(Enemy&, int);
         int Skill(Enemy&, int);
         virtual int Ultimate(Enemy&, int&)=0;
-        int useItem(); //chắc truy xuất tới hàm dùng item của cái class item
-        // void Show_Description();
-        // void Show_Skill_Description();
+        void useItem();
         void gainXP(int);
         int getXP();
         virtual void Level_Up()=0;

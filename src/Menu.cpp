@@ -294,7 +294,7 @@ void Menu::BattleScreen(Player *&player, Enemy monster, std::string AreaName, in
                 }
                 case 4:
                 {
-                    if (player->useItem()==0)
+                    if (player->getItem()==nullptr)
                         throw 4;
 
                     int choice2;

@@ -97,15 +97,10 @@ int Player::getXP()
 {
     return this->XP;
 }
-int Player::useItem()
+void Player::useItem()
 {
-    if (this->Player_Item!=nullptr)
-    {
-        this->Player_Item->useItem(*this);
-        this->Player_Item=nullptr;
-        return 1;
-    }
-    else return 0;
+    this->Player_Item->useItem(*this);
+    this->Player_Item=nullptr;
 }
 std::string Player::returnClass()
 {

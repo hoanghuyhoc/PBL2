@@ -49,6 +49,7 @@ int main()
         while (start!=nullptr && start->getName()!="Wooden Sword")
             start=start->EnterNext();
         mainplayer->equipWeapon(start); //Vu khi khoi dau
+
         //Chạy từng Area
         try
         {
