@@ -5,6 +5,6 @@ obj/main.o: src/main.cpp include/Character.h include/Player.h \
  include/PlayerClassAssassin.h include/PlayerClassTank.h \
  include/PlayerClassWarrior.h include/Menu.h \
  include/PlayerClassAssassin.h include/PlayerClassTank.h \
- include/PlayerClassWarrior.h include/Area.h include/Nodes.h \
- include/Menu.h include/Data.h include/Combat.h include/Encounter.h \
+ include/PlayerClassWarrior.h include/Nodes.h include/Menu.h \
+ include/Area.h include/Data.h include/Combat.h include/Encounter.h \
  include/Nodes.h include/Data.h

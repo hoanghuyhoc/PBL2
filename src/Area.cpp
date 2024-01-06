@@ -44,17 +44,18 @@ void Area::EnterArea(Enemy* EnemyList, Item* ItemList, Weapon* WeaponList)
     system("cls");
     std::cout<<"[GAME] You are entering "<<this->AreaName<<"...";
     Sleep(2000);
-    while (NodeList!=nullptr)
+    Nodes* progress=NodeList;
+    while (progress!=nullptr)
     {   
-        Menu::ShowMap(this->AreaName, this->Level, NodeList, NodeList->getLocation());
+        Menu::ShowMap(this->AreaName, this->Level, NodeList, progress->getLocation());
         player->Show_Status();
-        NodeList->Enter(this->player, EnemyList, this->AreaName, this->Level, ItemList, WeaponList);
-        if (NodeList->EnterNext()!=nullptr)
+        progress->Enter(this->player, EnemyList, this->AreaName, this->Level, ItemList, WeaponList);
+        if (progress->EnterNext()!=nullptr)
             std::cout<<"[GAME] You are going to the next node...";
         else
             break;
         Sleep(2000);
-        NodeList=NodeList->EnterNext();
+        progress=progress->EnterNext();
     }
     std::cout<<"[GAME] Congratulations! You have cleared this Area!";
     Sleep(2000);

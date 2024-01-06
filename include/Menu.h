@@ -12,6 +12,7 @@
 #include "PlayerClassWarrior.h"
 #include "Enemy.h"
 #include "Nodes.h"
+class Nodes;
 namespace Menu
 {
     int StartMenu();

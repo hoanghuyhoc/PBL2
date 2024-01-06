@@ -74,8 +74,7 @@ void Menu::StartGame(Player *&player)
     std::cout<<"           |                                                                               |\n";
     std::cout<<"           |        [3] Assassin                                                           |\n";
     std::cout<<"           |        Fragile but deadly.                                                    |\n";
-    std::cout<<"           |        ULTIMATE: Deals a large amount of damage. If the ultimate defeats      |\n";
-    std::cout<<"           |        an enemy, regains 1 Skill Point.                                       |\n";
+    std::cout<<"           |        ULTIMATE: Deals a large amount of damage.                              |\n";
     std::cout<<"           |                                                                               |\n";
     std::cout<<"           |      ___________________________________________________________________      |\n";
     std::cout<<"           |                                                                               |\n";
