@@ -31,6 +31,8 @@ void Player::Show_Status()
         cout<<test_string[i].str();
     }
     cout<<endl<<string(padding+13,'~')<<endl;
+    system("pause");
+    system("cls");
 }   
 int Player::Attack(Enemy &e, int ultiStatus)
 {

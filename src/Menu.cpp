@@ -191,6 +191,7 @@ void Menu::ShowMap(std::string AreaName, int AreaLevel, Nodes *NodeList, int cur
     }
     std::cout<<map[0].str()<<"\n";
     system("pause");
+    system("cls");
 }
 void Menu::BattleScreen(Player *&player, Enemy monster, std::string AreaName, int AreaLevel)
 {
