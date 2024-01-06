@@ -362,7 +362,6 @@ void Menu::BattleScreen(Player *&player, Enemy monster, std::string AreaName, in
         player->setSP(3);
 
         player->gainXP( monster.Give_XP() );
-        system("cls");
         std::cout<<" You have earned "<<monster.Return_Money()+RandomInt(-1,2)<<" coin"<<((monster.Return_Money()>1)?"s":"")<<"\n";
         player->earnMoney(monster.Return_Money()+RandomInt(-1,2));
         Sleep(2000);

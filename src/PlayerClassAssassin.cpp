@@ -28,6 +28,7 @@ int Assassin::Ultimate(Enemy& e, int& ultiStatus)
 }
 void Assassin::Level_Up()
 {
+    system("cls");
     this->setLevel(this->getLevel()+1);
     std::cout<<"\nLeveled up! Your level is "<<this->getLevel()<<" !\n";
     Sleep(1000);
@@ -37,4 +38,5 @@ void Assassin::Level_Up()
     std::cout<<"ATK: "<<this->getATK()<<" +3\n"; this->setATK(this->getATK()+3);
     std::cout<<"DEF: "<<this->getDEF()<<" +1\n"; this->setDEF(this->getDEF()+1);
     Sleep(3000);
+    system("cls");
 }
