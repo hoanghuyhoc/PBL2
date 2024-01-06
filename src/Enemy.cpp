@@ -18,9 +18,10 @@ Enemy::Enemy()
     this->NextEnemy=nullptr;
 }
 
-void Enemy::Attack(Player &p)
+void Enemy::Attack(Player &p, int Player_ultiStatus)
 {
-    int atk=this->getATK(), def=p.getDEF();
+    if(p.returnClass()!="Tank") Player_ultiStatus=0; 
+    int atk=this->getATK(), def=p.getDEF()*(Player_ultiStatus?2:1);
     int damage=(((atk-def)>0)? (atk-def):1 )*( 1+((p.Player_Weapon!=nullptr)?p.Player_Weapon->getBonusDEF():0 )/100 );
     p.setHP(p.getHP()-damage);
     std::cout<<"[COMBAT] The enemy has inflicted "<<damage<<" Damage to you!\n";

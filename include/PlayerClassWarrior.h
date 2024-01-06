@@ -9,7 +9,7 @@ class Warrior: public Player
     public:
         Warrior(std::string);
         ~Warrior();
-        void Ultimate(Enemy&);
+        int Ultimate(Enemy&, int&);
         void Level_Up();
 };
 #endif

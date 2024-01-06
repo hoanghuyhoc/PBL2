@@ -3,9 +3,15 @@ Tank::Tank(std::string TankName)
         :Player(TankName, 150, 10, 10,"Tank")
 {}
 Tank::~Tank(){}
-void Tank::Ultimate(Enemy& monster)
+int Tank::Ultimate(Enemy& monster, int& ultiStatus)
 {
-    monster.setHP( this->getATK()*2 - monster.getDEF() );
+    int after_heal=this->getHP()+int(this->getMaxHP()*0.2);
+    if (this->getMaxHP()<=after_heal) after_heal=this->getMaxHP();
+    this->setHP(after_heal);
+    std::cout<<"[COMBAT] You regained "<<after_heal<<" HP and your defense has been boosted!\n";
+    Sleep(1500);
+    ultiStatus=1;
+    return 1;
 }
 void Tank::Level_Up()
 {

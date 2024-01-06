@@ -26,12 +26,12 @@ class Item
         void useItem(Player&);
         friend std::istream &operator>>(std::istream&, Item&);
         void InsertIntoList(Item*&);
-        int getID();
+        int getID() const;
         Item *&EnterNext();
-        std::string getName();
-        int getPrice();
-        int getLevel();
-        std::string getDescription();
+        std::string getName() const;
+        int getPrice()const;
+        int getLevel()const;
+        std::string getDescription()const;
 
 };
 #endif

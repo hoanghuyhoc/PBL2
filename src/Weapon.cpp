@@ -15,27 +15,27 @@ Weapon::Weapon()
 {
     this->NextWeapon=nullptr;
 }
-int Weapon::getID()
+int Weapon::getID() const
 {
     return this->ID;
 }
-std::string Weapon::getName()
+std::string Weapon::getName() const
 {
     return this->Name;
 }
-std::string Weapon::getDescription()
+std::string Weapon::getDescription() const
 {
     return this->Description;
 }
-int Weapon::getBonusHP()
+int Weapon::getBonusHP() const
 {
     return this->bonusHP;
 }
-int Weapon::getBonusATK()
+int Weapon::getBonusATK() const
 {
     return this->bonusATK;
 }
-int Weapon::getBonusDEF()
+int Weapon::getBonusDEF() const
 {
     return this->bonusDEF;
 }
@@ -71,7 +71,7 @@ void Weapon::InsertIntoList(Weapon*& List)
         }
     }
 }
-int Weapon::getPrice()
+int Weapon::getPrice() const
 {
     return this->Price;
 }

@@ -49,7 +49,7 @@ Item*& Item::EnterNext()
 {
     return this->NextItem;
 }
-int Item::getID()
+int Item::getID() const
 {
     return this->ID;
 }
@@ -74,19 +74,19 @@ void Item::useItem(Player& this_player)
         }
     }
 }
-std::string Item::getName()
+std::string Item::getName() const
 {
     return this->Name;
 }
-int Item::getPrice()
+int Item::getPrice() const
 {
     return this->Price;
 }
-int Item::getLevel()
+int Item::getLevel() const
 {
     return this->Level;
 }
-std::string Item::getDescription()
+std::string Item::getDescription() const
 {
     return this->Description;
 }

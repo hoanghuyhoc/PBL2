@@ -22,7 +22,7 @@ class Enemy: public Character
         Enemy(std::string, int, int, int, int, int, int, std::string, int, int);
         Enemy(const Enemy&, int);
         Enemy();
-        void Attack(Player&);
+        void Attack(Player&, int);
         std::string Show_Description();
         int getID();
         int Give_XP();

@@ -45,7 +45,9 @@ void Area::EnterArea(Enemy* EnemyList, Item* ItemList, Weapon* WeaponList)
     std::cout<<"[GAME] You are entering "<<this->AreaName<<"...";
     Sleep(2000);
     while (NodeList!=nullptr)
-    {    
+    {   
+        Menu::ShowMap(this->AreaName, this->Level, NodeList, NodeList->getLocation());
+        player->Show_Status();
         NodeList->Enter(this->player, EnemyList, this->AreaName, this->Level, ItemList, WeaponList);
         if (NodeList->EnterNext()!=nullptr)
             std::cout<<"[GAME] You are going to the next node...";

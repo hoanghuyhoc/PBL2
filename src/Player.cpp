@@ -18,7 +18,7 @@ void Player::Show_Status()
     test_string[0]<<left<<setw(6)<<"\nLevel"<<": "<<left<<setw(12)<<this->getLevel()<<left<<setw(5)<<"XP"<<": "<<this->XP;
     test_string[1]<<left<<setw(6)<<"\nHP"<<": "<<left<<setw(12)<<this->getHP()<<left<<setw(5)<<"MaxHP"<<": "<<this->getMaxHP();
     test_string[2]<<left<<setw(6)<<"\nATK"<<": "<<left<<setw(12)<<this->getATK()<<left<<setw(5)<<"DEF"<<": "<<this->getDEF();
-    test_string[3]<<left<<setw(6)<<"\nMoney"<<": $"<<left<<setw(11)<<this->Money<<left<<setw(5)<<"SP"<<": "<<this->SP;
+    test_string[3]<<left<<setw(6)<<"\nMoney"<<": "<<this->Money<<left<<setw(8)<<" coins"<<left<<setw(5)<<"XP"<<": "<<this->XP<<"/"<<this->getLevel()*100;
     int max=0;
     for (int i=max+1;i<4;i++)
     {
@@ -32,47 +32,53 @@ void Player::Show_Status()
     }
     cout<<endl<<string(padding+13,'~')<<endl;
 }   
-void Player::Attack(Enemy &e)
+int Player::Attack(Enemy &e, int ultiStatus)
 {
-    int atk=this->getATK(), def=e.getDEF();
+    if (RandomInt(0,127)!=MISS)
+    {
+        if (this->Player_Class!="Warrior") ultiStatus=0;
+        int atk=this->getATK()*(ultiStatus?1.5:1), def=e.getDEF();
 
-    int damage;
-    if(atk <= def) damage = 1;
-        else damage=(atk-def)+RandomInt(0,3);
+        int damage;
+        if(atk <= def) damage = 1;
+            else damage=(atk-def)+RandomInt(0,3);
 
-    e.setHP(e.getHP()-damage);
-    std::cout<<"[COMBAT] You used Normal attack and dealt "<<damage<<" Damage to the Enemy!\n";
-    Sleep(3000);
+        e.setHP(e.getHP()-damage);
+        std::cout<<"[COMBAT] You used Normal attack and dealt "<<damage<<" Damage to the Enemy!\n";
+        Sleep(1500);
+        return 1;
+    }
+    else 
+    {
+        std::cout<<"[COMBAT] Your attack missed the opponent!\n";
+        Sleep(1500);
+        return 0;
+    }
 }
-void Player::Skill(Enemy &e)
+int Player::Skill(Enemy &e, int ultiStatus)
 {
-    int atk=this->getATK(), def=e.getDEF();
+    if (RandomInt(0,127)!=MISS)
+    {
+        if (this->Player_Class!="Warrior") ultiStatus=0;
+        int atk=this->getATK()*(ultiStatus?1.5:1), def=e.getDEF();
 
-    int damage;
-    if(atk <= def) damage = 1;
-    else damage=(atk-def)*(1+((this->Player_Weapon!=nullptr)?this->Player_Weapon->getBonusATK():0)/100);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
+        int damage;
+        if(atk <= def) damage = 1;
+        else damage=(atk-def)*(1+((this->Player_Weapon!=nullptr)?this->Player_Weapon->getBonusATK():0)/100);//*multiplier (dựa trên vũ khí, gây thêm số % damage so với bình thường)
 
-    e.setHP(e.getHP()-damage);
-    std::cout<<"[COMBAT] You used Skill and dealt "<<damage<<" Damage to the Enemy!\n";
-    Sleep(3000);
+        e.setHP(e.getHP()-damage);
+        std::cout<<"[COMBAT] You used Skill and dealt "<<damage<<" Damage to the Enemy!\n";
+        Sleep(1500);
+        return 1;
+    }
+    else
+    {
+        std::cout<<"[COMBAT] Your Skill attack missed the opponent!\n";
+        Sleep(1500);
+        return 0;
+    }
 }
-void Player::Ultimate(Enemy &e)
-{
-    int atk=this->getATK(), def=e.getDEF();
-    int damage=(atk-def);//*multiplier (dựa trên class, gây thêm số % damage so với bình thường)
-    e.setHP(e.getHP()-damage);
-    std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
-    Sleep(3000);
-}
-// void Using_Item();
-// void Player::Show_Description()
-// {
-//     read_txt("Class description\\"+this->Player_Class);
-// }
-// void Player::Show_Skill_Description()
-// {
-//     read_txt("Skill description\\"+this->Player_Class);
-// }
+
 void Player::gainXP(int xp_gained)
 {
     std::cout<<" You have gained "<<xp_gained<<" XP !\n";

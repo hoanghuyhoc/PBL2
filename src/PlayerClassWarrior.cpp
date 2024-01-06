@@ -3,9 +3,26 @@ Warrior::Warrior(std::string WarriorName)
         :Player(WarriorName, 100, 20, 5,"Warrior")
 {}
 Warrior::~Warrior(){}
-void Warrior::Ultimate(Enemy& monster)
+int Warrior::Ultimate(Enemy& e, int& ultiStatus)
 {
-    monster.setHP( this->getATK()*2 - monster.getDEF() );
+    if (RandomInt(0,127)!=MISS) 
+    {
+        int atk=this->getATK()*2, def=e.getDEF();
+        int damage;
+        if(atk <= def) damage = 2;
+            else damage=atk-def;
+        e.setHP(e.getHP()-damage);
+        std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
+        Sleep(1500);
+        ultiStatus=1;
+        return 1;
+    }
+    else
+    {
+        std::cout<<"[COMBAT] Your Ultimate attack missed !!\n";
+        Sleep(1500);
+        return 0;
+    }
 }
 void Warrior::Level_Up()
 {

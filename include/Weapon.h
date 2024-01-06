@@ -20,15 +20,15 @@ class Weapon
         Weapon(int, const Weapon&);
         Weapon(int, std::string, std::string, int, int, int, int, Weapon*);
         Weapon();
-        int getID();
-        std::string getName();
-        std::string getDescription();
-        int getBonusHP();
-        int getBonusATK();
-        int getBonusDEF();
+        int getID() const;
+        std::string getName() const;
+        std::string getDescription() const;
+        int getBonusHP() const;
+        int getBonusATK() const;
+        int getBonusDEF() const;
         Weapon*& EnterNext();
         friend std::istream &operator>>(std::istream&, Weapon&);
         void InsertIntoList(Weapon*&);
-        int getPrice();
+        int getPrice() const;
 };
 #endif

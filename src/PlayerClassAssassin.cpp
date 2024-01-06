@@ -3,17 +3,28 @@ Assassin::Assassin(std::string AssassinName)
         :Player(AssassinName, 80, 30, 2,"Assassin")
 {}
 Assassin::~Assassin(){}
-void Assassin::Ultimate(Enemy& e)
+int Assassin::Ultimate(Enemy& e, int& ultiStatus)
 {
-    int atk=this->getATK(), def=e.getDEF();
+    if (RandomInt(0,127)!=MISS)
+    {
+        int atk=this->getATK(), def=e.getDEF();
 
-    int damage;
-    if(atk <= def) damage = 4;
-        else damage=(atk-def)*4;// Assassin gây 400% ATK
+        int damage;
+        if(atk <= def) damage = 4;
+            else damage=(atk-def)*4;// Assassin gây 400% ATK
 
-    e.setHP(e.getHP()-damage);
-    std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
-    Sleep(3000);
+        e.setHP(e.getHP()-damage);
+        std::cout<<"[COMBAT] You used Ultimate and dealt "<<damage<<" Damage to the Enemy!\n";
+        Sleep(1500);
+        ultiStatus=1;
+        return 1;
+    }
+    else
+    {
+        std::cout<<"[COMBAT] Your Ultimate attack missed !!\n";
+        Sleep(1500);
+        return 0;
+    }
 }
 void Assassin::Level_Up()
 {

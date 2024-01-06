@@ -9,6 +9,7 @@
 #include <sstream>
 #include <iomanip>
 #include "randomizer.h"
+#define MISS 31
 
 class Item;
 class Weapon;
@@ -26,9 +27,9 @@ class Player: public Character
         Player(std::string, int, int, int, std::string);
         virtual ~Player();
         void Show_Status();
-        void Attack(Enemy&);
-        void Skill(Enemy&);
-        virtual void Ultimate(Enemy&)=0;
+        int Attack(Enemy&, int);
+        int Skill(Enemy&, int);
+        virtual int Ultimate(Enemy&, int&)=0;
         int useItem(); //chắc truy xuất tới hàm dùng item của cái class item
         // void Show_Description();
         // void Show_Skill_Description();

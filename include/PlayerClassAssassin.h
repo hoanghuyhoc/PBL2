@@ -9,7 +9,7 @@ class Assassin: public Player
     public:
         Assassin(std::string);
         ~Assassin();
-        void Ultimate(Enemy&);
+        int Ultimate(Enemy&, int&);
         void Level_Up();
 };
 #endif
