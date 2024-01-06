@@ -277,6 +277,8 @@ void Menu::BattleScreen(Player *&player, Enemy monster, std::string AreaName, in
                     if (choice2==2) throw 1;
                     else
                     {
+                        system("cls");
+                        Menu::ShowBattleStats(player, monster, AreaName, AreaLevel);
                         player->Skill(monster,ultiStatus);
                         player->setSP(currentSP-1);
                     }
